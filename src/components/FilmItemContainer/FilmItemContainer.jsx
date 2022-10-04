@@ -5,7 +5,6 @@ import FilmItem from "./FilmItem";
 
 const FilmItemContainer = ({ data, setModalViewport }) => {
   const dispatch = useDispatch();
-  console.log("data >> ", data);
 
   const viewportDataFilm = useCallback(
     (e) => {
