@@ -1,11 +1,11 @@
-import { VIEWING_DATA } from "./constants";
+import { CURRENT_DATA } from "./constants";
 
 const defaultState = {};
 const data = (state = defaultState, { type, dataFilm }) => {
   switch (type) {
-    case VIEWING_DATA:
+    case CURRENT_DATA:
       return {
-        id: Date.now(),
+        id: dataFilm.id,
         title: dataFilm.title,
         image: dataFilm.image,
         description: dataFilm.description,

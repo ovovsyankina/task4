@@ -1,11 +1,15 @@
 import React from "react";
 import styles from "./ModalViewport.module.scss";
 
-const ModalViewport = ({ currentData, modalViewport, onModalWindowOff }) => {
+const ModalViewport = ({
+  currentData,
+  isModalViewportOpen,
+  onModalWindowOff,
+}) => {
   console.log("currentData <<>>", currentData);
   return (
     <>
-      {modalViewport && (
+      {isModalViewportOpen && (
         <div className={styles.root}>
           <div>
             <div>
