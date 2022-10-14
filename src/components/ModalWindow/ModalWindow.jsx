@@ -13,9 +13,6 @@ const ModalWindow = ({
   onDeleteDataItem,
   onEditDataItem,
 }) => {
-  console.log("current  <>", currentData, modalType === "edit");
-  console.log("modalType  <>", modalType);
-
   return (
     isModalAddEditOpen && (
       <div>

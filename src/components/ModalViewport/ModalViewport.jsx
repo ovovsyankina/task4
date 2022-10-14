@@ -6,7 +6,6 @@ const ModalViewport = ({
   isModalViewportOpen,
   onModalWindowOff,
 }) => {
-  console.log("currentData <<>>", currentData);
   return (
     <>
       {isModalViewportOpen && (

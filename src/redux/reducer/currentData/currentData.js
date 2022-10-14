@@ -1,7 +1,7 @@
 import { CURRENT_DATA } from "./constants";
 
 const defaultState = {};
-const data = (state = defaultState, { type, dataFilm }) => {
+const currentData = (state = defaultState, { type, dataFilm }) => {
   switch (type) {
     case CURRENT_DATA:
       return {
@@ -16,4 +16,4 @@ const data = (state = defaultState, { type, dataFilm }) => {
       return state;
   }
 };
-export default data;
+export default currentData;
