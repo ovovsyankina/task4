@@ -1,1 +1,1 @@
-export const VIEWING_DATA = "VIEWING_DATA";
+export const CURRENT_DATA = "CURRENT_DATA";

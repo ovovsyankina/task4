@@ -1,10 +1,18 @@
-import { useFormik } from "formik";
 import React, { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addData } from "../../redux/reducer/data/actions";
+import {
+  addData,
+  deleteDataItem,
+  editDataItem,
+} from "../../redux/reducer/data/actions";
 import ModalWindow from "./ModalWindow";
-const ModalWindowContainer = () => {
-  const [showModalWindow, setShowModalWindow] = useState(false);
+const ModalWindowContainer = ({
+  isModalAddEditOpen,
+  modalType,
+  onModalAddEditClose,
+  currentData,
+  data,
+}) => {
   const [image, setImage] = useState("");
   const dispatch = useDispatch();
   const handleFile = (e) => {
@@ -14,40 +22,56 @@ const ModalWindowContainer = () => {
     }
   };
 
-  const handleModalWindowOn = () => {
-    setShowModalWindow(true);
-  };
-
-  const handleModalWindowOff = () => {
-    setShowModalWindow(false);
-  };
-
   const addNewDataFilm = useCallback(
     (values) => {
       dispatch(
         addData({
+          id: values.id,
           title: values.title,
           image: image,
           description: values.description,
           yearRelease: values.yearRelease,
         })
       );
-
-      setShowModalWindow(false);
-
-      console.log("values", values);
+      onModalAddEditClose();
     },
-    [dispatch, image]
+    [dispatch, image, onModalAddEditClose]
   );
+  const handleDeleteDataItem = useCallback(() => {
+    dispatch(deleteDataItem(currentData.id));
+    onModalAddEditClose();
+  }, [dispatch, onModalAddEditClose, currentData.id]);
 
+  const handleEditDataItem = useCallback(
+    (values) => {
+      console.log("image : ", image);
+      dispatch(
+        editDataItem(
+          {
+            title: values.title,
+            image: image,
+            description: values.description,
+            yearRelease: values.yearRelease,
+          },
+          currentData.id
+        )
+      );
+
+      onModalAddEditClose();
+    },
+    [dispatch, onModalAddEditClose, currentData.id, image]
+  );
   return (
     <ModalWindow
-      showModalWindow={showModalWindow}
-      setShowModalWindow={setShowModalWindow}
-      onModalWindowOn={handleModalWindowOn}
-      onModalWindowOff={handleModalWindowOff}
       addNewDataFilm={addNewDataFilm}
       handleFile={handleFile}
+      data={data}
+      currentData={currentData}
+      isModalAddEditOpen={isModalAddEditOpen}
+      modalType={modalType}
+      onModalAddEditClose={onModalAddEditClose}
+      onDeleteDataItem={handleDeleteDataItem}
+      onEditDataItem={handleEditDataItem}
     />
   );
 };

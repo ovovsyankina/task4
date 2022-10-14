@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./FilmItem.module.scss";
-const FilmItem = ({ data, viewportDataFilm }) => {
+const FilmItem = ({ data, onViewportDataFilm, onCurrentDataFilm }) => {
   return (
     <li className={styles.root}>
       <div>
@@ -12,7 +12,8 @@ const FilmItem = ({ data, viewportDataFilm }) => {
           <p>Обложка:</p> <img src={data.image} className={styles.film_cover} />
         </div>
       </div>
-      <button onClick={viewportDataFilm}>Быстрый просмотр</button>
+      <button onClick={onViewportDataFilm}>Быстрый просмотр</button>
+      <button onClick={onCurrentDataFilm}>Редактировать</button>
     </li>
   );
 };

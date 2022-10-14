@@ -5,15 +5,31 @@ import FilmList from "./FilmList";
 const FilmListContainer = () => {
   const data = useSelector(dataSelector);
   const currentData = useSelector(currentDataSelector);
-  const [modalViewport, setModalViewport] = useState(false);
-
-  console.log("currentData >>", currentData);
+  const [isModalViewportOpen, setModalViewportOpen] = useState(false);
+  const [isModalAddEditOpen, setModalAddEditOpen] = useState(false);
+  const [modalType, setModalType] = useState("add");
+  const handleModalAddOpen = () => {
+    setModalAddEditOpen(true);
+    setModalType("add");
+  };
+  const handleModalEditOpen = () => {
+    setModalAddEditOpen(true);
+    setModalType("edit");
+  };
+  const handleModalAddEditClose = () => {
+    setModalAddEditOpen(false);
+  };
   return (
     <FilmList
       data={data}
       currentData={currentData}
-      modalViewport={modalViewport}
-      setModalViewport={setModalViewport}
+      isModalViewportOpen={isModalViewportOpen}
+      setModalViewportOpen={setModalViewportOpen}
+      isModalAddEditOpen={isModalAddEditOpen}
+      modalType={modalType}
+      onModalAddOpen={handleModalAddOpen}
+      onModalEditOpen={handleModalEditOpen}
+      onModalAddEditClose={handleModalAddEditClose}
     />
   );
 };

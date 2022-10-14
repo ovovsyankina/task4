@@ -3,16 +3,16 @@ import ModalViewport from "./ModalViewport";
 
 const ModalViewportContainer = ({
   currentData,
-  setModalViewport,
-  modalViewport,
+  setModalViewportOpen,
+  isModalViewportOpen,
 }) => {
   const handleModalWindowOff = () => {
-    setModalViewport(false);
+    setModalViewportOpen(false);
   };
   return (
     <ModalViewport
       currentData={currentData}
-      modalViewport={modalViewport}
+      isModalViewportOpen={isModalViewportOpen}
       onModalWindowOff={handleModalWindowOff}
     />
   );
