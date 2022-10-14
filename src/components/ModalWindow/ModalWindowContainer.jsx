@@ -44,10 +44,22 @@ const ModalWindowContainer = ({
 
   const handleEditDataItem = useCallback(
     (values) => {
-      dispatch(editDataItem(values, currentData.id));
+      console.log("image : ", image);
+      dispatch(
+        editDataItem(
+          {
+            title: values.title,
+            image: image,
+            description: values.description,
+            yearRelease: values.yearRelease,
+          },
+          currentData.id
+        )
+      );
+
       onModalAddEditClose();
     },
-    [dispatch, onModalAddEditClose, currentData.id]
+    [dispatch, onModalAddEditClose, currentData.id, image]
   );
   return (
     <ModalWindow
