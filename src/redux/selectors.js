@@ -12,3 +12,9 @@ export const currentDataSelector = createSelector(
     return state.currentData;
   }
 );
+export const filterDataSelector = createSelector(
+  (state) => state,
+  (state) => {
+    return state.filter;
+  }
+);
