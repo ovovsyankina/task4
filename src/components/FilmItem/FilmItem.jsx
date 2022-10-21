@@ -1,6 +1,11 @@
 import React from "react";
 import styles from "./FilmItem.module.scss";
-const FilmItem = ({ data, onViewportDataFilm, onCurrentDataFilm }) => {
+const FilmItem = ({
+  data,
+  onViewportDataFilm,
+  onCurrentDataFilm,
+  onScreenViewing,
+}) => {
   return (
     <li className={styles.root}>
       <div>
@@ -14,6 +19,7 @@ const FilmItem = ({ data, onViewportDataFilm, onCurrentDataFilm }) => {
       </div>
       <button onClick={onViewportDataFilm}>Быстрый просмотр</button>
       <button onClick={onCurrentDataFilm}>Редактировать</button>
+      <button onClick={onScreenViewing}>Посмотреть</button>
     </li>
   );
 };

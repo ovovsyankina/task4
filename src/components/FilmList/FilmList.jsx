@@ -2,6 +2,7 @@ import React from "react";
 import FilmItemContainer from "../FilmItem/FilmItemContainer";
 import ModalViewportContainer from "../ModalViewport/ModalViewportContainer";
 import ModalWindowContainer from "../ModalWindow/ModalWindowContainer";
+import ScreenViewingContainer from "../ScreenViewing/ScreenViewingContainer";
 import SearchFilterContainer from "../SearchFilter/SearchFilterContainer";
 import styles from "./FilmList.module.scss";
 
@@ -19,7 +20,7 @@ const FilmList = ({
 }) => {
   return (
     <div>
-      <SearchFilterContainer />
+      <SearchFilterContainer filteredFilm={filteredFilm} />
       <button onClick={onModalAddOpen}>Добавить фильм</button>
       <ul className={styles.root}>
         {filteredFilm.map((item) => (

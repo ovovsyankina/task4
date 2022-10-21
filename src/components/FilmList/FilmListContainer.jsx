@@ -36,6 +36,7 @@ const FilmListContainer = () => {
       });
     }
   }, [data, filter]);
+  console.log("filteredFilm >>", filteredFilm);
   return (
     <FilmList
       data={data}
