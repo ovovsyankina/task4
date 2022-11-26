@@ -2,10 +2,11 @@ import React from "react";
 import styles from "./ModalWindow.module.scss";
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
+import { object, func, bool, string } from "prop-types";
 
 const ModalWindow = ({
   addNewDataFilm,
-  handleFile,
+  onFileImg,
   currentData,
   isModalAddEditOpen,
   modalType,
@@ -13,6 +14,7 @@ const ModalWindow = ({
   onDeleteDataItem,
   onEditDataItem,
 }) => {
+  console.log("current", currentData);
   return (
     isModalAddEditOpen && (
       <div>
@@ -42,10 +44,10 @@ const ModalWindow = ({
             })}
             onSubmit={modalType === "add" ? addNewDataFilm : onEditDataItem}
           >
-            {({ errors, touched, handleSubmit, handleChange, values }) => (
+            {({ errors, touched, handleChange, values }) => (
               <Form className={styles.form}>
                 <div className={styles.modal_content}>
-                  <button type="button" onClick={onModalAddEditClose}>
+                  <button type="reset" onClick={onModalAddEditClose}>
                     X
                   </button>
                   <label htmlFor="title"> Название Фильма: </label>
@@ -86,7 +88,7 @@ const ModalWindow = ({
                   <input
                     type="file"
                     name="myImage"
-                    onChange={(e) => handleFile(e)}
+                    onChange={(e) => onFileImg(e)}
                   />
                   {modalType === "add" ? (
                     <button type="submit">Добавить</button>
@@ -106,6 +108,17 @@ const ModalWindow = ({
       </div>
     )
   );
+};
+
+ModalWindow.propTypes = {
+  addNewDataFilm: func,
+  onFileImg: func,
+  currentData: object,
+  isModalAddEditOpen: bool,
+  modalType: string,
+  onModalAddEditClose: func,
+  onDeleteDataItem: func,
+  onEditDataItem: func,
 };
 
 export default ModalWindow;

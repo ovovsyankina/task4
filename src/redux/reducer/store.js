@@ -1,6 +1,7 @@
-import { createStore, compose } from "redux";
+import { createStore, compose, applyMiddleware } from "redux";
 import rootReducer from "./index";
-
+import { rootSaga } from "../sagas";
+import createSagaMiddleware from "redux-saga";
 /* eslint-disable no-underscore-dangle */
 const composeEnhancers =
   process.env.NODE_ENV !== "production" &&
@@ -9,20 +10,20 @@ const composeEnhancers =
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
     : compose;
 
-const persistedState = localStorage.getItem("reduxState")
-  ? JSON.parse(localStorage.getItem("reduxState"))
-  : {};
+const sagaMiddleware = createSagaMiddleware();
 
-const configureStore = (preloadedState) =>
-  createStore(rootReducer, persistedState, composeEnhancers());
+const configureStore = () =>
+  createStore(
+    rootReducer,
+    {},
+    composeEnhancers(applyMiddleware(sagaMiddleware))
+  );
 
 // const configureStore = (preloadedState) =>
 //   createStore(rootReducer, composeEnhancers());
 
 const store = configureStore({});
 
-store.subscribe(() => {
-  localStorage.setItem("reduxState", JSON.stringify(store.getState()));
-});
+sagaMiddleware.run(rootSaga);
 
 export default store;

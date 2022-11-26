@@ -1,26 +1,36 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { object, func } from "prop-types";
 import styles from "./FilmItem.module.scss";
-const FilmItem = ({
-  data,
-  onViewportDataFilm,
-  onCurrentDataFilm,
-  onScreenViewing,
-}) => {
+const FilmItem = ({ film, onViewportDataFilm, onCurrentDataFilm }) => {
   return (
     <li className={styles.root}>
       <div>
         <div>
           <p>Название Фильма:</p>
-          {data.title}
+          {film.title}
         </div>
         <div>
-          <p>Обложка:</p> <img src={data.image} className={styles.film_cover} />
+          <p>Обложка:</p>{" "}
+          <img
+            src={film.image}
+            className={styles.film_cover}
+            alt="film cover"
+          />
         </div>
       </div>
       <button onClick={onViewportDataFilm}>Быстрый просмотр</button>
       <button onClick={onCurrentDataFilm}>Редактировать</button>
-      <button onClick={onScreenViewing}>Посмотреть</button>
+      <Link to={`/films/${film.id}`}>
+        <button>Посмотреть</button>
+      </Link>
     </li>
   );
 };
+FilmItem.propTypes = {
+  film: object,
+  onViewportDataFilm: func,
+  onCurrentDataFilm: func,
+};
+
 export default FilmItem;

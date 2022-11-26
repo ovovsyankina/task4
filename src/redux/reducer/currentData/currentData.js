@@ -1,17 +1,24 @@
-import { CURRENT_DATA } from "./constants";
+import {
+  CURRENT_DATA,
+  CURRENT_DATA_SUCCESS,
+  CLEAR_CURRENT_DATA,
+} from "./constants";
 
 const defaultState = {};
-const currentData = (state = defaultState, { type, dataFilm }) => {
+const currentData = (state = defaultState, { type, payload }) => {
   switch (type) {
     case CURRENT_DATA:
+      return state;
+    case CURRENT_DATA_SUCCESS:
       return {
-        id: dataFilm.id,
-        title: dataFilm.title,
-        image: dataFilm.image,
-        description: dataFilm.description,
-        yearRelease: dataFilm.yearRelease,
+        id: payload.id,
+        title: payload.title,
+        image: payload.image,
+        description: payload.description,
+        yearRelease: payload.yearRelease,
       };
-
+    case CLEAR_CURRENT_DATA:
+      return defaultState;
     default:
       return state;
   }

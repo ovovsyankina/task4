@@ -1,31 +1,55 @@
-import { ADD_DATA, DELETE_DATA_ITEM, EDIT_DATA_ITEM } from "./constants";
+import {
+  ADD_DATA,
+  ADD_DATA_SUCCESS,
+  DELETE_DATA_ITEM,
+  DELETE_DATA_ITEM_SUCCESS,
+  PUT_EDIT_DATA_ITEM,
+  PUT_EDIT_DATA_ITEM_SUCCESS,
+  GET_DATA,
+  GET_DATA_SUCCESS,
+} from "./constants";
 
 const defaultState = [];
-const data = (state = defaultState, { type, dataFilm, id }) => {
+const data = (state = defaultState, { type, payload }) => {
   switch (type) {
+    case GET_DATA:
+      return state;
+
+    case GET_DATA_SUCCESS:
+      return [...payload];
+
     case ADD_DATA:
+      return state;
+
+    case ADD_DATA_SUCCESS:
       return [
         ...state,
         {
-          id: new Date().getTime(),
-          title: dataFilm.title,
-          image: dataFilm.image,
-          description: dataFilm.description,
-          yearRelease: dataFilm.yearRelease,
+          id: payload.id,
+          title: payload.title,
+          image: payload.image,
+          description: payload.description,
+          yearRelease: payload.yearRelease,
         },
       ];
-    case DELETE_DATA_ITEM:
-      return [...state].filter((elem) => elem.id !== id);
-    case EDIT_DATA_ITEM:
+    case PUT_EDIT_DATA_ITEM:
+      return state;
+    case PUT_EDIT_DATA_ITEM_SUCCESS:
       return state.map((data) => {
-        if (data.id === id) {
-          data.title = dataFilm.title;
-          data.image = dataFilm.image;
-          data.description = dataFilm.description;
-          data.yearRelease = dataFilm.yearRelease;
+        if (data.id === payload.id) {
+          data.title = payload.title;
+          data.image = payload.image;
+          data.description = payload.description;
+          data.yearRelease = payload.yearRelease;
         }
         return data;
       });
+
+    case DELETE_DATA_ITEM:
+      return state;
+    case DELETE_DATA_ITEM_SUCCESS:
+      return [...state].filter((elem) => elem.id !== payload);
+
     default:
       return state;
   }

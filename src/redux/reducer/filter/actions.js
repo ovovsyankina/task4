@@ -1,5 +1,9 @@
-import { SEARCH_FILTER } from "./constants";
-export const searchFilm = (filterValue) => ({
+import { SEARCH_FILTER, SEARCH_FILTER_SUCCESS } from "./constants";
+export const searchFilm = (searchValue) => ({
   type: SEARCH_FILTER,
-  filterValue,
+  searchValue,
+});
+export const searchFilmSuccess = (searchValue) => ({
+  type: SEARCH_FILTER_SUCCESS,
+  searchValue,
 });

@@ -1,17 +1,24 @@
 import React, { useCallback } from "react";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { getCurrentData } from "../../redux/reducer/currentData/actions";
 import { currentDataSelector } from "../../redux/selectors";
 import ScreenViewing from "./ScreenViewing";
 
 const ScreenViewingContainer = () => {
   const currentData = useSelector(currentDataSelector);
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
+  const { filmId } = useParams();
+  console.log("id", filmId);
   console.log("currentData >> ", currentData);
+  useEffect(() => {
+    dispatch(getCurrentData(filmId));
+  }, [dispatch, filmId]);
   const handleCloseScreenViewing = useCallback(() => {
     navigate(`/films`);
-  }, []);
+  }, [navigate]);
 
   return (
     <ScreenViewing

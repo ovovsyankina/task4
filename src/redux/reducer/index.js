@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import data from "../reducer/data/data";
+import data from "./data/data";
 import currentData from "./currentData/currentData";
 import filter from "./filter/filter";
 

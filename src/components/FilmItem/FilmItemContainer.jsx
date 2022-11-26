@@ -1,47 +1,44 @@
 import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { currentData } from "../../redux/reducer/currentData/actions";
+import { getCurrentData } from "../../redux/reducer/currentData/actions";
 import FilmItem from "./FilmItem";
+import { object, func } from "prop-types";
 
-const FilmItemContainer = ({ data, setModalViewportOpen, onModalEditOpen }) => {
+const FilmItemContainer = ({ film, setModalViewportOpen, onModalEditOpen }) => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const handleViewportDataFilm = useCallback(
     (e) => {
       e.preventDefault();
-      dispatch(currentData(data));
+      dispatch(getCurrentData(film.id));
 
       setModalViewportOpen(true);
     },
 
-    [dispatch, data]
+    [dispatch, film, setModalViewportOpen]
   );
   const handleCurrentDataFilm = useCallback(
     (e) => {
       e.preventDefault();
-      dispatch(currentData(data));
+      dispatch(getCurrentData(film.id));
       onModalEditOpen();
     },
-    [dispatch, data]
+    [dispatch, film, onModalEditOpen]
   );
 
-  const handleScreenViewing = useCallback(
-    (e) => {
-      e.preventDefault();
-      dispatch(currentData(data));
-      navigate(`/films/${data.id}`);
-    },
-    [dispatch, data]
-  );
   return (
     <FilmItem
-      data={data}
+      film={film}
       onViewportDataFilm={handleViewportDataFilm}
       onCurrentDataFilm={handleCurrentDataFilm}
       onModalEditOpen={onModalEditOpen}
-      onScreenViewing={handleScreenViewing}
     />
   );
 };
+
+FilmItemContainer.propTypes = {
+  film: object,
+  setModalViewportOpen: func,
+  onModalEditOpen: func,
+};
+
 export default FilmItemContainer;

@@ -2,8 +2,8 @@ import React from "react";
 import FilmItemContainer from "../FilmItem/FilmItemContainer";
 import ModalViewportContainer from "../ModalViewport/ModalViewportContainer";
 import ModalWindowContainer from "../ModalWindow/ModalWindowContainer";
-import ScreenViewingContainer from "../ScreenViewing/ScreenViewingContainer";
 import SearchFilterContainer from "../SearchFilter/SearchFilterContainer";
+import { array, object, func, bool, string } from "prop-types";
 import styles from "./FilmList.module.scss";
 
 const FilmList = ({
@@ -25,7 +25,7 @@ const FilmList = ({
       <ul className={styles.root}>
         {filteredFilm.map((item) => (
           <FilmItemContainer
-            data={item}
+            film={item}
             key={item.id}
             setModalViewportOpen={setModalViewportOpen}
             onModalEditOpen={onModalEditOpen}
@@ -33,7 +33,6 @@ const FilmList = ({
         ))}
         <ModalWindowContainer
           currentData={currentData}
-          data={data}
           isModalAddEditOpen={isModalAddEditOpen}
           modalType={modalType}
           onModalAddEditClose={onModalAddEditClose}
@@ -47,4 +46,18 @@ const FilmList = ({
     </div>
   );
 };
+
+FilmList.propTypes = {
+  data: array,
+  currentData: object,
+  isModalViewportOpen: bool,
+  setModalViewportOpen: func,
+  isModalAddEditOpen: bool,
+  modalType: string,
+  onModalAddOpen: func,
+  onModalEditOpen: func,
+  onModalAddEditClose: func,
+  filteredFilm: array,
+};
+
 export default FilmList;
