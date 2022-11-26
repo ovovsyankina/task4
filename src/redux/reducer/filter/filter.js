@@ -1,10 +1,12 @@
-import { SEARCH_FILTER } from "./constants";
+import { SEARCH_FILTER, SEARCH_FILTER_SUCCESS } from "./constants";
 
 const defaultState = "";
-const filter = (state = defaultState, { type, filterValue }) => {
+const filter = (state = defaultState, { type, searchValue }) => {
   switch (type) {
+    case SEARCH_FILTER_SUCCESS:
+      return searchValue;
     case SEARCH_FILTER:
-      return filterValue;
+      return state;
 
     default:
       return state;

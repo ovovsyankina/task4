@@ -8,7 +8,7 @@ const App = () => {
       <Routes>
         <Route path="/films" element={<FilmListContainer />} exact />
         <Route
-          path="/films/?search=:filter"
+          path="/films?search=:filter"
           element={<SearchFilterContainer />}
           exact
         />

@@ -1,14 +1,43 @@
-import { ADD_DATA, DELETE_DATA_ITEM, EDIT_DATA_ITEM } from "./constants";
-export const addData = (dataFilm) => ({
+import {
+  ADD_DATA,
+  ADD_DATA_SUCCESS,
+  DELETE_DATA_ITEM,
+  DELETE_DATA_ITEM_SUCCESS,
+  PUT_EDIT_DATA_ITEM,
+  PUT_EDIT_DATA_ITEM_SUCCESS,
+  GET_DATA,
+  GET_DATA_SUCCESS,
+} from "./constants";
+export const addData = (payload) => ({
   type: ADD_DATA,
-  dataFilm,
+  payload,
 });
-export const deleteDataItem = (id) => ({
+export const addDataSuccess = (payload) => ({
+  type: ADD_DATA_SUCCESS,
+  payload,
+});
+export const deleteDataItem = (payload) => ({
   type: DELETE_DATA_ITEM,
-  id,
+  payload,
 });
-export const editDataItem = (dataFilm, id) => ({
-  type: EDIT_DATA_ITEM,
-  dataFilm,
-  id,
+export const deleteDataItemSuccess = (payload) => ({
+  type: DELETE_DATA_ITEM_SUCCESS,
+  payload,
+});
+export const putEditDataItem = (payload) => ({
+  type: PUT_EDIT_DATA_ITEM,
+  payload,
+});
+export const putEditDataItemSuccess = (payload) => ({
+  type: PUT_EDIT_DATA_ITEM_SUCCESS,
+  payload,
+});
+
+export const getData = {
+  type: GET_DATA,
+};
+
+export const getDataSuccess = (payload) => ({
+  type: GET_DATA_SUCCESS,
+  payload,
 });

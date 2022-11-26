@@ -1,10 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { array, func, string } from "prop-types";
 
 const SearchFilter = ({
   currentSearch,
   setCurrentSearch,
   onSearchFilm,
-  filter,
+  searchValue,
   filteredFilm,
   onClearSearchInput,
 }) => {
@@ -16,14 +18,17 @@ const SearchFilter = ({
         onChange={(e) => setCurrentSearch(e.target.value)}
       />
       <button onClick={onClearSearchInput}>X</button>
-      <button onClick={onSearchFilm}>Поиск</button>
-      {filter && filter.length > 0 && (
+      <Link to={`/films?search=${currentSearch}`}>
+        <button onClick={onSearchFilm}>Поиск</button>
+      </Link>
+      {searchValue && searchValue.length > 0 && (
         <>
           {filteredFilm && filteredFilm.length > 0 ? (
-            <div>Результат поиска по запросу "{filter}":</div>
+            <div>Результат поиска по запросу "{searchValue}":</div>
           ) : (
             <div>
-              К сожалению, по вашему запросу "{filter}" ничего не нашлось....
+              К сожалению, по вашему запросу "{searchValue}" ничего не
+              нашлось....
             </div>
           )}
         </>
@@ -31,4 +36,14 @@ const SearchFilter = ({
     </div>
   );
 };
+
+SearchFilter.propTypes = {
+  currentSearch: string,
+  setCurrentSearch: func,
+  onSearchFilm: func,
+  filter: string,
+  filteredFilm: array,
+  onClearSearchInput: func,
+};
+
 export default SearchFilter;
