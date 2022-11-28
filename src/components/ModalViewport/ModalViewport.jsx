@@ -11,7 +11,7 @@ const ModalViewport = ({
     <>
       {isModalViewportOpen && (
         <div className={styles.root}>
-          <div>
+          <div className={styles.modal_window}>
             <div>
               <p> Название фильма:</p> {currentData.title}
             </div>

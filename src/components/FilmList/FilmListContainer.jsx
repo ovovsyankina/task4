@@ -49,7 +49,6 @@ const FilmListContainer = () => {
   }, [data, filter]);
   return (
     <FilmList
-      data={data}
       currentData={currentData}
       isModalViewportOpen={isModalViewportOpen}
       setModalViewportOpen={setModalViewportOpen}

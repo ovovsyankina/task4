@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./ScreenViewing.module.scss";
 import { object, func } from "prop-types";
 
 const ScreenViewing = ({ currentData, onCloseScreenViewing }) => {

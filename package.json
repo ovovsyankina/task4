@@ -24,6 +24,7 @@
     "redux": "^4.2.0",
     "redux-saga": "^1.2.1",
     "reselect": "^4.1.6",
+    "sass": "^1.56.1",
     "scss": "^0.2.4",
     "uploady": "^0.6.6",
     "web-vitals": "^2.1.4",

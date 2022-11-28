@@ -6,6 +6,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<FilmListContainer />} exact />
         <Route path="/films" element={<FilmListContainer />} exact />
         <Route
           path="/films?search=:filter"

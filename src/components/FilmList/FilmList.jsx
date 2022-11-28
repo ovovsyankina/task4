@@ -7,7 +7,6 @@ import { array, object, func, bool, string } from "prop-types";
 import styles from "./FilmList.module.scss";
 
 const FilmList = ({
-  data,
   currentData,
   isModalViewportOpen,
   setModalViewportOpen,
@@ -19,7 +18,7 @@ const FilmList = ({
   filteredFilm,
 }) => {
   return (
-    <div>
+    <div className={styles.root}>
       <SearchFilterContainer filteredFilm={filteredFilm} />
       <button onClick={onModalAddOpen}>Добавить фильм</button>
       <ul className={styles.root}>
@@ -48,7 +47,6 @@ const FilmList = ({
 };
 
 FilmList.propTypes = {
-  data: array,
   currentData: object,
   isModalViewportOpen: bool,
   setModalViewportOpen: func,
