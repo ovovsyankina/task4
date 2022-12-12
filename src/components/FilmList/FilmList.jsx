@@ -5,6 +5,7 @@ import ModalWindowContainer from "../ModalWindow/ModalWindowContainer";
 import SearchFilterContainer from "../SearchFilter/SearchFilterContainer";
 import { array, object, func, bool, string } from "prop-types";
 import styles from "./FilmList.module.scss";
+import Header from "../Header/Header";
 
 const FilmList = ({
   data,
@@ -31,18 +32,18 @@ const FilmList = ({
             onModalEditOpen={onModalEditOpen}
           />
         ))}
-        <ModalWindowContainer
-          currentData={currentData}
-          isModalAddEditOpen={isModalAddEditOpen}
-          modalType={modalType}
-          onModalAddEditClose={onModalAddEditClose}
-        />
-        <ModalViewportContainer
-          currentData={currentData}
-          isModalViewportOpen={isModalViewportOpen}
-          setModalViewportOpen={setModalViewportOpen}
-        />
       </ul>
+      <ModalWindowContainer
+        currentData={currentData}
+        isModalAddEditOpen={isModalAddEditOpen}
+        modalType={modalType}
+        onModalAddEditClose={onModalAddEditClose}
+      />
+      <ModalViewportContainer
+        currentData={currentData}
+        isModalViewportOpen={isModalViewportOpen}
+        setModalViewportOpen={setModalViewportOpen}
+      />
     </div>
   );
 };

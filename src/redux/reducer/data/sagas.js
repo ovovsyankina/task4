@@ -3,25 +3,28 @@ import {
   deleteFilmApi,
   getFilmsApi,
   postFilmApi,
+  putFavoriteFilmApi,
   putFilmApi,
 } from "../../../api";
 import {
   addDataSuccess,
   deleteDataItemSuccess,
+  favoriteFilmSuccess,
   getDataSuccess,
   putEditDataItemSuccess,
 } from "./actions";
 import {
   ADD_DATA,
   DELETE_DATA_ITEM,
+  FAVORITE_FILM,
   GET_DATA,
   PUT_EDIT_DATA_ITEM,
 } from "./constants";
 
-function* getFilms() {
+function* getFilms({ payload }) {
   try {
-    console.log("get/films");
-    const response = yield call(getFilmsApi, {});
+    console.log("get/films", payload);
+    const response = yield call(getFilmsApi, payload);
     yield put(getDataSuccess(response));
   } catch (err) {
     yield console.error(err);
@@ -58,9 +61,19 @@ function* deleteFilm({ payload }) {
   }
 }
 
+function* putFavoriteFilm({ payload }) {
+  try {
+    console.log("put/favorite film", payload);
+    yield call(putFavoriteFilmApi, payload);
+    yield put(favoriteFilmSuccess(payload));
+  } catch (err) {
+    yield console.error(err);
+  }
+}
 export default function* dataSagas() {
   yield all([takeEvery(GET_DATA, getFilms)]);
   yield all([takeEvery(ADD_DATA, postFilm)]);
   yield all([takeEvery(PUT_EDIT_DATA_ITEM, putFilm)]);
   yield all([takeEvery(DELETE_DATA_ITEM, deleteFilm)]);
+  yield all([takeEvery(FAVORITE_FILM, putFavoriteFilm)]);
 }

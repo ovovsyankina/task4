@@ -31,6 +31,7 @@ const ModalWindowContainer = ({
           image: image,
           description: values.description,
           yearRelease: values.yearRelease,
+          isFavorite: false,
         })
       );
       onModalAddEditClose();
@@ -53,6 +54,7 @@ const ModalWindowContainer = ({
             image: image,
             description: values.description,
             yearRelease: values.yearRelease,
+            isFavorite: currentData.isFavorite,
           },
           id: currentData.id,
         })
@@ -60,7 +62,7 @@ const ModalWindowContainer = ({
 
       onModalAddEditClose();
     },
-    [dispatch, onModalAddEditClose, currentData.id, image]
+    [dispatch, onModalAddEditClose, currentData, image]
   );
 
   return (

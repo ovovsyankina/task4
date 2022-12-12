@@ -7,17 +7,13 @@ import {
   PUT_EDIT_DATA_ITEM_SUCCESS,
   GET_DATA,
   GET_DATA_SUCCESS,
+  FAVORITE_FILM,
+  FAVORITE_FILM_SUCCESS,
 } from "./constants";
 
 const defaultState = [];
 const data = (state = defaultState, { type, payload }) => {
   switch (type) {
-    case GET_DATA:
-      return state;
-
-    case GET_DATA_SUCCESS:
-      return [...payload];
-
     case ADD_DATA:
       return state;
 
@@ -26,6 +22,7 @@ const data = (state = defaultState, { type, payload }) => {
         ...state,
         {
           id: payload.id,
+          isFavorite: false,
           title: payload.title,
           image: payload.image,
           description: payload.description,
@@ -41,14 +38,22 @@ const data = (state = defaultState, { type, payload }) => {
           data.image = payload.image;
           data.description = payload.description;
           data.yearRelease = payload.yearRelease;
+          data.isFavorite = payload.isFavorite;
         }
         return data;
       });
+    case GET_DATA:
+      return state;
+
+    case GET_DATA_SUCCESS:
+      return [...payload];
+
+    // return [...payload];
 
     case DELETE_DATA_ITEM:
       return state;
     case DELETE_DATA_ITEM_SUCCESS:
-      return [...state].filter((elem) => elem.id !== payload);
+      return [...state].filter((data) => data.id !== payload);
 
     default:
       return state;

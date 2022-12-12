@@ -31,8 +31,9 @@ const FilmListContainer = () => {
     dispatch(clearCurrentData);
     setModalAddEditOpen(false);
   };
+
   useEffect(() => {
-    dispatch(getData);
+    dispatch(getData("all"));
   }, [dispatch]);
   const filteredFilm = useMemo(() => {
     console.log("filter >> ", filter);

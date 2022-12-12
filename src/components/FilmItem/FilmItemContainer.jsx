@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { getCurrentData } from "../../redux/reducer/currentData/actions";
 import FilmItem from "./FilmItem";
 import { object, func } from "prop-types";
+import { putEditDataItem } from "../../redux/reducer/data/actions";
 
 const FilmItemContainer = ({ film, setModalViewportOpen, onModalEditOpen }) => {
   const dispatch = useDispatch();
@@ -24,6 +25,22 @@ const FilmItemContainer = ({ film, setModalViewportOpen, onModalEditOpen }) => {
     },
     [dispatch, film, onModalEditOpen]
   );
+  const handleFavoriteFilm = useCallback(() => {
+    dispatch(
+      putEditDataItem({
+        dataFilm: {
+          title: film.title,
+          image: film.image,
+          description: film.description,
+          yearRelease: film.yearRelease,
+          isFavorite: !film.isFavorite,
+        },
+        id: film.id,
+      })
+    );
+    console.log("current film id ", film.id);
+    console.log("current film favorite ", film.isFavorite);
+  }, [dispatch, film]);
 
   return (
     <FilmItem
@@ -31,6 +48,7 @@ const FilmItemContainer = ({ film, setModalViewportOpen, onModalEditOpen }) => {
       onViewportDataFilm={handleViewportDataFilm}
       onCurrentDataFilm={handleCurrentDataFilm}
       onModalEditOpen={onModalEditOpen}
+      onFavoriteFilm={handleFavoriteFilm}
     />
   );
 };

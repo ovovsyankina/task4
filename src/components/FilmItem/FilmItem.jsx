@@ -2,10 +2,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { object, func } from "prop-types";
 import styles from "./FilmItem.module.scss";
-const FilmItem = ({ film, onViewportDataFilm, onCurrentDataFilm }) => {
+const FilmItem = ({
+  film,
+  onViewportDataFilm,
+  onCurrentDataFilm,
+  onFavoriteFilm,
+}) => {
   return (
     <li className={styles.root}>
       <div>
+        <div>
+          <input
+            type="checkbox"
+            checked={film.isFavorite}
+            onChange={onFavoriteFilm}
+          />
+        </div>
         <div>
           <p>Название Фильма:</p>
           {film.title}

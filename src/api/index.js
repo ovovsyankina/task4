@@ -1,8 +1,8 @@
 export const apiUrl = "http://localhost:3001/films";
 
-export const getFilmsApi = () => {
+export const getFilmsApi = (payload) => {
   return fetch(`
-    ${apiUrl}`)
+    ${apiUrl}${payload === "favorite" ? "?isFavorite=true" : ""}`)
     .then((response) => {
       if (!response.ok) throw new Error();
       return response.json();
@@ -73,7 +73,24 @@ export const deleteFilmApi = (payload) => {
     });
 };
 export const getFilterFilmApi = (searchValue) => {
-  return fetch(`${apiUrl}?search=${searchValue}`)
+  return fetch(`${apiUrl}?q=${searchValue}`)
+    .then((response) => {
+      if (!response.ok) throw new Error();
+      return response.json();
+    })
+    .catch((err) => {
+      throw new Error(err);
+    });
+};
+
+export const putFavoriteFilmApi = (payload) => {
+  return fetch(`${apiUrl}/${payload}`, {
+    method: "PUT",
+    body: JSON.stringify(payload),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
     .then((response) => {
       if (!response.ok) throw new Error();
       return response.json();

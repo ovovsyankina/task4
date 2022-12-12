@@ -1,11 +1,12 @@
 {
   "films": [
     {
-      "title": "56666",
-      "image": "blob:http://localhost:3000/1f09c896-0278-4819-a1b8-ce32b5ae2db3",
-      "description": "5",
-      "yearRelease": 2006,
-      "id": 1
+      "title": "3355",
+      "image": "",
+      "description": "22",
+      "yearRelease": 2003,
+      "isFavorite": true,
+      "id": 8
     }
   ]
 }
