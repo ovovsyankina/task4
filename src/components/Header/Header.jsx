@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const Header = () => {
+const Header = ({ counter }) => {
   return (
     <div>
       <div>
         <Link to={`/films/`}>Домашняя страница</Link>
       </div>
       <div>
-        <Link to={`/films/favoriteFilm`}>Избранное</Link>
+        <Link to={`/films/favorite`}>Избранное {counter}</Link>
       </div>
     </div>
   );

@@ -16,6 +16,7 @@ const ModalWindowContainer = ({
   const [image, setImage] = useState("");
   const dispatch = useDispatch();
   const handleFileImg = (e) => {
+    console.log("image", e.target.files);
     if (e.target.files && e.target.files[0]) {
       let img = e.target.files[0];
       setImage(URL.createObjectURL(img));

@@ -9,56 +9,31 @@ import Header from "../Header/Header";
 
 const FilmList = ({
   data,
-  currentData,
-  isModalViewportOpen,
   setModalViewportOpen,
-  isModalAddEditOpen,
-  modalType,
-  onModalAddOpen,
   onModalEditOpen,
-  onModalAddEditClose,
-  filteredFilm,
+  isFavorite,
 }) => {
   return (
     <div>
-      <SearchFilterContainer filteredFilm={filteredFilm} />
-      <button onClick={onModalAddOpen}>Добавить фильм</button>
-      <ul className={styles.root}>
-        {filteredFilm.map((item) => (
+      <div className={styles.root}>
+        {data.map((item) => (
           <FilmItemContainer
             film={item}
             key={item.id}
             setModalViewportOpen={setModalViewportOpen}
             onModalEditOpen={onModalEditOpen}
+            isFavorite={isFavorite}
           />
         ))}
-      </ul>
-      <ModalWindowContainer
-        currentData={currentData}
-        isModalAddEditOpen={isModalAddEditOpen}
-        modalType={modalType}
-        onModalAddEditClose={onModalAddEditClose}
-      />
-      <ModalViewportContainer
-        currentData={currentData}
-        isModalViewportOpen={isModalViewportOpen}
-        setModalViewportOpen={setModalViewportOpen}
-      />
+      </div>
     </div>
   );
 };
 
 FilmList.propTypes = {
   data: array,
-  currentData: object,
-  isModalViewportOpen: bool,
   setModalViewportOpen: func,
-  isModalAddEditOpen: bool,
-  modalType: string,
-  onModalAddOpen: func,
   onModalEditOpen: func,
-  onModalAddEditClose: func,
-  filteredFilm: array,
 };
 
 export default FilmList;

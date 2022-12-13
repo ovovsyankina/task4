@@ -10,6 +10,7 @@ import {
   addDataSuccess,
   deleteDataItemSuccess,
   favoriteFilmSuccess,
+  getData,
   getDataSuccess,
   putEditDataItemSuccess,
 } from "./actions";
@@ -46,6 +47,9 @@ function* putFilm({ payload }) {
     console.log("put/film");
     const response = yield call(putFilmApi, payload);
     yield put(putEditDataItemSuccess(response));
+    if (payload.isFavoritePage) {
+      yield put(getData("favorite"));
+    }
   } catch (err) {
     yield console.error(err);
   }

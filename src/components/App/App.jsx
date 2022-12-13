@@ -2,17 +2,46 @@ import FilmListContainer from "../FilmList/FilmListContainer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SearchFilterContainer from "../SearchFilter/SearchFilterContainer";
 import ScreenViewingContainer from "../ScreenViewing/ScreenViewingContainer";
-import FavoritesFilmContainer from "../FavoritesFilm/FavoritesFilmContainer";
 import Header from "../Header/Header";
-const App = () => {
+import ModalWindowContainer from "../ModalWindow/ModalWindowContainer";
+import ModalViewportContainer from "../ModalViewport/ModalViewportContainer";
+import FavoritesPageContainer from "../FavoritesPage/FavoritesPageContainer";
+import HomePageContainer from "../HomePage/HomePageContainer";
+const App = ({
+  currentData,
+  isModalViewportOpen,
+  setModalViewportOpen,
+  isModalAddEditOpen,
+  modalType,
+  onModalAddOpen,
+  onModalEditOpen,
+  onModalAddEditClose,
+  counter,
+}) => {
   return (
     <BrowserRouter>
-      <Header />
+      <Header counter={counter} />
       <Routes>
-        <Route path="/films" element={<FilmListContainer />} exact />
         <Route
-          path="/films/favoriteFilm"
-          element={<FavoritesFilmContainer />}
+          path="/films"
+          element={
+            <HomePageContainer
+              onModalAddOpen={onModalAddOpen}
+              setModalViewportOpen={setModalViewportOpen}
+              onModalEditOpen={onModalEditOpen}
+            />
+          }
+          exact
+        />
+        <Route
+          path="/films/favorite"
+          element={
+            <FavoritesPageContainer
+              onModalAddOpen={onModalAddOpen}
+              setModalViewportOpen={setModalViewportOpen}
+              onModalEditOpen={onModalEditOpen}
+            />
+          }
           exact
         />
         <Route
@@ -26,6 +55,17 @@ const App = () => {
           exact
         />
       </Routes>
+      <ModalWindowContainer
+        currentData={currentData}
+        isModalAddEditOpen={isModalAddEditOpen}
+        modalType={modalType}
+        onModalAddEditClose={onModalAddEditClose}
+      />
+      <ModalViewportContainer
+        currentData={currentData}
+        isModalViewportOpen={isModalViewportOpen}
+        setModalViewportOpen={setModalViewportOpen}
+      />
     </BrowserRouter>
   );
 };

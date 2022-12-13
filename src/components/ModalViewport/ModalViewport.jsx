@@ -23,11 +23,7 @@ const ModalViewport = ({
             </div>
             <div>
               <p>Обложка:</p>
-              <img
-                src={currentData.image}
-                className={styles.film_cover}
-                alt="film cover"
-              />
+              <img src={currentData.image} className={styles.film_cover} />
             </div>
             <button onClick={onModalWindowOff}>ВЫЙТИ ИЗ ПРОСМОТРА</button>
           </div>

@@ -9,7 +9,7 @@ const FilmItem = ({
   onFavoriteFilm,
 }) => {
   return (
-    <li className={styles.root}>
+    <div className={styles.root}>
       <div>
         <div>
           <input
@@ -23,11 +23,13 @@ const FilmItem = ({
           {film.title}
         </div>
         <div>
-          <p>Обложка:</p>{" "}
+          <p>Обложка:</p>
           <img
             src={film.image}
+            onError={(e) => {
+              console.log(e);
+            }}
             className={styles.film_cover}
-            alt="film cover"
           />
         </div>
       </div>
@@ -36,7 +38,7 @@ const FilmItem = ({
       <Link to={`/films/${film.id}`}>
         <button>Посмотреть</button>
       </Link>
-    </li>
+    </div>
   );
 };
 FilmItem.propTypes = {
