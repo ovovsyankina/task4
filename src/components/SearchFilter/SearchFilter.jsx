@@ -1,40 +1,38 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { array, func, string } from "prop-types";
 
 const SearchFilter = ({
   currentSearch,
   setCurrentSearch,
   onSearchFilm,
-  searchValue,
+  filter,
   onClearSearchInput,
   page,
+  favoriteData,
+  data,
+  onSearchFilmEnter,
+  onChangeInput,
 }) => {
   return (
     <div>
       <input
         type="text"
         value={currentSearch}
-        onChange={(e) => setCurrentSearch(e.target.value)}
+        onChange={onChangeInput}
+        onKeyDown={onSearchFilmEnter}
       />
       <button onClick={onClearSearchInput}>X</button>
-      <Link
-        to={
-          page === "favorite"
-            ? `/films/favorite?search=${currentSearch}`
-            : `/films?search=${currentSearch}`
-        }
-      >
-        <button onClick={onSearchFilm}>Поиск</button>
-      </Link>
-      {searchValue && searchValue.length > 0 && (
+
+      <button onClick={onSearchFilm}>Поиск</button>
+
+      {filter && filter.length > 0 && (
         <>
-          {searchValue ? (
-            <div>Результат поиска по запросу "{searchValue}":</div>
+          {(page === "all" && data.length > 0) ||
+          (page === "favorite" && favoriteData.length > 0) ? (
+            <div>Результат поиска по запросу "{filter}":</div>
           ) : (
             <div>
-              К сожалению, по вашему запросу "{searchValue}" ничего не
-              нашлось....
+              К сожалению, по вашему запросу "{filter}" ничего не нашлось....
             </div>
           )}
         </>

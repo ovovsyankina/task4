@@ -8,11 +8,10 @@ const HomePageContainer = ({
   setModalViewportOpen,
   onModalEditOpen,
 }) => {
-  const data = useSelector(dataSelector);
   const filter = useSelector(filterDataSelector);
   const dispatch = useDispatch();
   const page = "all";
-  console.log("data", data);
+
   useEffect(() => {
     dispatch(getData({ search: filter }));
     dispatch(getFavoriteData({ search: "" }));
