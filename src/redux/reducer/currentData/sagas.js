@@ -5,7 +5,6 @@ import { CURRENT_DATA } from "./constants";
 
 function* getCurrentFilm({ payload }) {
   try {
-    console.log("get/films/id");
     const response = yield call(getCurrentFilmApi, payload);
     yield put(getCurrentDataSuccess(response));
   } catch (err) {

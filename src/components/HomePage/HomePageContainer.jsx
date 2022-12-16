@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getData } from "../../redux/reducer/data/actions";
-import { dataSelector } from "../../redux/selectors";
+import { getData, getFavoriteData } from "../../redux/reducer/data/actions";
+import { dataSelector, filterDataSelector } from "../../redux/selectors";
 import HomePage from "./HomePage";
 const HomePageContainer = ({
   onModalAddOpen,
@@ -9,16 +9,21 @@ const HomePageContainer = ({
   onModalEditOpen,
 }) => {
   const data = useSelector(dataSelector);
+  const filter = useSelector(filterDataSelector);
   const dispatch = useDispatch();
+  const page = "all";
   console.log("data", data);
   useEffect(() => {
-    dispatch(getData("all"));
-  }, [dispatch]);
+    dispatch(getData({ search: filter }));
+    dispatch(getFavoriteData({ search: "" }));
+  }, [dispatch, filter]);
+
   return (
     <HomePage
       onModalAddOpen={onModalAddOpen}
       setModalViewportOpen={setModalViewportOpen}
       onModalEditOpen={onModalEditOpen}
+      page={page}
     />
   );
 };

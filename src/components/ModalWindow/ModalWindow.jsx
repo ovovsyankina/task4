@@ -14,7 +14,6 @@ const ModalWindow = ({
   onDeleteDataItem,
   onEditDataItem,
 }) => {
-  console.log("current", currentData);
   return (
     isModalAddEditOpen && (
       <div>
@@ -85,11 +84,7 @@ const ModalWindow = ({
                     </div>
                   )}
                   Загрузить обложку фильма:
-                  <input
-                    type="file"
-                    name="myImage"
-                    onChange={(e) => onFileImg(e)}
-                  />
+                  <input type="file" name="myImage" onChange={onFileImg} />
                   {modalType === "add" ? (
                     <button type="submit">Добавить</button>
                   ) : (

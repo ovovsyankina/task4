@@ -1,10 +1,14 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCurrentData } from "../../redux/reducer/currentData/actions";
-import { currentDataSelector, dataSelector } from "../../redux/selectors";
+import { favoriteFilmsCount } from "../../redux/reducer/data/actions";
+import {
+  currentDataSelector,
+  favoriteCountSelector,
+} from "../../redux/selectors";
 import App from "./App";
 const AppContainer = () => {
-  const data = useSelector(dataSelector);
+  const favoriteCount = useSelector(favoriteCountSelector);
   const currentData = useSelector(currentDataSelector);
   const dispatch = useDispatch();
   const [isModalViewportOpen, setModalViewportOpen] = useState(false);
@@ -22,11 +26,9 @@ const AppContainer = () => {
     dispatch(clearCurrentData);
     setModalAddEditOpen(false);
   };
-  const counter = useMemo(() => {
-    let index = 0;
-    data.map((film) => (film.isFavorite ? (index = index + 1) : index));
-    return index;
-  }, [data]);
+  useEffect(() => {
+    dispatch(favoriteFilmsCount());
+  }, [dispatch]);
   return (
     <App
       currentData={currentData}
@@ -37,7 +39,7 @@ const AppContainer = () => {
       onModalAddOpen={handleModalAddOpen}
       onModalEditOpen={handleModalEditOpen}
       onModalAddEditClose={handleModalAddEditClose}
-      counter={counter}
+      counter={favoriteCount}
     />
   );
 };

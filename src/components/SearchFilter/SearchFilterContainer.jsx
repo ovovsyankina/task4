@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import useQuery from "../../hooks/useQuery";
@@ -7,19 +7,12 @@ import { filterDataSelector } from "../../redux/selectors";
 import SearchFilter from "./SearchFilter";
 import { array } from "prop-types";
 
-const SearchFilterContainer = ({ filteredFilm }) => {
-  const [currentSearchText, setCurrentSearchText] = useState("");
+const SearchFilterContainer = ({ page }) => {
   const searchValue = useSelector(filterDataSelector);
-
   const filter = useQuery().get("search");
+  const [currentSearchText, setCurrentSearchText] = useState(filter || "");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log("FILTER >", filter);
-  useEffect(() => {
-    if (filter && filter !== "") {
-      dispatch(searchFilm(filter));
-    }
-  }, [dispatch, filter]);
   const handleSearchFilm = useCallback(() => {
     dispatch(searchFilm(currentSearchText));
   }, [dispatch, currentSearchText]);
@@ -32,8 +25,9 @@ const SearchFilterContainer = ({ filteredFilm }) => {
     setCurrentSearchText("");
     dispatch(searchFilm(""));
 
-    navigate(`/films`);
+    navigate(-1);
   }, [dispatch, navigate]);
+
   return (
     <SearchFilter
       currentSearch={currentSearchText}
@@ -41,8 +35,8 @@ const SearchFilterContainer = ({ filteredFilm }) => {
       onSearchFilm={handleSearchFilm}
       onChangeFilter={handleChangeFilter}
       searchValue={searchValue}
-      filteredFilm={filteredFilm}
       onClearSearchInput={handleClearSearchInput}
+      page={page}
     />
   );
 };

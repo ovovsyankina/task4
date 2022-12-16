@@ -7,8 +7,8 @@ const SearchFilter = ({
   setCurrentSearch,
   onSearchFilm,
   searchValue,
-  filteredFilm,
   onClearSearchInput,
+  page,
 }) => {
   return (
     <div>
@@ -18,12 +18,18 @@ const SearchFilter = ({
         onChange={(e) => setCurrentSearch(e.target.value)}
       />
       <button onClick={onClearSearchInput}>X</button>
-      <Link to={`/films?search=${currentSearch}`}>
+      <Link
+        to={
+          page === "favorite"
+            ? `/films/favorite?search=${currentSearch}`
+            : `/films?search=${currentSearch}`
+        }
+      >
         <button onClick={onSearchFilm}>Поиск</button>
       </Link>
       {searchValue && searchValue.length > 0 && (
         <>
-          {filteredFilm && filteredFilm.length > 0 ? (
+          {searchValue ? (
             <div>Результат поиска по запросу "{searchValue}":</div>
           ) : (
             <div>
@@ -42,7 +48,7 @@ SearchFilter.propTypes = {
   setCurrentSearch: func,
   onSearchFilm: func,
   filter: string,
-  filteredFilm: array,
+
   onClearSearchInput: func,
 };
 

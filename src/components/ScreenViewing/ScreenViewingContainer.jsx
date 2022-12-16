@@ -11,8 +11,6 @@ const ScreenViewingContainer = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { filmId } = useParams();
-  console.log("id", filmId);
-  console.log("currentData >> ", currentData);
   useEffect(() => {
     dispatch(getCurrentData(filmId));
   }, [dispatch, filmId]);

@@ -3,16 +3,18 @@ import { useDispatch } from "react-redux";
 import { getCurrentData } from "../../redux/reducer/currentData/actions";
 import FilmItem from "./FilmItem";
 import { object, func } from "prop-types";
-import { putEditDataItem } from "../../redux/reducer/data/actions";
+import {
+  favoriteFilmsCount,
+  putEditDataItem,
+} from "../../redux/reducer/data/actions";
 
 const FilmItemContainer = ({
   film,
   setModalViewportOpen,
   onModalEditOpen,
-  isFavorite,
+  isFavoritePage,
 }) => {
   const dispatch = useDispatch();
-  console.log("isFavorite", isFavorite);
   const handleViewportDataFilm = useCallback(
     (e) => {
       e.preventDefault();
@@ -42,12 +44,11 @@ const FilmItemContainer = ({
           isFavorite: !film.isFavorite,
         },
         id: film.id,
-        isFavoritePage: isFavorite,
+        isFavoritePage: isFavoritePage,
       })
     );
-    console.log("current film id ", film.id);
-    console.log("current film favorite ", film.isFavorite);
-  }, [dispatch, film]);
+    dispatch(favoriteFilmsCount());
+  }, [dispatch, film, isFavoritePage]);
 
   return (
     <FilmItem

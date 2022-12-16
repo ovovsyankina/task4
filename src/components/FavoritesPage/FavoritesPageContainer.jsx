@@ -1,25 +1,28 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getData } from "../../redux/reducer/data/actions";
-import { dataSelector } from "../../redux/selectors";
+import { getFavoriteData } from "../../redux/reducer/data/actions";
+import { filterDataSelector } from "../../redux/selectors";
 import FavoritesPage from "./FavoritesPage";
 const FavoritesPageContainer = ({
   onModalAddOpen,
   setModalViewportOpen,
   onModalEditOpen,
 }) => {
-  const data = useSelector(dataSelector);
+  const filter = useSelector(filterDataSelector);
   const dispatch = useDispatch();
-  console.log("data", data);
+  const page = "favorite";
   useEffect(() => {
-    dispatch(getData("favorite"));
-  }, [dispatch]);
+    if (page === "favorite") {
+      dispatch(getFavoriteData({ search: filter }));
+    }
+  }, [dispatch, filter, page]);
   return (
     <FavoritesPage
       onModalAddOpen={onModalAddOpen}
       setModalViewportOpen={setModalViewportOpen}
       onModalEditOpen={onModalEditOpen}
+      page={page}
     />
   );
 };

@@ -24,13 +24,7 @@ const FilmItem = ({
         </div>
         <div>
           <p>Обложка:</p>
-          <img
-            src={film.image}
-            onError={(e) => {
-              console.log(e);
-            }}
-            className={styles.film_cover}
-          />
+          <img src={film.image} className={styles.film_cover} />
         </div>
       </div>
       <button onClick={onViewportDataFilm}>Быстрый просмотр</button>

@@ -5,16 +5,18 @@ const FavoritesPage = ({
   onModalAddOpen,
   setModalViewportOpen,
   onModalEditOpen,
+  page,
 }) => {
   return (
     <div>
       <div>
-        {/* <SearchFilterContainer filteredFilm={filteredFilm} /> */}
+        <SearchFilterContainer page={page} />
         <button onClick={onModalAddOpen}>Добавить фильм</button>
         <FilmListContainer
-          isFavorite={true}
+          isFavoritePage={true}
           setModalViewportOpen={setModalViewportOpen}
           onModalEditOpen={onModalEditOpen}
+          page={page}
         />
       </div>
     </div>

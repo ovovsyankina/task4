@@ -5,14 +5,16 @@ const HomePage = ({
   onModalAddOpen,
   setModalViewportOpen,
   onModalEditOpen,
+  page,
 }) => {
   return (
     <div>
-      {/* <SearchFilterContainer filteredFilm={filteredFilm} /> */}
+      <SearchFilterContainer page={page} />
       <button onClick={onModalAddOpen}>Добавить фильм</button>
       <FilmListContainer
         setModalViewportOpen={setModalViewportOpen}
         onModalEditOpen={onModalEditOpen}
+        page={page}
       />
     </div>
   );
