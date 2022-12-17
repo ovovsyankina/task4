@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { getCurrentData } from "../../redux/reducer/currentData/actions";
 import FilmItem from "./FilmItem";
-import { object, func } from "prop-types";
+import { object, func, bool } from "prop-types";
 import {
   favoriteFilmsCount,
   putEditDataItem,
@@ -65,6 +65,7 @@ FilmItemContainer.propTypes = {
   film: object,
   setModalViewportOpen: func,
   onModalEditOpen: func,
+  isFavoritePage: bool,
 };
 
 export default FilmItemContainer;

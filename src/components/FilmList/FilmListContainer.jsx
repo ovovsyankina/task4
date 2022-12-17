@@ -1,3 +1,4 @@
+import { func, string, bool } from "prop-types";
 import React from "react";
 import { useSelector } from "react-redux";
 import { dataSelector, favoriteDataSelector } from "../../redux/selectors";
@@ -21,5 +22,12 @@ const FilmListContainer = ({
       page={page}
     />
   );
+};
+
+FilmListContainer.propTypes = {
+  setModalViewportOpen: func,
+  onModalEditOpen: func,
+  isFavoritePage: bool,
+  page: string,
 };
 export default FilmListContainer;

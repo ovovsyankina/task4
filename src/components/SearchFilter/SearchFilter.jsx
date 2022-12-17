@@ -3,7 +3,6 @@ import { array, func, string } from "prop-types";
 
 const SearchFilter = ({
   currentSearch,
-  setCurrentSearch,
   onSearchFilm,
   filter,
   onClearSearchInput,
@@ -43,11 +42,14 @@ const SearchFilter = ({
 
 SearchFilter.propTypes = {
   currentSearch: string,
-  setCurrentSearch: func,
   onSearchFilm: func,
   filter: string,
-
   onClearSearchInput: func,
+  page: string,
+  favoriteData: array,
+  data: array,
+  onSearchFilmEnter: func,
+  onChangeInput: func,
 };
 
 export default SearchFilter;

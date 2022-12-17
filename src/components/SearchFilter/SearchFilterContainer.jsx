@@ -5,7 +5,7 @@ import useQuery from "../../hooks/useQuery";
 import { searchFilm } from "../../redux/reducer/filter/actions";
 import { dataSelector, favoriteDataSelector } from "../../redux/selectors";
 import SearchFilter from "./SearchFilter";
-import { array } from "prop-types";
+import { string } from "prop-types";
 
 const SearchFilterContainer = ({ page }) => {
   const data = useSelector(dataSelector);
@@ -59,7 +59,7 @@ const SearchFilterContainer = ({ page }) => {
 };
 
 SearchFilterContainer.propTypes = {
-  filteredFilm: array,
+  page: string,
 };
 
 export default SearchFilterContainer;

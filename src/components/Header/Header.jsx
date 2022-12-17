@@ -1,3 +1,4 @@
+import { number } from "prop-types";
 import React from "react";
 import { Link } from "react-router-dom";
 const Header = ({ counter }) => {
@@ -11,5 +12,9 @@ const Header = ({ counter }) => {
       </div>
     </div>
   );
+};
+
+Header.propTypes = {
+  counter: number,
 };
 export default Header;

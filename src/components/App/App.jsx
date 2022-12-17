@@ -6,6 +6,7 @@ import ModalWindowContainer from "../ModalWindow/ModalWindowContainer";
 import ModalViewportContainer from "../ModalViewport/ModalViewportContainer";
 import FavoritesPageContainer from "../FavoritesPage/FavoritesPageContainer";
 import HomePageContainer from "../HomePage/HomePageContainer";
+import { object, func, string, bool, number } from "prop-types";
 const App = ({
   currentData,
   isModalViewportOpen,
@@ -67,5 +68,17 @@ const App = ({
       />
     </BrowserRouter>
   );
+};
+
+App.propTypes = {
+  currentData: object,
+  isModalViewportOpen: bool,
+  setModalViewportOpen: func,
+  isModalAddEditOpen: bool,
+  modalType: string,
+  onModalAddOpen: func,
+  onModalEditOpen: func,
+  onModalAddEditClose: func,
+  counter: number,
 };
 export default App;

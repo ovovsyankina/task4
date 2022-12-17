@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { object, func } from "prop-types";
 import styles from "./FilmItem.module.scss";
+import { verifyUrlImage } from "../../utils";
+import defaultImageFilm from "../../utils/defaultImageFilm.jpeg";
 const FilmItem = ({
   film,
   onViewportDataFilm,
@@ -24,7 +26,11 @@ const FilmItem = ({
         </div>
         <div>
           <p>Обложка:</p>
-          <img src={film.image} className={styles.film_cover} />
+          <img
+            src={verifyUrlImage(film.image) ? film.image : defaultImageFilm}
+            alt="Обложка фильма"
+            className={styles.film_cover}
+          />
         </div>
       </div>
       <button onClick={onViewportDataFilm}>Быстрый просмотр</button>
@@ -39,6 +45,7 @@ FilmItem.propTypes = {
   film: object,
   onViewportDataFilm: func,
   onCurrentDataFilm: func,
+  onFavoriteFilm: func,
 };
 
 export default FilmItem;

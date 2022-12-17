@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import {
   addData,
@@ -13,14 +13,7 @@ const ModalWindowContainer = ({
   onModalAddEditClose,
   currentData,
 }) => {
-  const [image, setImage] = useState("");
   const dispatch = useDispatch();
-  const handleFileImg = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      let img = e.target.files[0];
-      setImage(URL.createObjectURL(img));
-    }
-  };
 
   const addNewDataFilm = useCallback(
     (values) => {
@@ -28,7 +21,7 @@ const ModalWindowContainer = ({
         addData({
           id: values.id,
           title: values.title,
-          image: image,
+          image: values.image,
           description: values.description,
           yearRelease: values.yearRelease,
           isFavorite: false,
@@ -36,7 +29,7 @@ const ModalWindowContainer = ({
       );
       onModalAddEditClose();
     },
-    [dispatch, image, onModalAddEditClose]
+    [dispatch, onModalAddEditClose]
   );
   const handleDeleteDataItem = useCallback(() => {
     dispatch(deleteDataItem(currentData.id));
@@ -50,7 +43,7 @@ const ModalWindowContainer = ({
         putEditDataItem({
           dataFilm: {
             title: values.title,
-            image: image,
+            image: values.image,
             description: values.description,
             yearRelease: values.yearRelease,
             isFavorite: currentData.isFavorite,
@@ -61,13 +54,12 @@ const ModalWindowContainer = ({
 
       onModalAddEditClose();
     },
-    [dispatch, onModalAddEditClose, currentData, image]
+    [dispatch, onModalAddEditClose, currentData]
   );
 
   return (
     <ModalWindow
       addNewDataFilm={addNewDataFilm}
-      onFileImg={handleFileImg}
       currentData={currentData}
       isModalAddEditOpen={isModalAddEditOpen}
       modalType={modalType}

@@ -1,3 +1,4 @@
+import { func } from "prop-types";
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -25,5 +26,11 @@ const FavoritesPageContainer = ({
       page={page}
     />
   );
+};
+
+FavoritesPageContainer.propTypes = {
+  onModalAddOpen: func,
+  setModalViewportOpen: func,
+  onModalEditOpen: func,
 };
 export default FavoritesPageContainer;

@@ -1,6 +1,6 @@
 import React from "react";
 import FilmItemContainer from "../FilmItem/FilmItemContainer";
-import { array, object, func, bool, string } from "prop-types";
+import { array, func, bool, string } from "prop-types";
 import styles from "./FilmList.module.scss";
 
 const FilmList = ({
@@ -32,6 +32,9 @@ FilmList.propTypes = {
   data: array,
   setModalViewportOpen: func,
   onModalEditOpen: func,
+  isFavoritePage: bool,
+  page: string,
+  favoriteData: array,
 };
 
 export default FilmList;

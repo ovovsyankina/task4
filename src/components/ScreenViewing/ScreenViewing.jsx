@@ -1,5 +1,7 @@
 import React from "react";
 import { object, func } from "prop-types";
+import { verifyUrlImage } from "../../utils";
+import defaultImageFilm from "../../utils/defaultImageFilm.jpeg";
 
 const ScreenViewing = ({ currentData, onCloseScreenViewing }) => {
   return (
@@ -16,7 +18,14 @@ const ScreenViewing = ({ currentData, onCloseScreenViewing }) => {
         </div>
         <div>
           <p>Обложка:</p>
-          <img src={currentData.image} alt="film cover" />
+          <img
+            src={
+              verifyUrlImage(currentData.image)
+                ? currentData.image
+                : defaultImageFilm
+            }
+            alt="film cover"
+          />
         </div>
         <button onClick={onCloseScreenViewing}>ВЫЙТИ ИЗ ПРОСМОТРА</button>
       </div>

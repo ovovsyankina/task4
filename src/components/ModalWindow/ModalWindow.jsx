@@ -6,7 +6,6 @@ import { object, func, bool, string } from "prop-types";
 
 const ModalWindow = ({
   addNewDataFilm,
-  onFileImg,
   currentData,
   isModalAddEditOpen,
   modalType,
@@ -28,10 +27,10 @@ const ModalWindow = ({
             }}
             validationSchema={Yup.object({
               title: Yup.string()
-                .uppercase("Введите с заглавной буквой")
+                .max(25, "Максимальное количество символов = 25")
                 .required("Введите название"),
               description: Yup.string()
-                .max(15, "max 15")
+                .max(100, "Максимальное количество символов = 100")
                 .required("Введите описание"),
               yearRelease: Yup.number()
                 .min(
@@ -83,8 +82,14 @@ const ModalWindow = ({
                       {errors.yearRelease}
                     </div>
                   )}
-                  Загрузить обложку фильма:
-                  <input type="file" name="myImage" onChange={onFileImg} />
+                  <label htmlFor="image">Загрузить обложку фильма:</label>
+                  <input
+                    type="text"
+                    onChange={handleChange}
+                    name="image"
+                    value={values.image}
+                  />
+
                   {modalType === "add" ? (
                     <button type="submit">Добавить</button>
                   ) : (
@@ -107,7 +112,6 @@ const ModalWindow = ({
 
 ModalWindow.propTypes = {
   addNewDataFilm: func,
-  onFileImg: func,
   currentData: object,
   isModalAddEditOpen: bool,
   modalType: string,
