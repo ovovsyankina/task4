@@ -1,8 +1,10 @@
 export const apiUrl = "http://localhost:3001/films";
 
-export const getFilmsApi = () => {
+export const getFilmsApi = (payload) => {
   return fetch(`
-    ${apiUrl}`)
+    ${apiUrl}${
+    payload.search.length > 0 ? `?title_like=${payload.search}` : ""
+  }`)
     .then((response) => {
       if (!response.ok) throw new Error();
       return response.json();
@@ -12,6 +14,34 @@ export const getFilmsApi = () => {
     });
 };
 
+export const getFavoriteFilmsApi = (payload) => {
+  return fetch(`
+    ${apiUrl}${
+    payload.search.length > 0
+      ? `?isFavorite=true&title_like=${payload.search}`
+      : payload.search.length === 0
+      ? "?isFavorite=true"
+      : ""
+  }`)
+    .then((response) => {
+      if (!response.ok) throw new Error();
+      return response.json();
+    })
+    .catch((err) => {
+      throw new Error(err);
+    });
+};
+export const getFavoriteFilmsCountApi = () => {
+  return fetch(`
+    ${apiUrl}${`?isFavorite=true`}`)
+    .then((response) => {
+      if (!response.ok) throw new Error();
+      return response.json();
+    })
+    .catch((err) => {
+      throw new Error(err);
+    });
+};
 export const getCurrentFilmApi = (payload) => {
   return fetch(`${apiUrl}/${payload}`)
     .then((response) => {
@@ -64,16 +94,6 @@ export const deleteFilmApi = (payload) => {
       "Content-Type": "application/json",
     },
   })
-    .then((response) => {
-      if (!response.ok) throw new Error();
-      return response.json();
-    })
-    .catch((err) => {
-      throw new Error(err);
-    });
-};
-export const getFilterFilmApi = (searchValue) => {
-  return fetch(`${apiUrl}?search=${searchValue}`)
     .then((response) => {
       if (!response.ok) throw new Error();
       return response.json();

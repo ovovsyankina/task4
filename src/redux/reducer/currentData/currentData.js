@@ -16,6 +16,7 @@ const currentData = (state = defaultState, { type, payload }) => {
         image: payload.image,
         description: payload.description,
         yearRelease: payload.yearRelease,
+        isFavorite: payload.isFavorite,
       };
     case CLEAR_CURRENT_DATA:
       return defaultState;

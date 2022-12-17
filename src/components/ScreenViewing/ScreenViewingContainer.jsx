@@ -11,13 +11,11 @@ const ScreenViewingContainer = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { filmId } = useParams();
-  console.log("id", filmId);
-  console.log("currentData >> ", currentData);
   useEffect(() => {
     dispatch(getCurrentData(filmId));
   }, [dispatch, filmId]);
   const handleCloseScreenViewing = useCallback(() => {
-    navigate(`/films`);
+    navigate(-1);
   }, [navigate]);
 
   return (

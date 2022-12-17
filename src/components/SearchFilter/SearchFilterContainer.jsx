@@ -3,52 +3,63 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import useQuery from "../../hooks/useQuery";
 import { searchFilm } from "../../redux/reducer/filter/actions";
-import { filterDataSelector } from "../../redux/selectors";
+import { dataSelector, favoriteDataSelector } from "../../redux/selectors";
 import SearchFilter from "./SearchFilter";
-import { array } from "prop-types";
+import { string } from "prop-types";
 
-const SearchFilterContainer = ({ filteredFilm }) => {
-  const [currentSearchText, setCurrentSearchText] = useState("");
-  const searchValue = useSelector(filterDataSelector);
-
+const SearchFilterContainer = ({ page }) => {
+  const data = useSelector(dataSelector);
+  const favoriteData = useSelector(favoriteDataSelector);
   const filter = useQuery().get("search");
+  const [currentSearchText, setCurrentSearchText] = useState(filter || "");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log("FILTER >", filter);
+
   useEffect(() => {
-    if (filter && filter !== "") {
-      dispatch(searchFilm(filter));
+    if (currentSearchText.length === 0) {
+      dispatch(searchFilm(""));
     }
-  }, [dispatch, filter]);
-  const handleSearchFilm = useCallback(() => {
-    dispatch(searchFilm(currentSearchText));
   }, [dispatch, currentSearchText]);
 
+  const handleSearchFilm = useCallback(() => {
+    navigate(
+      page === "favorite"
+        ? `/films/favorite?search=${currentSearchText}`
+        : `/films?search=${currentSearchText}`
+    );
+    dispatch(searchFilm(currentSearchText));
+  }, [dispatch, navigate, page, currentSearchText]);
+  const handleSearchFilmEnter = (e) =>
+    e.key === "Enter" ? handleSearchFilm() : "";
   const handleChangeFilter = (e) => {
     setCurrentSearchText(e.target.value);
   };
-
   const handleClearSearchInput = useCallback(() => {
     setCurrentSearchText("");
     dispatch(searchFilm(""));
 
-    navigate(`/films`);
+    navigate(-1);
   }, [dispatch, navigate]);
+  const handleChangeInput = (e) => setCurrentSearchText(e.target.value);
   return (
     <SearchFilter
       currentSearch={currentSearchText}
       setCurrentSearch={setCurrentSearchText}
       onSearchFilm={handleSearchFilm}
       onChangeFilter={handleChangeFilter}
-      searchValue={searchValue}
-      filteredFilm={filteredFilm}
+      filter={filter}
       onClearSearchInput={handleClearSearchInput}
+      page={page}
+      data={data}
+      favoriteData={favoriteData}
+      onSearchFilmEnter={handleSearchFilmEnter}
+      onChangeInput={handleChangeInput}
     />
   );
 };
 
 SearchFilterContainer.propTypes = {
-  filteredFilm: array,
+  page: string,
 };
 
 export default SearchFilterContainer;
