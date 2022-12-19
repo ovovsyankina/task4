@@ -7,6 +7,12 @@ import {
   PUT_EDIT_DATA_ITEM_SUCCESS,
   GET_DATA,
   GET_DATA_SUCCESS,
+  GET_DATA_FAVORITE_SUCCESS,
+  GET_DATA_FAVORITE,
+  FILTERED_FAVORITE_FILM,
+  ADD_TO_FAVORITE_DATA,
+  FAVORITE_FILM_COUNT,
+  FAVORITE_FILM_COUNT_SUCCESS,
 } from "./constants";
 export const addData = (payload) => ({
   type: ADD_DATA,
@@ -33,11 +39,37 @@ export const putEditDataItemSuccess = (payload) => ({
   payload,
 });
 
-export const getData = {
+export const getData = (payload) => ({
   type: GET_DATA,
-};
+  payload,
+});
 
 export const getDataSuccess = (payload) => ({
   type: GET_DATA_SUCCESS,
+  payload,
+});
+
+export const getFavoriteData = (payload) => ({
+  type: GET_DATA_FAVORITE,
+  payload,
+});
+
+export const getFavoriteDataSuccess = (payload) => ({
+  type: GET_DATA_FAVORITE_SUCCESS,
+  payload,
+});
+export const filteredFilm = (payload) => ({
+  type: FILTERED_FAVORITE_FILM,
+  payload,
+});
+export const addToFavoriteFilm = (payload) => ({
+  type: ADD_TO_FAVORITE_DATA,
+  payload,
+});
+export const favoriteFilmsCount = () => ({
+  type: FAVORITE_FILM_COUNT,
+});
+export const favoriteFilmsCountSuccess = (payload) => ({
+  type: FAVORITE_FILM_COUNT_SUCCESS,
   payload,
 });

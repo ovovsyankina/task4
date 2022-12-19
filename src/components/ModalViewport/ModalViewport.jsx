@@ -1,6 +1,8 @@
 import React from "react";
 import { object, func, bool } from "prop-types";
 import styles from "./ModalViewport.module.scss";
+import { verifyUrlImage } from "../../utils";
+import defaultImageFilm from "../../utils/defaultImageFilm.jpeg";
 
 const ModalViewport = ({
   currentData,
@@ -24,9 +26,13 @@ const ModalViewport = ({
             <div>
               <p>Обложка:</p>
               <img
-                src={currentData.image}
+                src={
+                  verifyUrlImage(currentData.image)
+                    ? currentData.image
+                    : defaultImageFilm
+                }
+                alt="Обложка фильма"
                 className={styles.film_cover}
-                alt="film cover"
               />
             </div>
             <button onClick={onModalWindowOff}>ВЫЙТИ ИЗ ПРОСМОТРА</button>

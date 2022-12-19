@@ -1,40 +1,37 @@
 import React from "react";
-import styles from "./SearchFilter.module.scss";
-import { Link } from "react-router-dom";
 import { array, func, string } from "prop-types";
 
 const SearchFilter = ({
   currentSearch,
-  setCurrentSearch,
   onSearchFilm,
-  searchValue,
-  filteredFilm,
+  filter,
   onClearSearchInput,
+  page,
+  favoriteData,
+  data,
+  onSearchFilmEnter,
+  onChangeInput,
 }) => {
   return (
     <div className={styles.root}>
       <input
         type="text"
         value={currentSearch}
-        className={styles.search_input}
-        onChange={(e) => setCurrentSearch(e.target.value)}
+        onChange={onChangeInput}
+        onKeyDown={onSearchFilmEnter}
       />
-      <button onClick={onClearSearchInput} className={styles.clear_input}>
-        X
-      </button>
-      <Link to={`/films?search=${currentSearch}`}>
-        <button onClick={onSearchFilm} className={styles.search_button}>
-          Поиск
-        </button>
-      </Link>
-      {searchValue && searchValue.length > 0 && (
+      <button onClick={onClearSearchInput}>X</button>
+
+      <button onClick={onSearchFilm}>Поиск</button>
+
+      {filter && filter.length > 0 && (
         <>
-          {filteredFilm && filteredFilm.length > 0 ? (
-            <div>Результат поиска по запросу "{searchValue}":</div>
+          {(page === "all" && data.length > 0) ||
+          (page === "favorite" && favoriteData.length > 0) ? (
+            <div>Результат поиска по запросу "{filter}":</div>
           ) : (
             <div>
-              К сожалению, по вашему запросу "{searchValue}" ничего не
-              нашлось....
+              К сожалению, по вашему запросу "{filter}" ничего не нашлось....
             </div>
           )}
         </>
@@ -45,11 +42,14 @@ const SearchFilter = ({
 
 SearchFilter.propTypes = {
   currentSearch: string,
-  setCurrentSearch: func,
   onSearchFilm: func,
   filter: string,
-  filteredFilm: array,
   onClearSearchInput: func,
+  page: string,
+  favoriteData: array,
+  data: array,
+  onSearchFilmEnter: func,
+  onChangeInput: func,
 };
 
 export default SearchFilter;
