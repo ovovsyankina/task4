@@ -2,6 +2,7 @@ import { func, string } from "prop-types";
 import React from "react";
 import FilmListContainer from "../FilmList/FilmListContainer";
 import SearchFilterContainer from "../SearchFilter/SearchFilterContainer";
+import styles from "./HomePage.module.scss";
 const HomePage = ({
   onModalAddOpen,
   setModalViewportOpen,
@@ -9,7 +10,7 @@ const HomePage = ({
   page,
 }) => {
   return (
-    <div>
+    <div className={styles.root}>
       <SearchFilterContainer page={page} />
       <button onClick={onModalAddOpen}>Добавить фильм</button>
       <FilmListContainer

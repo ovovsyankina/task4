@@ -34,12 +34,13 @@ const SearchFilterContainer = ({ page }) => {
   const handleChangeFilter = (e) => {
     setCurrentSearchText(e.target.value);
   };
+  console.log(page);
   const handleClearSearchInput = useCallback(() => {
+    navigate(page === "favorite" ? `/films/favorite` : `/films`);
+
     setCurrentSearchText("");
     dispatch(searchFilm(""));
-
-    navigate(-1);
-  }, [dispatch, navigate]);
+  }, [dispatch, navigate, page]);
   const handleChangeInput = (e) => setCurrentSearchText(e.target.value);
   return (
     <SearchFilter

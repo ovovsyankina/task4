@@ -5,7 +5,7 @@
       "image": "https://catherineasquithgallery.com/uploads/posts/2021-02/1612678074_74-p-kartinka-fon-zelenii-lug-125.jpg",
       "description": "dddd",
       "yearRelease": 2002,
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 24
     },
     {
@@ -13,7 +13,7 @@
       "image": "",
       "description": "2000",
       "yearRelease": 2009,
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 25
     },
     {

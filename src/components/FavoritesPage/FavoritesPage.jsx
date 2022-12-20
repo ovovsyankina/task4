@@ -2,6 +2,7 @@ import { func, string } from "prop-types";
 import React from "react";
 import FilmListContainer from "../FilmList/FilmListContainer";
 import SearchFilterContainer from "../SearchFilter/SearchFilterContainer";
+import styles from "./FavoritesPage.module.scss";
 const FavoritesPage = ({
   onModalAddOpen,
   setModalViewportOpen,
@@ -9,10 +10,9 @@ const FavoritesPage = ({
   page,
 }) => {
   return (
-    <div>
+    <div className={styles.root}>
       <div>
         <SearchFilterContainer page={page} />
-        <button onClick={onModalAddOpen}>Добавить фильм</button>
         <FilmListContainer
           isFavoritePage={true}
           setModalViewportOpen={setModalViewportOpen}
