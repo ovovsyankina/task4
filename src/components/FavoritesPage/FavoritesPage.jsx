@@ -11,14 +11,16 @@ const FavoritesPage = ({
 }) => {
   return (
     <div className={styles.root}>
-      <div>
-        <SearchFilterContainer page={page} />
-        <FilmListContainer
-          isFavoritePage={true}
-          setModalViewportOpen={setModalViewportOpen}
-          onModalEditOpen={onModalEditOpen}
-          page={page}
-        />
+      <SearchFilterContainer page={page} />
+      <div className={styles.container_films}>
+        <div className={styles.all_films}>
+          <FilmListContainer
+            isFavoritePage={true}
+            setModalViewportOpen={setModalViewportOpen}
+            onModalEditOpen={onModalEditOpen}
+            page={page}
+          />
+        </div>
       </div>
     </div>
   );

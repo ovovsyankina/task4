@@ -9,7 +9,6 @@ import {
 } from "../../../api";
 import {
   addDataSuccess,
-  addToFavoriteFilm,
   deleteDataItemSuccess,
   favoriteFilmsCountSuccess,
   filteredFilm,
@@ -69,8 +68,6 @@ function* putFilm({ payload }) {
     yield put(putEditDataItemSuccess(response));
     if (response.isFavorite === false) {
       yield put(filteredFilm(response.id));
-    } else {
-      yield put(addToFavoriteFilm(response));
     }
   } catch (err) {
     yield console.error(err);

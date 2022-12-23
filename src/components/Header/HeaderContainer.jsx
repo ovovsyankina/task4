@@ -5,7 +5,6 @@ import Header from "./Header";
 const HeaderContainer = () => {
   let favoriteCount = useSelector(favoriteCountSelector);
 
-  console.log(favoriteCount);
   return <Header counter={favoriteCount} />;
 };
 

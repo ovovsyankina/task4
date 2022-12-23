@@ -1,6 +1,43 @@
+@use "../../styles/color" as *;
+
 .root {
-  display: flex;
+  display: grid;
   width: 100%;
-  align-items: center;
-  flex-direction: column;
+  grid-template-columns: repeat(auto-fill, 450px);
+  justify-content: space-between;
+  grid-gap: 1px;
+}
+.add_film {
+  display: flex;
+  width: 450px;
+  height: 700px;
+  margin-top: 50px;
+
+  background: linear-gradient(
+    180deg,
+    #ffeafc 0%,
+    #ffdaf9 0.01%,
+    #ffe2fa 19.79%,
+    #fffbfe 100%
+  );
+  border-radius: 15px;
+}
+
+.button_add_film_circle {
+  width: 150px;
+  height: 150px;
+  margin: 275px 150px;
+  background-color: $white-color;
+  border-radius: 50%;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.button_add_film_plus {
+  min-width: 80px;
+  min-height: 80px;
+  margin: 35px;
+  background-image: url(../../image/plus.svg);
+  background-repeat: no-repeat;
 }

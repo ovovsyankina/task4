@@ -22,19 +22,23 @@ const SearchFilterContainer = ({ page }) => {
   }, [dispatch, currentSearchText]);
 
   const handleSearchFilm = useCallback(() => {
-    navigate(
-      page === "favorite"
-        ? `/films/favorite?search=${currentSearchText}`
-        : `/films?search=${currentSearchText}`
-    );
-    dispatch(searchFilm(currentSearchText));
+    if (currentSearchText.trim().length > 0) {
+      navigate(
+        page === "favorite"
+          ? `/films/favorite?search=${currentSearchText}`
+          : `/films?search=${currentSearchText}`
+      );
+      dispatch(searchFilm(currentSearchText));
+    } else {
+      setCurrentSearchText("");
+    }
   }, [dispatch, navigate, page, currentSearchText]);
   const handleSearchFilmEnter = (e) =>
     e.key === "Enter" ? handleSearchFilm() : "";
   const handleChangeFilter = (e) => {
     setCurrentSearchText(e.target.value);
   };
-  console.log(page);
+
   const handleClearSearchInput = useCallback(() => {
     navigate(page === "favorite" ? `/films/favorite` : `/films`);
 

@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import {
   addData,
@@ -56,7 +56,15 @@ const ModalWindowContainer = ({
     },
     [dispatch, onModalAddEditClose, currentData]
   );
-
+  useEffect(() => {
+    if (isModalAddEditOpen === true) {
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${window.scrollY}px`;
+    } else {
+      document.body.style.position = "";
+      document.body.style.top = "";
+    }
+  }, [isModalAddEditOpen]);
   return (
     <ModalWindow
       addNewDataFilm={addNewDataFilm}

@@ -5,9 +5,8 @@ import ModalWindowContainer from "../ModalWindow/ModalWindowContainer";
 import ModalViewportContainer from "../ModalViewport/ModalViewportContainer";
 import FavoritesPageContainer from "../FavoritesPage/FavoritesPageContainer";
 import HomePageContainer from "../HomePage/HomePageContainer";
-import { object, func, string, bool, number } from "prop-types";
+import { object, func, string, bool } from "prop-types";
 import HeaderContainer from "../Header/HeaderContainer";
-import styles from "./App.module.scss";
 const App = ({
   currentData,
   isModalViewportOpen,

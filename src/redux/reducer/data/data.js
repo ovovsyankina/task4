@@ -10,7 +10,6 @@ import {
   GET_DATA_FAVORITE_SUCCESS,
   GET_DATA_FAVORITE,
   FILTERED_FAVORITE_FILM,
-  ADD_TO_FAVORITE_DATA,
   FAVORITE_FILM_COUNT,
   FAVORITE_FILM_COUNT_SUCCESS,
 } from "./constants";
@@ -99,12 +98,6 @@ const data = (state = defaultState, { type, payload }) => {
         favoriteData: [...state.favoriteData].filter(
           (data) => data.id !== payload
         ),
-        favoriteCount: state.favoriteCount,
-      };
-    case ADD_TO_FAVORITE_DATA:
-      return {
-        data: [...state.data],
-        favoriteData: [...state.favoriteData, payload],
         favoriteCount: state.favoriteCount,
       };
 

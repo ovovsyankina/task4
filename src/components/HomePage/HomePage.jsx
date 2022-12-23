@@ -12,12 +12,16 @@ const HomePage = ({
   return (
     <div className={styles.root}>
       <SearchFilterContainer page={page} />
-      <button onClick={onModalAddOpen}>Добавить фильм</button>
-      <FilmListContainer
-        setModalViewportOpen={setModalViewportOpen}
-        onModalEditOpen={onModalEditOpen}
-        page={page}
-      />
+      <div className={styles.container_films}>
+        <div className={styles.all_films}>
+          <FilmListContainer
+            setModalViewportOpen={setModalViewportOpen}
+            onModalEditOpen={onModalEditOpen}
+            onModalAddOpen={onModalAddOpen}
+            page={page}
+          />
+        </div>
+      </div>
     </div>
   );
 };

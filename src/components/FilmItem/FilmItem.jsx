@@ -13,30 +13,41 @@ const FilmItem = ({
   return (
     <div className={styles.root}>
       <div>
-        <div>
+        <div className={styles.favorite_check_star}>
           <input
             type="checkbox"
             checked={film.isFavorite}
             onChange={onFavoriteFilm}
+            className={styles.favorite_button}
+            id={film.id}
           />
+          <label className={styles.label_favorite} htmlFor={film.id} />
         </div>
-        <div>
-          <p>Название Фильма:</p>
-          {film.title}
+        <div className={styles.fields_title}>
+          <p className={styles.field_name}>Название фильма:</p>
+          <div className={styles.field_name_title}>{film.title}</div>
         </div>
-        <div>
-          <p>Обложка:</p>
+        <div className={styles.fields_image}>
+          <p className={styles.field_name}>Обложка Фильма:</p>
           <img
             src={verifyUrlImage(film.image) ? film.image : defaultImageFilm}
             alt="Обложка фильма"
-            className={styles.film_cover}
+            className={styles.field_name_image}
           />
         </div>
       </div>
-      <button onClick={onViewportDataFilm}>Быстрый просмотр</button>
-      <button onClick={onCurrentDataFilm}>Редактировать</button>
+      <div className={styles.button_svg}>
+        <button
+          onClick={onCurrentDataFilm}
+          className={styles.edit_button}
+        ></button>
+        <button
+          onClick={onViewportDataFilm}
+          className={styles.quick_view_button}
+        ></button>
+      </div>
       <Link to={`/films/${film.id}`}>
-        <button>Посмотреть</button>
+        <button className={styles.viewing_page}>Подробнее</button>
       </Link>
     </div>
   );

@@ -8,6 +8,7 @@ const FilmListContainer = ({
   onModalEditOpen,
   isFavoritePage = false,
   page,
+  onModalAddOpen,
 }) => {
   const data = useSelector(dataSelector);
   const favoriteData = useSelector(favoriteDataSelector);
@@ -20,6 +21,7 @@ const FilmListContainer = ({
       setModalViewportOpen={setModalViewportOpen}
       onModalEditOpen={onModalEditOpen}
       page={page}
+      onModalAddOpen={onModalAddOpen}
     />
   );
 };
@@ -27,6 +29,7 @@ const FilmListContainer = ({
 FilmListContainer.propTypes = {
   setModalViewportOpen: func,
   onModalEditOpen: func,
+  onModalAddOpen: func,
   isFavoritePage: bool,
   page: string,
 };

@@ -14,17 +14,7 @@ const ModalViewport = ({
       {isModalViewportOpen && (
         <div className={styles.root}>
           <div className={styles.modal_window}>
-            <div>
-              <p> Название фильма:</p> {currentData.title}
-            </div>
-            <div>
-              <p>Описание:</p> {currentData.description}
-            </div>
-            <div>
-              <p>Год создания:</p> {currentData.yearRelease}
-            </div>
-            <div>
-              <p>Обложка:</p>
+            <div className={styles.field_image_container}>
               <img
                 src={
                   verifyUrlImage(currentData.image)
@@ -32,10 +22,24 @@ const ModalViewport = ({
                     : defaultImageFilm
                 }
                 alt="Обложка фильма"
-                className={styles.film_cover}
+                className={styles.field_image}
               />
             </div>
-            <button onClick={onModalWindowOff}>ВЫЙТИ ИЗ ПРОСМОТРА</button>
+            <div className={styles.content_modal_window}>
+              <div className={styles.quick_view_close}>
+                <button
+                  onClick={onModalWindowOff}
+                  className={styles.quick_view_close_button}
+                ></button>
+              </div>
+              <div className={styles.field_name_title}>{currentData.title}</div>
+              <div className={styles.field_name_description}>
+                {currentData.description}
+              </div>
+              <div className={styles.field_name_yearRelease}>
+                Год создания: {currentData.yearRelease}
+              </div>
+            </div>
           </div>
         </div>
       )}

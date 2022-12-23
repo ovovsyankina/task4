@@ -1,4 +1,3 @@
-import { string } from "prop-types";
 import { number } from "prop-types";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -11,8 +10,9 @@ const Header = ({ counter }) => {
         <div>
           <Link to={`/films/`}>Домашняя страница</Link>
         </div>
-        <div>
-          <Link to={`/films/favorite`}>Избранное {counter}</Link>
+        <div className={styles.favorite_link}>
+          <Link to={`/films/favorite`}>Избранное</Link>{" "}
+          <div className={styles.favorite_counter_circle}>{counter}</div>
         </div>
       </div>
     </div>
