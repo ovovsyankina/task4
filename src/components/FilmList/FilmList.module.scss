@@ -4,27 +4,25 @@
 .root {
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto-fill, 450px);
+  grid-template-columns: repeat(auto-fill, 380px);
   justify-content: space-between;
   grid-gap: 1px;
-  @include screen {
-    grid-template-columns: repeat(auto-fill, 390px);
-  }
   @include netbook {
-    grid-template-columns: repeat(auto-fill, 350px);
+    grid-template-columns: repeat(auto-fill, 270px);
   }
   @include tablet {
-    justify-content: center;
-    grid-template-columns: repeat(auto-fill, 450px);
+    grid-template-columns: repeat(auto-fill, 300px);
   }
   @include mobile {
-    grid-template-columns: repeat(auto-fill, 300px);
+    justify-content: center;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fill, 90%);
   }
 }
 .add_film {
   display: flex;
-  width: 450px;
-  height: 700px;
+  width: 380px;
+  height: 650px;
   margin-top: 50px;
   justify-content: center;
   align-items: center;
@@ -36,19 +34,17 @@
     #fffbfe 100%
   );
   border-radius: 15px;
-  @include screen {
-    width: 390px;
-  }
   @include netbook {
-    width: 350px;
+    width: 270px;
     height: 500px;
   }
 
   @include tablet {
-    width: 450px;
+    width: 300px;
   }
   @include mobile {
-    width: 300px;
+    width: 90%;
+    height: 120px;
   }
 }
 
@@ -60,12 +56,35 @@
   &:hover {
     cursor: pointer;
   }
+  @include netbook {
+    width: 100px;
+    height: 100px;
+  }
+  @include mobile {
+    width: 60px;
+    height: 60px;
+  }
 }
 
 .button_add_film_plus {
   min-width: 80px;
   min-height: 80px;
-  margin: 35px;
+  width: 80px;
+  height: 80px;
+  margin: 25% auto;
   background-image: url(../../image/plus.svg);
   background-repeat: no-repeat;
+  background-size: 100%;
+  @include netbook {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+  }
+  @include mobile {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
+  }
 }

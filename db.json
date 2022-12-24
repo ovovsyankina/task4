@@ -1,76 +1,52 @@
 {
   "films": [
     {
-      "title": "wtxsdcfvgbyhnjmk,l.;",
-      "image": "https://catherineasquithgallery.com/uploads/posts/2021-02/1612678074_74-p-kartinka-fon-zelenii-lug-125.jpg",
-      "description": "w",
-      "yearRelease": 2008,
-      "isFavorite": false,
-      "id": 26
-    },
-    {
-      "title": "2eee33rrrrrrrrrrh",
-      "image": "eee",
-      "description": "266666ygv ",
-      "yearRelease": 1999,
-      "isFavorite": true,
-      "id": 27
-    },
-    {
-      "title": "ipolkm,",
-      "image": "http://images.myshared.ru/19/1206659/slide_6.jpg",
-      "description": "ууtgfv ",
-      "yearRelease": 2004,
-      "isFavorite": true,
-      "id": 28
-    },
-    {
-      "title": "33",
-      "image": "",
-      "description": "33",
-      "yearRelease": 2004,
-      "isFavorite": true,
-      "id": 29
-    },
-    {
       "title": "Зеленая миля",
-      "image": "https://avatars.mds.yandex.net/get-kinopoisk-image/1704946/a3a72d9b-7156-40c5-803c-a32404b78d80/3840x",
-      "description": "Пол Эджкомб — начальник блока смертников в тюрьме «Холодная гора», каждый из узников котороццццццццц",
+      "image": "https://www.film.ru/sites/default/files/movies/posters/1622756-1575667.jpeg",
+      "description": "Пол Эджкомб — начальник блока смертников в тюрьме «Холодная гора», каждый из узников которого однажды проходит «зеленую милю» по пути к месту казни. Пол повидал много заключённых и надзирателей за время работы. Однако гигант Джон Коффи, обвинённый в страшном преступлении, стал одним из самых необычных обитателей блока. ",
       "yearRelease": 1999,
-      "isFavorite": true,
-      "id": 30
-    },
-    {
-      "title": "2",
-      "image": "eee",
-      "description": "2",
-      "yearRelease": 1999,
-      "isFavorite": true,
-      "id": 31
-    },
-    {
-      "title": "w",
-      "image": "",
-      "description": "w",
-      "yearRelease": 2000,
-      "isFavorite": true,
-      "id": 32
-    },
-    {
-      "title": "3",
-      "image": "",
-      "description": "3",
-      "yearRelease": 2000,
-      "isFavorite": true,
-      "id": 33
-    },
-    {
-      "title": "33",
-      "image": "",
-      "description": "33",
-      "yearRelease": 2004,
       "isFavorite": false,
-      "id": 34
+      "id": 1
+    },
+    {
+      "title": "Назад в будущее",
+      "image": "http://media5.cdnbase.com/media/files/s4/fv/zs/nazad-v-buduschee-3.jpg",
+      "description": "Подросток Марти с помощью машины времени, сооружённой его другом-профессором доком Брауном, попадает из 80-х в далекие 50-е. Там он встречается со своими будущими родителями, ещё подростками, и другом-профессором, совсем молодым.",
+      "yearRelease": 1985,
+      "isFavorite": true,
+      "id": 2
+    },
+    {
+      "title": "1+1",
+      "image": "https://dataviyhoda.ru/wp-content/uploads/2021/04/smysl-filma-11-kakoj-smysl-980a44b.jpg",
+      "description": "Пострадав в результате несчастного случая, богатый аристократ Филипп нанимает в помощники человека, который менее всего подходит для этой работы, – молодого жителя предместья Дрисса, только что освободившегося из тюрьмы. ",
+      "yearRelease": 2011,
+      "isFavorite": false,
+      "id": 3
+    },
+    {
+      "title": "А зори здесь тихие",
+      "image": "https://ampravda.ru/files/articles-2/56905/975crtkf4q0o.jpg",
+      "description": "В прифронтовой полосе группа девушек-зенитчиц вынуждена вступить в неравный бой с вражескими десантниками. Эти девчонки мечтали о большой любви, нежности, семейном тепле - но на их долю выпала жестокая война, и они до конца выполнили свой воинский долг…",
+      "yearRelease": 1972,
+      "isFavorite": true,
+      "id": 4
+    },
+    {
+      "title": "Один дома ",
+      "image": "https://cdn-st3.rtr-vesti.ru/vh/pictures/hd/328/351/0.jpg",
+      "description": "Американское семейство отправляется из Чикаго в Европу, но в спешке сборов бестолковые родители забывают дома... одного из своих детей. Юное создание, однако, не теряется и демонстрирует чудеса изобретательности. И когда в дом залезают грабители, им приходится не раз пожалеть о встрече с милым крошкой.",
+      "yearRelease": 1990,
+      "isFavorite": false,
+      "id": 5
+    },
+    {
+      "title": "Гринч",
+      "image": "https://proprikol.ru/wp-content/uploads/2020/05/kartinki-grincha-49.jpg",
+      "description": "Любой бы на месте Гринча позеленел и взбесился. Как порядочный интроверт он живёт в тёмной пещере на самой вершине горы подальше ото всех, но эти «все» готовят грандиознейшее празднование нового года. Они шумят, всё украшают и дико бесят. Кто бы отказал себе в удовольствии испортить праздник? Гринч решает украсть Новый год.",
+      "yearRelease": 2018,
+      "isFavorite": true,
+      "id": 6
     }
   ]
 }

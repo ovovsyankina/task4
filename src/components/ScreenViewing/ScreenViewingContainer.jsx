@@ -16,7 +16,8 @@ const ScreenViewingContainer = () => {
   }, [dispatch, filmId]);
   const handleCloseScreenViewing = useCallback(() => {
     navigate(-1);
-  }, [navigate]);
+    dispatch(getCurrentData(""));
+  }, [navigate, dispatch]);
 
   return (
     <ScreenViewing

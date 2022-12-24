@@ -2,9 +2,9 @@
 @use "../../styles/media" as *;
 
 .root {
-  width: 450px;
-  height: 700px;
-  padding: 25px 40px;
+  width: 380px;
+  height: 650px;
+  padding: 15px 30px;
   margin-top: 50px;
   background: linear-gradient(
     180deg,
@@ -14,21 +14,18 @@
     #fffbfe 100%
   );
   border-radius: 15px;
-  @include screen {
-    width: 390px;
-  }
   @include netbook {
-    width: 350px;
+    width: 270px;
     height: 500px;
     padding: 15px 25px;
   }
   @include tablet {
-    width: 450px;
-    height: 500px;
+    width: 300px;
   }
   @include mobile {
-    width: 300px;
-
+    width: 90%;
+    height: 270px;
+    padding: 10px 15px;
     margin-top: 25px;
   }
 }
@@ -42,6 +39,9 @@
   font-size: 25px;
   @include netbook {
     font-size: 15px;
+  }
+  @include mobile {
+    font-size: 12px;
   }
 }
 
@@ -59,11 +59,20 @@
     font-size: 15px;
     padding: 3px 8px;
   }
+  @include mobile {
+    height: 20px;
+    margin-top: 5px;
+    font-size: 10px;
+    border-radius: 5px;
+  }
 }
 .fields_image {
-  margin-top: 25px;
+  margin-top: 15px;
   @include netbook {
     margin-top: 15px;
+  }
+  @include mobile {
+    margin-top: 5px;
   }
 }
 .field_name_image {
@@ -74,6 +83,11 @@
   object-fit: cover;
   @include netbook {
     height: 260px;
+  }
+  @include mobile {
+    height: 140px;
+    margin-top: 5px;
+    border-radius: 5px;
   }
 }
 
@@ -102,32 +116,39 @@
   content: "";
   display: inline-block;
 
-  min-width: 48px;
-  min-height: 48px;
+  min-width: 42px;
+  min-height: 42px;
   justify-content: right;
   background-image: url(../../image/star.svg);
   background-repeat: no-repeat;
   background-position: center center;
+  background-size: 90%;
   @include netbook {
     min-width: 30px;
     min-height: 30px;
-    background-size: 90%;
+  }
+  @include mobile {
+    min-width: 20px;
+    min-height: 20px;
   }
 }
 
 .favorite_button:checked + label::before {
   background-image: url(../../image/check_star.svg);
   background-repeat: no-repeat;
+  background-size: 90%;
   @include netbook {
     min-width: 30px;
     min-height: 30px;
-    background-size: 90%;
+  }
+  @include mobile {
+    min-width: 20px;
+    min-height: 20px;
   }
 }
 
 .button_svg {
   display: flex;
-  margin-top: 10px;
   align-items: center;
   justify-content: right;
 }
@@ -146,6 +167,11 @@
     min-height: 26px;
     background-size: 90%;
   }
+  @include mobile {
+    min-width: 22px;
+    min-height: 16px;
+    margin-left: 5px;
+  }
 }
 .edit_button {
   min-width: 30px;
@@ -161,13 +187,17 @@
     min-height: 18px;
     background-size: 90%;
   }
+  @include mobile {
+    min-width: 15px;
+    min-height: 12px;
+  }
 }
 
 .viewing_page {
   width: 100%;
-  height: 56px;
-  margin-top: 15px;
-  font-size: 28px;
+  height: 50px;
+  margin-top: 5px;
+  font-size: 25px;
   background: $light_violet-color;
   border-radius: 15px;
   letter-spacing: 1px;
@@ -179,5 +209,10 @@
     height: 36px;
     font-size: 20px;
     border-radius: 10px;
+  }
+  @include mobile {
+    height: 20px;
+    font-size: 10px;
+    border-radius: 5px;
   }
 }

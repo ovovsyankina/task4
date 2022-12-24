@@ -3,13 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import useQuery from "../../hooks/useQuery";
 import { searchFilm } from "../../redux/reducer/filter/actions";
-import { dataSelector, favoriteDataSelector } from "../../redux/selectors";
+import {
+  dataSelector,
+  favoriteDataSelector,
+  filterDataSelector,
+} from "../../redux/selectors";
 import SearchFilter from "./SearchFilter";
 import { string } from "prop-types";
 
 const SearchFilterContainer = ({ page }) => {
   const data = useSelector(dataSelector);
   const favoriteData = useSelector(favoriteDataSelector);
+  const currentFilter = useSelector(filterDataSelector);
   const filter = useQuery().get("search");
   const [currentSearchText, setCurrentSearchText] = useState(filter || "");
   const dispatch = useDispatch();
@@ -19,7 +24,15 @@ const SearchFilterContainer = ({ page }) => {
     if (currentSearchText.length === 0) {
       dispatch(searchFilm(""));
     }
-  }, [dispatch, currentSearchText]);
+    // else if (currentSearchText.length !== 0) {
+    //   navigate(
+    //     page === "favorite"
+    //       ? `/films/favorite?search=${currentSearchText}`
+    //       : `/films?search=${currentSearchText}`
+    //   );
+    //   dispatch(searchFilm(currentSearchText));
+    // }
+  }, [dispatch, currentSearchText, navigate]);
 
   const handleSearchFilm = useCallback(() => {
     if (currentSearchText.trim().length > 0) {

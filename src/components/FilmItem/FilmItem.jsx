@@ -28,7 +28,7 @@ const FilmItem = ({
           <div className={styles.field_name_title}>{film.title}</div>
         </div>
         <div className={styles.fields_image}>
-          <p className={styles.field_name}>Обложка Фильма:</p>
+          <p className={styles.field_name}>Обложка фильма:</p>
           <img
             src={verifyUrlImage(film.image) ? film.image : defaultImageFilm}
             alt="Обложка фильма"
