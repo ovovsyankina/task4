@@ -13,7 +13,7 @@
       "image": "eee",
       "description": "266666ygv ",
       "yearRelease": 1999,
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 27
     },
     {
@@ -69,7 +69,7 @@
       "image": "",
       "description": "33",
       "yearRelease": 2004,
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 34
     }
   ]

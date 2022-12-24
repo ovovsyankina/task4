@@ -74,4 +74,7 @@
   background-image: url(../../image/quick_view_close.svg);
   background-repeat: no-repeat;
   background-color: $light_violet-color;
+  &:hover {
+    cursor: pointer;
+  }
 }

@@ -1,4 +1,5 @@
 @use "../../styles/color" as *;
+@use "../../styles/media" as *;
 
 .root {
   display: flex;
@@ -7,6 +8,12 @@
   margin-bottom: -50px;
   justify-content: center;
   flex-wrap: wrap;
+  @include screen {
+    height: 150px;
+  }
+  @include mobile {
+    height: 100px;
+  }
 }
 
 .search_bar {
@@ -14,11 +21,24 @@
   width: 1450px;
   height: 110px;
   margin-top: 50px;
-  padding-left: 45px;
+  padding: 0 35px 0 45px;
   font-size: 30px;
+  justify-content: center;
+  align-items: center;
   background-color: $white-color;
   border: 2px solid $white-color;
   border-radius: 10px;
+  @include screen {
+    width: 80%;
+    height: 80px;
+    margin-top: 20px;
+    font-size: 25px;
+  }
+  @include mobile {
+    height: 50px;
+    padding: 0 5px 0 5px;
+    font-size: 15px;
+  }
 }
 .search_input {
   all: unset;
@@ -33,7 +53,6 @@
 .search_button {
   width: 200px;
   height: 60px;
-  margin: 25px 15px;
   font-size: 38px;
   background-color: $light_pink-color;
   border: 2px solid $light_pink-color;
@@ -41,18 +60,52 @@
   &:hover {
     cursor: pointer;
   }
+  @include screen {
+    width: 150px;
+    height: 40px;
+    font-size: 25px;
+  }
+  @include mobile {
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 5px;
+  }
 }
 .search_input_clear {
   min-width: 29px;
   min-height: 29px;
-  margin: 41px 20px;
+  margin-right: 20px;
+  justify-items: center;
+  align-content: center;
   background-image: url(../../image/clear_input.svg);
   background-repeat: no-repeat;
   background-color: $white-color;
   &:hover {
     cursor: pointer;
   }
+  @include screen {
+    min-width: 20px;
+    min-height: 20px;
+    background-size: 90%;
+  }
+  @include mobile {
+    min-width: 15px;
+    min-height: 15px;
+    margin-right: 10px;
+    background-size: 80%;
+  }
 }
 .searsh_result {
   font-size: 30px;
+  @include screen {
+    font-size: 20px;
+  }
+  @include netbook {
+    font-size: 15px;
+  }
+  @include mobile {
+    font-size: 8px;
+    height: 10px;
+  }
 }

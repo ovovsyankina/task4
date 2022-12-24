@@ -11,7 +11,7 @@ const Header = ({ counter }) => {
           <Link to={`/films/`}>Домашняя страница</Link>
         </div>
         <div className={styles.favorite_link}>
-          <Link to={`/films/favorite`}>Избранное</Link>{" "}
+          <Link to={`/films/favorite`}>Избранное</Link>
           <div className={styles.favorite_counter_circle}>{counter}</div>
         </div>
       </div>
