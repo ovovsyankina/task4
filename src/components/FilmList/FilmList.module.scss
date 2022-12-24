@@ -8,6 +8,9 @@
   justify-content: space-between;
   grid-gap: 1px;
   @include screen {
+    grid-template-columns: repeat(auto-fill, 390px);
+  }
+  @include netbook {
     grid-template-columns: repeat(auto-fill, 350px);
   }
   @include tablet {
@@ -34,6 +37,9 @@
   );
   border-radius: 15px;
   @include screen {
+    width: 390px;
+  }
+  @include netbook {
     width: 350px;
     height: 500px;
   }

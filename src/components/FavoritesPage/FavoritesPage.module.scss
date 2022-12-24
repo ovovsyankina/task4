@@ -23,4 +23,7 @@
   @include screen {
     width: 80%;
   }
+  @include mobile {
+    margin-top: 30px;
+  }
 }

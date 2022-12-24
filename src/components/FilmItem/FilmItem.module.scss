@@ -15,15 +15,20 @@
   );
   border-radius: 15px;
   @include screen {
+    width: 390px;
+  }
+  @include netbook {
     width: 350px;
     height: 500px;
     padding: 15px 25px;
   }
   @include tablet {
     width: 450px;
+    height: 500px;
   }
   @include mobile {
     width: 300px;
+
     margin-top: 25px;
   }
 }
