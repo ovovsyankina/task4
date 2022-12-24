@@ -21,9 +21,9 @@
   width: 1650px;
   margin: 0 auto;
   @include screen {
-    width: 80%;
+    width: 85%;
   }
   @include mobile {
-    margin-top: 30px;
+    width: 80%;
   }
 }

@@ -28,9 +28,9 @@
 
 .modal_content {
   display: flex;
-  width: 1000px;
-  height: 1000px;
-  padding: 50px 100px 70px 100px;
+  width: 800px;
+  height: 800px;
+  padding: 30px 50px;
   flex-direction: column;
 }
 
@@ -44,7 +44,7 @@ input::-webkit-inner-spin-button {
   display: none;
 }
 .error_message {
-  margin: 10px 0 0 20px;
+  margin: 5px 0 0 20px;
   font-size: 17px;
   color: red;
 }
@@ -55,11 +55,14 @@ input::-webkit-inner-spin-button {
   justify-content: right;
 }
 .quick_view_close_button {
-  min-width: 30px;
-  min-height: 33px;
-  margin: 0 -50px -30px 0;
+  min-width: 25px;
+  min-height: 28px;
+  width: 25px;
+  height: 28px;
+  margin: 0 -20px -50px 0;
   background-image: url(../../image/quick_view_close.svg);
   background-repeat: no-repeat;
+  background-size: 100%;
   background-color: $light_violet-color;
   &:hover {
     cursor: pointer;
@@ -67,28 +70,28 @@ input::-webkit-inner-spin-button {
 }
 .field_content {
   width: 100%;
-  height: 140px;
-  margin-top: 20px;
+  height: 120px;
+  margin-top: 15px;
 }
 .field_content_description {
   width: 100%;
-  height: 285px;
-  margin-top: 20px;
+  height: 265px;
+  margin-top: 10px;
 }
 .field_name {
-  font-size: 35px;
+  font-size: 25px;
   line-height: 39px;
 }
 
 ::placeholder {
-  font-size: 20px;
-  opacity: 0.5;
+  font-size: 16px;
+  opacity: 0.4;
 }
 .field_name_description {
   width: 100%;
-  height: 200px;
-  padding: 20px;
-  margin-top: 20px;
+  height: 190px;
+  padding: 15px;
+  margin-top: 5px;
   font-size: 20px;
 
   background-color: $white-color;
@@ -99,10 +102,10 @@ input::-webkit-inner-spin-button {
 }
 .field_name_yearRelease_title_image {
   width: 100%;
-  height: 60px;
-  padding: 0 20px;
-  margin-top: 20px;
-  font-size: 20px;
+  height: 50px;
+  padding: 0 15px;
+  margin-top: 5px;
+  font-size: 16px;
   background-color: $white-color;
   border-radius: 15px;
   &:hover {
@@ -114,7 +117,7 @@ input::-webkit-inner-spin-button {
   width: 100%;
   height: 70px;
   margin: auto 0 0 0;
-  font-size: 35px;
+  font-size: 25px;
   font-weight: 600;
   line-height: 45px;
   border-radius: 15px;
@@ -126,7 +129,7 @@ input::-webkit-inner-spin-button {
 .save_button {
   width: 350px;
   height: 70px;
-  font-size: 35px;
+  font-size: 25px;
   font-weight: 600;
   line-height: 45px;
   border-radius: 15px;
@@ -139,7 +142,7 @@ input::-webkit-inner-spin-button {
   width: 350px;
   height: 70px;
 
-  font-size: 35px;
+  font-size: 25px;
   font-weight: 600;
   line-height: 45px;
   border-radius: 15px;
