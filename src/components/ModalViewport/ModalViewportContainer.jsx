@@ -1,15 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import ModalViewport from "./ModalViewport";
 import { object, func, bool } from "prop-types";
+import { useDispatch } from "react-redux";
+import { getCurrentData } from "../../redux/reducer/currentData/actions";
 
 const ModalViewportContainer = ({
   currentData,
   setModalViewportOpen,
   isModalViewportOpen,
 }) => {
-  const handleModalWindowOff = () => {
+  const dispatch = useDispatch();
+
+  const handleModalWindowOff = useCallback(() => {
     setModalViewportOpen(false);
-  };
+    dispatch(getCurrentData(""));
+  }, [dispatch, setModalViewportOpen]);
+
   useEffect(() => {
     if (isModalViewportOpen === true) {
       document.body.style.position = "fixed";
@@ -19,6 +25,7 @@ const ModalViewportContainer = ({
       document.body.style.top = "";
     }
   }, [isModalViewportOpen]);
+
   return (
     <ModalViewport
       currentData={currentData}

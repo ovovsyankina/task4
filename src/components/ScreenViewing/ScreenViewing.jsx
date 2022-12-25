@@ -9,7 +9,8 @@ const ScreenViewing = ({ currentData, onCloseScreenViewing }) => {
     <div className={styles.root}>
       <div className={styles.film_container}>
         <div className={styles.header_info_film}>
-          Информация о фильме &laquo;{currentData.title}&raquo;
+          Информация о фильме:
+          <div>&laquo;{currentData.title}&raquo;</div>
         </div>
         <div className={styles.film_contents_fields}>
           <div className={styles.field_image_container}>

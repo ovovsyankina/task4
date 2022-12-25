@@ -8,7 +8,7 @@
   justify-content: space-between;
   grid-gap: 1px;
   @include netbook {
-    grid-template-columns: repeat(auto-fill, 270px);
+    grid-template-columns: repeat(auto-fill, 290px);
   }
   @include tablet {
     grid-template-columns: repeat(auto-fill, 300px);
@@ -35,7 +35,7 @@
   );
   border-radius: 15px;
   @include netbook {
-    width: 270px;
+    width: 290px;
     height: 500px;
   }
 
@@ -45,6 +45,7 @@
   @include mobile {
     width: 90%;
     height: 120px;
+    margin-top: 30px;
   }
 }
 

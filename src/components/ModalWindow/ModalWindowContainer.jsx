@@ -7,6 +7,7 @@ import {
 } from "../../redux/reducer/data/actions";
 import ModalWindow from "./ModalWindow";
 import { object, func, bool, string } from "prop-types";
+import { getCurrentData } from "../../redux/reducer/currentData/actions";
 const ModalWindowContainer = ({
   isModalAddEditOpen,
   modalType,
@@ -35,6 +36,7 @@ const ModalWindowContainer = ({
     dispatch(deleteDataItem(currentData.id));
 
     onModalAddEditClose();
+    dispatch(getCurrentData(""));
   }, [dispatch, onModalAddEditClose, currentData.id]);
 
   const handleEditDataItem = useCallback(
@@ -53,6 +55,7 @@ const ModalWindowContainer = ({
       );
 
       onModalAddEditClose();
+      dispatch(getCurrentData(""));
     },
     [dispatch, onModalAddEditClose, currentData]
   );

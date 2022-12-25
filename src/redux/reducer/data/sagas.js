@@ -46,7 +46,7 @@ function* getFavoriteFilmsCount() {
     const response = yield call(getFavoriteFilmsCountApi, {});
     yield put(
       favoriteFilmsCountSuccess(
-        response && response.length > 0 ? response.length : ""
+        response && response.length > 0 ? response.length : "0"
       )
     );
   } catch (err) {

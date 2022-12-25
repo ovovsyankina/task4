@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { clearCurrentData } from "../../redux/reducer/currentData/actions";
-import { favoriteFilmsCount } from "../../redux/reducer/data/actions";
+import { getCurrentData } from "../../redux/reducer/currentData/actions";
 import { currentDataSelector } from "../../redux/selectors";
 import App from "./App";
 const AppContainer = () => {
   const currentData = useSelector(currentDataSelector);
   const dispatch = useDispatch();
+
   const [isModalViewportOpen, setModalViewportOpen] = useState(false);
   const [isModalAddEditOpen, setModalAddEditOpen] = useState(false);
   const [modalType, setModalType] = useState("add");
@@ -19,13 +19,10 @@ const AppContainer = () => {
     setModalType("edit");
   };
   const handleModalAddEditClose = () => {
-    dispatch(clearCurrentData);
+    dispatch(getCurrentData(""));
     setModalAddEditOpen(false);
   };
 
-  useEffect(() => {
-    dispatch(favoriteFilmsCount());
-  }, [dispatch]);
   return (
     <App
       currentData={currentData}

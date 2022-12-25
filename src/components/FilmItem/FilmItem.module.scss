@@ -15,7 +15,7 @@
   );
   border-radius: 15px;
   @include netbook {
-    width: 270px;
+    width: 290px;
     height: 500px;
     padding: 15px 25px;
   }
@@ -153,43 +153,35 @@
   justify-content: right;
 }
 .quick_view_button {
-  min-width: 39px;
-  min-height: 35px;
+  width: 39px;
+  height: 35px;
   margin-left: 10px;
-  background-image: url(../../image/quick_view.svg);
-  background-repeat: no-repeat;
-  background-color: $light_pink-color;
   &:hover {
     cursor: pointer;
   }
   @include netbook {
-    min-width: 30px;
-    min-height: 26px;
-    background-size: 90%;
+    width: 30px;
+    height: 26px;
   }
   @include mobile {
-    min-width: 22px;
-    min-height: 16px;
+    width: 22px;
+    height: 16px;
     margin-left: 5px;
   }
 }
 .edit_button {
-  min-width: 30px;
-  min-height: 27px;
-  background-image: url(../../image/edit.svg);
-  background-repeat: no-repeat;
-  background-color: $light_pink-color;
+  width: 30px;
+  height: 27px;
   &:hover {
     cursor: pointer;
   }
   @include netbook {
-    min-width: 21px;
-    min-height: 18px;
-    background-size: 90%;
+    width: 21px;
+    height: 18px;
   }
   @include mobile {
-    min-width: 15px;
-    min-height: 12px;
+    width: 15px;
+    height: 12px;
   }
 }
 
