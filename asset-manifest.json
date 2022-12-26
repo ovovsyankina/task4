@@ -1,9 +1,8 @@
 {
   "files": {
     "main.css": "/task4/static/css/main.fb851466.css",
-    "main.js": "/task4/static/js/main.2fafefcd.js",
+    "main.js": "/task4/static/js/main.8afea7c3.js",
     "static/media/PTM55FT.ttf": "/task4/static/media/PTM55FT.de7e65d8faa27aeb4000.ttf",
-    "static/media/defaultImageFilm.jpeg": "/task4/static/media/defaultImageFilm.619e539a1e393934c24b.jpeg",
     "static/media/quick_view.svg": "/task4/static/media/quick_view.557b3c66fab6a00af14a2b22f9918605.svg",
     "index.html": "/task4/index.html",
     "static/media/edit.svg": "/task4/static/media/edit.c28e906dedf0df212fd3b4ded59ba0b3.svg",
@@ -13,10 +12,10 @@
     "static/media/clear_input.svg": "/task4/static/media/clear_input.34feea3d6d0eb5104d8d.svg",
     "static/media/plus.svg": "/task4/static/media/plus.753a0e48775522dd3937.svg",
     "main.fb851466.css.map": "/task4/static/css/main.fb851466.css.map",
-    "main.2fafefcd.js.map": "/task4/static/js/main.2fafefcd.js.map"
+    "main.8afea7c3.js.map": "/task4/static/js/main.8afea7c3.js.map"
   },
   "entrypoints": [
     "static/css/main.fb851466.css",
-    "static/js/main.2fafefcd.js"
+    "static/js/main.8afea7c3.js"
   ]
 }
