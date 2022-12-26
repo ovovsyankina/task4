@@ -19,7 +19,7 @@ const App = ({
   onModalAddEditClose,
 }) => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/task4">
       <HeaderContainer />
       <Routes>
         <Route
