@@ -15,16 +15,16 @@ const FilmItemContainer = ({
   isFavoritePage,
 }) => {
   const dispatch = useDispatch();
+
   const handleViewportDataFilm = useCallback(
     (e) => {
       e.preventDefault();
       dispatch(getCurrentData(film.id));
-
       setModalViewportOpen(true);
     },
-
     [dispatch, film, setModalViewportOpen]
   );
+
   const handleCurrentDataFilm = useCallback(
     (e) => {
       e.preventDefault();
@@ -33,6 +33,7 @@ const FilmItemContainer = ({
     },
     [dispatch, film, onModalEditOpen]
   );
+
   const handleFavoriteFilm = useCallback(() => {
     dispatch(
       putEditDataItem({

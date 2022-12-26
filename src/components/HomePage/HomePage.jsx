@@ -1,8 +1,9 @@
-import { func, string } from "prop-types";
 import React from "react";
+import { func, string } from "prop-types";
 import FilmListContainer from "../FilmList/FilmListContainer";
 import SearchFilterContainer from "../SearchFilter/SearchFilterContainer";
 import styles from "./HomePage.module.scss";
+
 const HomePage = ({
   onModalAddOpen,
   setModalViewportOpen,
@@ -32,4 +33,5 @@ HomePage.propTypes = {
   onModalEditOpen: func,
   page: string,
 };
+
 export default HomePage;

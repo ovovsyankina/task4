@@ -20,15 +20,19 @@
   display: flex;
   width: 1650px;
   margin: 0 auto;
+
   @include screen {
     width: 85%;
   }
+
   @include netbook {
     width: 80%;
   }
+
   @include tablet {
     width: 85%;
   }
+
   @include small_netbook {
     width: 90%;
   }

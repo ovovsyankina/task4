@@ -53,6 +53,7 @@ function* getFavoriteFilmsCount() {
     yield console.error(err);
   }
 }
+
 function* postFilm({ payload }) {
   try {
     const response = yield call(postFilmApi, payload);

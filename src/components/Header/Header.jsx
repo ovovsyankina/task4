@@ -3,6 +3,7 @@ import { number } from "prop-types";
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.scss";
+
 const Header = ({ counter, isFavorites }) => {
   return (
     <div className={styles.root}>
@@ -33,4 +34,5 @@ const Header = ({ counter, isFavorites }) => {
 Header.propTypes = {
   counter: number,
 };
+
 export default Header;

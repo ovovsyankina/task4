@@ -1,9 +1,10 @@
-import { func } from "prop-types";
 import React, { useEffect } from "react";
+import { func } from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import { getData, getFavoriteData } from "../../redux/reducer/data/actions";
 import { filterDataSelector } from "../../redux/selectors";
 import HomePage from "./HomePage";
+
 const HomePageContainer = ({
   onModalAddOpen,
   setModalViewportOpen,
@@ -33,4 +34,5 @@ HomePageContainer.propTypes = {
   setModalViewportOpen: func,
   onModalEditOpen: func,
 };
+
 export default HomePageContainer;

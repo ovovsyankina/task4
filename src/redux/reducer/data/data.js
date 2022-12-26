@@ -19,6 +19,7 @@ const defaultState = {
   favoriteData: [],
   favoriteCount: 0,
 };
+
 const data = (state = defaultState, { type, payload }) => {
   switch (type) {
     case ADD_DATA:
@@ -70,6 +71,7 @@ const data = (state = defaultState, { type, payload }) => {
         favoriteData: [...state.favoriteData],
         favoriteCount: state.favoriteCount,
       };
+
     case GET_DATA_FAVORITE:
       return state;
 
@@ -103,6 +105,7 @@ const data = (state = defaultState, { type, payload }) => {
 
     case FAVORITE_FILM_COUNT:
       return state;
+
     case FAVORITE_FILM_COUNT_SUCCESS:
       return {
         data: [...state.data],
@@ -114,4 +117,5 @@ const data = (state = defaultState, { type, payload }) => {
       return state;
   }
 };
+
 export default data;

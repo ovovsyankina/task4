@@ -6,6 +6,7 @@ import { verifyUrlImage } from "../../utils";
 import defaultImageFilm from "../../utils/defaultImageFilm.jpeg";
 import quick_view_icon from "../../image/quick_view.svg";
 import edit_icon from "../../image/edit.svg";
+
 const FilmItem = ({
   film,
   onViewportDataFilm,
@@ -58,6 +59,7 @@ const FilmItem = ({
     </div>
   );
 };
+
 FilmItem.propTypes = {
   film: object,
   onViewportDataFilm: func,

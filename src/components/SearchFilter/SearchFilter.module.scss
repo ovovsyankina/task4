@@ -12,6 +12,7 @@
     height: 150px;
     margin-bottom: -30px;
   }
+
   @include mobile {
     height: 100px;
   }
@@ -29,23 +30,28 @@
   background-color: $white-color;
   border: 2px solid $white-color;
   border-radius: 10px;
+
   @include screen {
     width: 85%;
     margin-top: 30px;
     font-size: 25px;
   }
+
   @include netbook {
     width: 80%;
     height: 60px;
     font-size: 20px;
     padding: 0 15px 0 30px;
   }
+
   @include small_netbook {
     width: 90%;
   }
+
   @include tablet {
     width: 85%;
   }
+
   @include mobile {
     width: 80%;
     height: 30px;
@@ -62,10 +68,12 @@
   height: 100%;
   background-color: $white-color;
   border-radius: 10px;
+
   &:hover {
     cursor: pointer;
   }
 }
+
 .search_button {
   width: 150px;
   height: 50px;
@@ -73,17 +81,21 @@
   background-color: $light_pink-color;
   border: 2px solid $light_pink-color;
   border-radius: 10px;
+
   &:hover {
     cursor: pointer;
   }
+
   @include screen {
     height: 40px;
     font-size: 25px;
   }
+
   @include netbook {
     width: 100px;
     font-size: 20px;
   }
+
   @include mobile {
     width: 60px;
     height: 15px;
@@ -91,6 +103,7 @@
     border-radius: 2px;
   }
 }
+
 .search_input_clear {
   min-width: 24px;
   min-height: 24px;
@@ -103,36 +116,44 @@
   background-size: 90%;
   transition: 400ms;
   transform: scale(1);
+
   &:hover {
     cursor: pointer;
     transition: 400ms;
     transform: scale(1.1);
   }
+
   @include screen {
     min-width: 20px;
     min-height: 20px;
     background-size: 100%;
   }
+
   @include netbook {
     min-width: 16px;
     min-height: 16px;
     background-size: 100%;
     margin-right: 10px;
   }
+
   @include mobile {
     min-width: 8px;
     min-height: 8px;
     margin-right: 5px;
   }
 }
+
 .searsh_result {
   font-size: 30px;
+
   @include screen {
     font-size: 22px;
   }
+
   @include netbook {
     font-size: 18px;
   }
+
   @include mobile {
     font-size: 11px;
     height: 10px;

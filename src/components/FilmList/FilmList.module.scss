@@ -11,15 +11,18 @@
   @include netbook {
     grid-template-columns: repeat(auto-fill, 290px);
   }
+
   @include tablet {
     grid-template-columns: repeat(auto-fill, 300px);
   }
+
   @include mobile {
     justify-content: center;
     justify-items: center;
     grid-template-columns: repeat(auto-fill, 90%);
   }
 }
+
 .add_film {
   display: flex;
   width: 380px;
@@ -37,6 +40,7 @@
   border-radius: 15px;
   transition: 800ms;
   transform: scale(1);
+
   &:hover {
     transition: 800ms;
     transform: scale(1.05);
@@ -50,6 +54,7 @@
   @include tablet {
     width: 300px;
   }
+
   @include mobile {
     width: 90%;
     height: 120px;
@@ -62,13 +67,16 @@
   height: 150px;
   background-color: $white-color;
   border-radius: 50%;
+
   &:hover {
     cursor: pointer;
   }
+
   @include netbook {
     width: 100px;
     height: 100px;
   }
+
   @include mobile {
     width: 60px;
     height: 60px;
@@ -86,16 +94,19 @@
   background-size: 100%;
   transition: 600ms;
   transform: scale(1);
+
   &:hover {
     transition: 600ms;
     transform: scale(1.2);
   }
+
   @include netbook {
     width: 50px;
     height: 50px;
     min-width: 50px;
     min-height: 50px;
   }
+
   @include mobile {
     width: 30px;
     height: 30px;

@@ -11,6 +11,7 @@ const ScreenViewingContainer = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { filmId } = useParams();
+
   useEffect(() => {
     dispatch(getCurrentData(filmId));
   }, [dispatch, filmId]);
@@ -26,4 +27,5 @@ const ScreenViewingContainer = () => {
     />
   );
 };
+
 export default ScreenViewingContainer;

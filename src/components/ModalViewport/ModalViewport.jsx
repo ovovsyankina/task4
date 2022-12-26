@@ -52,4 +52,5 @@ ModalViewport.propTypes = {
   isModalViewportOpen: bool,
   onModalWindowOff: func,
 };
+
 export default ModalViewport;

@@ -8,6 +8,7 @@ import {
 import ModalWindow from "./ModalWindow";
 import { object, func, bool, string } from "prop-types";
 import { getCurrentData } from "../../redux/reducer/currentData/actions";
+
 const ModalWindowContainer = ({
   isModalAddEditOpen,
   modalType,
@@ -32,9 +33,9 @@ const ModalWindowContainer = ({
     },
     [dispatch, onModalAddEditClose]
   );
+
   const handleDeleteDataItem = useCallback(() => {
     dispatch(deleteDataItem(currentData.id));
-
     onModalAddEditClose();
     dispatch(getCurrentData(""));
   }, [dispatch, onModalAddEditClose, currentData.id]);
@@ -59,6 +60,7 @@ const ModalWindowContainer = ({
     },
     [dispatch, onModalAddEditClose, currentData]
   );
+
   useEffect(() => {
     if (isModalAddEditOpen === true) {
       document.body.style.position = "fixed";
@@ -68,6 +70,7 @@ const ModalWindowContainer = ({
       document.body.style.top = "";
     }
   }, [isModalAddEditOpen]);
+
   return (
     <ModalWindow
       addNewDataFilm={addNewDataFilm}

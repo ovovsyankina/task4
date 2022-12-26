@@ -34,6 +34,7 @@ const ModalViewportContainer = ({
     />
   );
 };
+
 ModalViewportContainer.propTypes = {
   currentData: object,
   isModalViewportOpen: bool,

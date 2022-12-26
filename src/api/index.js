@@ -31,6 +31,7 @@ export const getFavoriteFilmsApi = (payload) => {
       throw new Error(err);
     });
 };
+
 export const getFavoriteFilmsCountApi = () => {
   return fetch(`
     ${apiUrl}${`?isFavorite=true`}`)
@@ -42,6 +43,7 @@ export const getFavoriteFilmsCountApi = () => {
       throw new Error(err);
     });
 };
+
 export const getCurrentFilmApi = (payload) => {
   return fetch(`${apiUrl}/${payload}`)
     .then((response) => {

@@ -3,12 +3,8 @@ import React from "react";
 import FilmListContainer from "../FilmList/FilmListContainer";
 import SearchFilterContainer from "../SearchFilter/SearchFilterContainer";
 import styles from "./FavoritesPage.module.scss";
-const FavoritesPage = ({
-  onModalAddOpen,
-  setModalViewportOpen,
-  onModalEditOpen,
-  page,
-}) => {
+
+const FavoritesPage = ({ setModalViewportOpen, onModalEditOpen, page }) => {
   return (
     <div className={styles.root}>
       <SearchFilterContainer page={page} />
@@ -27,9 +23,9 @@ const FavoritesPage = ({
 };
 
 FavoritesPage.propTypes = {
-  onModalAddOpen: func,
   setModalViewportOpen: func,
   onModalEditOpen: func,
   page: string,
 };
+
 export default FavoritesPage;

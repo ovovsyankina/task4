@@ -7,6 +7,7 @@ import FavoritesPageContainer from "../FavoritesPage/FavoritesPageContainer";
 import HomePageContainer from "../HomePage/HomePageContainer";
 import { object, func, string, bool } from "prop-types";
 import HeaderContainer from "../Header/HeaderContainer";
+
 const App = ({
   currentData,
   isModalViewportOpen,

@@ -1,5 +1,6 @@
 @use "../../styles/color" as *;
 @use "../../styles/media" as *;
+
 .root {
   display: flex;
   width: 100%;
@@ -18,15 +19,18 @@
   margin-top: 80px;
   flex-wrap: wrap;
   flex-direction: column;
+
   @include screen {
     width: 1250px;
     height: 720px;
     margin-top: 60px;
   }
+
   @include netbook {
     width: 90%;
     height: auto;
   }
+
   @include mobile {
     margin-top: 20px;
   }
@@ -37,13 +41,16 @@
   height: calc(100% - 56px);
   border-radius: 10px;
   object-fit: cover;
+
   @include screen {
     width: 350px;
   }
+
   @include mobile {
     width: 100%;
   }
 }
+
 .header_info_film {
   display: flex;
   font-weight: 600;
@@ -51,22 +58,27 @@
   line-height: 56px;
   justify-content: center;
   align-items: center;
+
   @include netbook {
     font-size: 35px;
   }
+
   @include tablet {
     font-size: 30px;
     flex-direction: column;
     line-height: 30px;
   }
+
   @include mobile {
     font-size: 20px;
   }
 }
+
 .film_contents_fields {
   display: flex;
   margin-top: 50px;
   flex-wrap: nowrap;
+
   @include mobile {
     flex-wrap: wrap;
     margin-top: 0;
@@ -76,28 +88,35 @@
 .field_name {
   font-size: 30px;
   line-height: 56px;
+
   @include screen {
     font-size: 25px;
   }
+
   @include tablet {
     font-size: 20px;
     line-height: 30px;
   }
+
   @include mobile {
     font-size: 16px;
   }
 }
+
 .film_contents {
   display: flex;
   width: 100%;
   margin-left: 120px;
   flex-direction: column;
+
   @include screen {
     margin-left: 70px;
   }
+
   @include tablet {
     margin-left: 40px;
   }
+
   @include mobile {
     margin-left: 0;
   }
@@ -107,51 +126,64 @@
   margin-left: 15px;
   font-size: 25px;
   line-height: 56px;
+
   @include screen {
     font-size: 20px;
   }
+
   @include tablet {
     font-size: 15px;
     margin-left: 0;
     line-height: 20px;
   }
+
   @include mobile {
     font-size: 12px;
   }
 }
+
 .field_name_yearRelease {
   display: flex;
   margin: auto 0 0 0;
   align-items: center;
 }
+
 .field_name_title {
   display: flex;
+
   @include tablet {
     flex-direction: column;
   }
 }
+
 .field_name_description {
   display: flex;
   margin-top: 25px;
   flex-direction: column;
+
   @include mobile {
     margin-top: 10px;
   }
 }
+
 .field_detailed_description {
   font-size: 25px;
   line-height: 56px;
+
   @include screen {
     font-size: 20px;
   }
+
   @include tablet {
     font-size: 15px;
     line-height: 20px;
   }
+
   @include mobile {
     font-size: 12px;
   }
 }
+
 .exit_viewing_button {
   display: flex;
   width: 100%;
@@ -163,17 +195,21 @@
   border: 3px solid $light_violet-color;
   border-radius: 10px;
   background-color: $light_pink-color;
+
   &:hover {
     cursor: pointer;
   }
+
   @include screen {
     height: 50px;
     font-size: 25px;
   }
+
   @include tablet {
     height: 40px;
     font-size: 20px;
   }
+
   @include mobile {
     height: 30px;
     margin-top: 10px;

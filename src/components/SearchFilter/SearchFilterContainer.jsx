@@ -14,11 +14,11 @@ const SearchFilterContainer = ({ page }) => {
   const [currentSearchText, setCurrentSearchText] = useState(filter || "");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   useEffect(() => {
     if (filter && filter.length !== 0) {
       dispatch(searchFilm(filter));
     }
-    console.log("filter", currentSearchText);
   }, [dispatch, filter, currentSearchText]);
 
   const handleSearchFilm = useCallback(() => {
@@ -34,19 +34,22 @@ const SearchFilterContainer = ({ page }) => {
       dispatch(searchFilm(filter));
     }
   }, [dispatch, navigate, page, currentSearchText, filter]);
+
   const handleSearchFilmEnter = (e) =>
     e.key === "Enter" ? handleSearchFilm() : "";
+
   const handleChangeFilter = (e) => {
     setCurrentSearchText(e.target.value);
   };
 
   const handleClearSearchInput = useCallback(() => {
     navigate(page === "favorite" ? `/films/favorite` : `/films`);
-
     setCurrentSearchText("");
     dispatch(searchFilm(""));
   }, [dispatch, navigate, page]);
+
   const handleChangeInput = (e) => setCurrentSearchText(e.target.value);
+
   return (
     <SearchFilter
       currentSearch={currentSearchText}
