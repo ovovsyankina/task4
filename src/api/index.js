@@ -1,4 +1,5 @@
-export const apiUrl = "http://localhost:3001/films";
+export const apiUrl =
+  "https://my-json-server.typicode.com/ovovsyankina/server-for-task4/films";
 
 export const getFilmsApi = (payload) => {
   return fetch(`

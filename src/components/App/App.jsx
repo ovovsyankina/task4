@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import SearchFilterContainer from "../SearchFilter/SearchFilterContainer";
 import ScreenViewingContainer from "../ScreenViewing/ScreenViewingContainer";
 import ModalWindowContainer from "../ModalWindow/ModalWindowContainer";
@@ -19,7 +19,7 @@ const App = ({
   onModalAddEditClose,
 }) => {
   return (
-    <BrowserRouter basename="/task4">
+    <HashRouter basename="/">
       <HeaderContainer />
       <Routes>
         <Route
@@ -66,7 +66,7 @@ const App = ({
         isModalViewportOpen={isModalViewportOpen}
         setModalViewportOpen={setModalViewportOpen}
       />
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
