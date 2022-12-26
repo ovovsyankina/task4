@@ -89,8 +89,13 @@ input::-webkit-inner-spin-button {
   background-repeat: no-repeat;
   background-size: 100%;
   background-color: $light_violet-color;
+  transition: 400ms;
+  transform: scale(1);
+
   &:hover {
     cursor: pointer;
+    transition: 400ms;
+    transform: scale(1.1);
   }
   @include tablet {
     min-width: 18px;

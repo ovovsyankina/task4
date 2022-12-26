@@ -164,8 +164,13 @@
   background-repeat: no-repeat;
   background-color: $light_violet-color;
   background-size: 100%;
+  transition: 400ms;
+  transform: scale(1);
+
   &:hover {
     cursor: pointer;
+    transition: 400ms;
+    transform: scale(1.1);
   }
   @include netbook {
     min-width: 20px;

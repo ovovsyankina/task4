@@ -7,6 +7,7 @@
   grid-template-columns: repeat(auto-fill, 380px);
   justify-content: space-between;
   grid-gap: 1px;
+
   @include netbook {
     grid-template-columns: repeat(auto-fill, 290px);
   }
@@ -34,6 +35,13 @@
     #fffbfe 100%
   );
   border-radius: 15px;
+  transition: 800ms;
+  transform: scale(1);
+  &:hover {
+    transition: 800ms;
+    transform: scale(1.05);
+  }
+
   @include netbook {
     width: 290px;
     height: 500px;
@@ -76,6 +84,12 @@
   background-image: url(../../image/plus.svg);
   background-repeat: no-repeat;
   background-size: 100%;
+  transition: 600ms;
+  transform: scale(1);
+  &:hover {
+    transition: 600ms;
+    transform: scale(1.2);
+  }
   @include netbook {
     width: 50px;
     height: 50px;

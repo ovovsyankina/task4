@@ -101,8 +101,12 @@
   background-repeat: no-repeat;
   background-color: $white-color;
   background-size: 90%;
+  transition: 400ms;
+  transform: scale(1);
   &:hover {
     cursor: pointer;
+    transition: 400ms;
+    transform: scale(1.1);
   }
   @include screen {
     min-width: 20px;

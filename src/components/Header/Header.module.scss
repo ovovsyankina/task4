@@ -73,8 +73,22 @@
   text-decoration: none;
   color: $black-color;
   margin: 0 30px;
+
   &:hover {
     cursor: pointer;
+
+    background: linear-gradient(
+      to top right,
+      rgb(59, 0, 38),
+      rgb(158, 0, 148) 50%,
+      rgb(218, 0, 152) 50%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 600ms linear;
   }
   @include mobile {
     margin: 0 10px;

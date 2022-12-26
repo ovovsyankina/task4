@@ -163,6 +163,9 @@
   border: 3px solid $light_violet-color;
   border-radius: 10px;
   background-color: $light_pink-color;
+  &:hover {
+    cursor: pointer;
+  }
   @include screen {
     height: 50px;
     font-size: 25px;
