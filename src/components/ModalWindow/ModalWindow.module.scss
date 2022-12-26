@@ -22,12 +22,8 @@
   justify-content: space-between;
   background-color: $light_violet-color;
   border: none;
-  border-radius: 15px;
+  border-radius: 10px;
   transform: translate(-50%, -50%);
-
-  @include netbook {
-    border-radius: 10px;
-  }
 
   @include small_mobile {
     border-radius: 5px;
@@ -36,16 +32,10 @@
 
 .modal_content {
   display: flex;
-  width: 800px;
-  height: 800px;
-  padding: 30px 50px;
+  width: 500px;
+  height: 500px;
+  padding: 20px 30px;
   flex-direction: column;
-
-  @include netbook {
-    width: 500px;
-    height: 500px;
-    padding: 20px 30px;
-  }
 
   @include small_mobile {
     width: 300px;
@@ -66,14 +56,9 @@ input::-webkit-inner-spin-button {
 }
 
 .error_message {
-  margin: 5px 0 0 20px;
-  font-size: 17px;
+  margin: 5px 0 0 10px;
+  font-size: 12px;
   color: $red-color;
-
-  @include netbook {
-    margin: 5px 0 0 10px;
-    font-size: 12px;
-  }
 
   @include small_mobile {
     font-size: 8px;
@@ -87,11 +72,11 @@ input::-webkit-inner-spin-button {
 }
 
 .quick_view_close_button {
-  min-width: 25px;
-  min-height: 28px;
-  width: 25px;
-  height: 28px;
-  margin: 0 -20px -50px 0;
+  min-width: 18px;
+  min-height: 21px;
+  width: 18px;
+  height: 21px;
+  margin: 0 -15px -50px 0;
   background-image: url(../../image/quick_view_close.svg);
   background-repeat: no-repeat;
   background-size: 100%;
@@ -105,14 +90,6 @@ input::-webkit-inner-spin-button {
     transform: scale(1.1);
   }
 
-  @include netbook {
-    min-width: 18px;
-    min-height: 21px;
-    width: 18px;
-    height: 21px;
-    margin: 0 -15px -50px 0;
-  }
-
   @include small_mobile {
     min-width: 10px;
     min-height: 13px;
@@ -124,13 +101,8 @@ input::-webkit-inner-spin-button {
 
 .field_content {
   width: 100%;
-  height: 120px;
-  margin-top: 15px;
-
-  @include netbook {
-    height: 80px;
-    margin-top: 10px;
-  }
+  height: 80px;
+  margin-top: 10px;
 
   @include small_mobile {
     height: 50px;
@@ -141,12 +113,8 @@ input::-webkit-inner-spin-button {
 
 .field_content_description {
   width: 100%;
-  height: 265px;
+  height: 155px;
   margin-top: 10px;
-
-  @include netbook {
-    height: 155px;
-  }
 
   @include small_mobile {
     height: 95px;
@@ -154,13 +122,8 @@ input::-webkit-inner-spin-button {
   }
 }
 .field_name {
-  font-size: 25px;
-  line-height: 39px;
-
-  @include netbook {
-    font-size: 15px;
-    line-height: 30px;
-  }
+  font-size: 15px;
+  line-height: 30px;
 
   @include small_mobile {
     font-size: 10px;
@@ -169,12 +132,8 @@ input::-webkit-inner-spin-button {
 }
 
 ::placeholder {
-  font-size: 16px;
+  font-size: 12px;
   opacity: 0.4;
-
-  @include netbook {
-    font-size: 12px;
-  }
 
   @include small_mobile {
     font-size: 8px;
@@ -183,22 +142,15 @@ input::-webkit-inner-spin-button {
 
 .field_name_description {
   width: 100%;
-  height: 190px;
-  padding: 15px;
+  height: 100px;
+  padding: 10px;
   margin-top: 5px;
-  font-size: 20px;
+  font-size: 12px;
   background-color: $white-color;
-  border-radius: 10px;
+  border-radius: 5px;
 
   &:hover {
     cursor: pointer;
-  }
-
-  @include netbook {
-    height: 100px;
-    padding: 10px;
-    font-size: 12px;
-    border-radius: 5px;
   }
 
   @include small_mobile {
@@ -211,22 +163,15 @@ input::-webkit-inner-spin-button {
 
 .field_name_yearRelease_title_image {
   width: 100%;
-  height: 50px;
-  padding: 0 15px;
+  height: 30px;
+  padding: 0 10px;
   margin-top: 5px;
-  font-size: 16px;
+  font-size: 12px;
   background-color: $white-color;
-  border-radius: 10px;
+  border-radius: 5px;
 
   &:hover {
     cursor: pointer;
-  }
-
-  @include netbook {
-    height: 30px;
-    padding: 0 10px;
-    font-size: 12px;
-    border-radius: 5px;
   }
 
   @include small_mobile {
@@ -238,23 +183,16 @@ input::-webkit-inner-spin-button {
 
 .add_button {
   width: 100%;
-  height: 55px;
+  height: 35px;
   margin: auto 0 0 0;
-  font-size: 25px;
+  font-size: 15px;
   font-weight: 600;
-  line-height: 45px;
-  border-radius: 10px;
+  line-height: 30px;
+  border-radius: 5px;
   background-color: $light_pink-color;
 
   &:hover {
     cursor: pointer;
-  }
-
-  @include netbook {
-    height: 35px;
-    font-size: 15px;
-    line-height: 30px;
-    border-radius: 5px;
   }
 
   @include small_mobile {
@@ -269,12 +207,8 @@ input::-webkit-inner-spin-button {
   width: 100%;
   margin: auto 0 0 0;
   justify-content: space-between;
-  grid-template-columns: repeat(auto-fill, 320px);
+  grid-template-columns: repeat(auto-fill, 200px);
   grid-gap: 1px;
-
-  @include netbook {
-    grid-template-columns: repeat(auto-fill, 200px);
-  }
 
   @include small_mobile {
     grid-template-columns: repeat(auto-fill, 120px);
@@ -283,24 +217,16 @@ input::-webkit-inner-spin-button {
 
 .save_button,
 .delete_button {
-  width: 320px;
-  height: 55px;
-  font-size: 25px;
+  width: 200px;
+  height: 25px;
+  font-size: 15px;
   font-weight: 600;
-  line-height: 45px;
-  border-radius: 10px;
+  line-height: 15px;
+  border-radius: 5px;
   background-color: $light_pink-color;
 
   &:hover {
     cursor: pointer;
-  }
-
-  @include netbook {
-    width: 200px;
-    height: 25px;
-    font-size: 15px;
-    line-height: 15px;
-    border-radius: 5px;
   }
 
   @include small_mobile {
