@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { object, func } from "prop-types";
 import styles from "./FilmItem.module.scss";
 import { verifyUrlImage } from "../../utils";
-import defaultImageFilm from "../../utils/defaultImageFilm.jpeg";
 import quick_view_icon from "../../image/quick_view.svg";
 import edit_icon from "../../image/edit.svg";
 
@@ -33,7 +32,11 @@ const FilmItem = ({
         <div className={styles.fields_image}>
           <p className={styles.field_name}>Обложка фильма:</p>
           <img
-            src={verifyUrlImage(film.image) ? film.image : defaultImageFilm}
+            src={
+              verifyUrlImage(film.image)
+                ? film.image
+                : process.env.PUBLIC_URL + "/defaultImageFilm.jpeg"
+            }
             alt="Обложка фильма"
             className={styles.field_name_image}
           />

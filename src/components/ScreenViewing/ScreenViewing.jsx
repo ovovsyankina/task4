@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./ScreenViewing.module.scss";
 import { object, func } from "prop-types";
 import { verifyUrlImage } from "../../utils";
-import defaultImageFilm from "../../utils/defaultImageFilm.jpeg";
 
 const ScreenViewing = ({ currentData, onCloseScreenViewing }) => {
   return (
@@ -19,7 +18,7 @@ const ScreenViewing = ({ currentData, onCloseScreenViewing }) => {
               src={
                 verifyUrlImage(currentData.image)
                   ? currentData.image
-                  : defaultImageFilm
+                  : process.env.PUBLIC_URL + "/defaultImageFilm.jpeg"
               }
               alt="film cover"
               className={styles.field_image}

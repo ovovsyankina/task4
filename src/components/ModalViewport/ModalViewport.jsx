@@ -2,7 +2,6 @@ import React from "react";
 import { object, func, bool } from "prop-types";
 import styles from "./ModalViewport.module.scss";
 import { verifyUrlImage } from "../../utils";
-import defaultImageFilm from "../../utils/defaultImageFilm.jpeg";
 
 const ModalViewport = ({
   currentData,
@@ -19,7 +18,7 @@ const ModalViewport = ({
                 src={
                   verifyUrlImage(currentData.image)
                     ? currentData.image
-                    : defaultImageFilm
+                    : process.env.PUBLIC_URL + "/defaultImageFilm.jpeg"
                 }
                 alt="Обложка фильма"
                 className={styles.field_image}
