@@ -25,7 +25,7 @@
   border-radius: 15px;
   transform: translate(-50%, -50%);
 
-  @include tablet {
+  @include netbook {
     border-radius: 10px;
   }
 
@@ -41,7 +41,7 @@
   padding: 30px 50px;
   flex-direction: column;
 
-  @include tablet {
+  @include netbook {
     width: 500px;
     height: 500px;
     padding: 20px 30px;
@@ -70,7 +70,7 @@ input::-webkit-inner-spin-button {
   font-size: 17px;
   color: $red-color;
 
-  @include tablet {
+  @include netbook {
     margin: 5px 0 0 10px;
     font-size: 12px;
   }
@@ -105,7 +105,7 @@ input::-webkit-inner-spin-button {
     transform: scale(1.1);
   }
 
-  @include tablet {
+  @include netbook {
     min-width: 18px;
     min-height: 21px;
     width: 18px;
@@ -127,7 +127,7 @@ input::-webkit-inner-spin-button {
   height: 120px;
   margin-top: 15px;
 
-  @include tablet {
+  @include netbook {
     height: 80px;
     margin-top: 10px;
   }
@@ -144,7 +144,7 @@ input::-webkit-inner-spin-button {
   height: 265px;
   margin-top: 10px;
 
-  @include tablet {
+  @include netbook {
     height: 155px;
   }
 
@@ -157,7 +157,7 @@ input::-webkit-inner-spin-button {
   font-size: 25px;
   line-height: 39px;
 
-  @include tablet {
+  @include netbook {
     font-size: 15px;
     line-height: 30px;
   }
@@ -172,7 +172,7 @@ input::-webkit-inner-spin-button {
   font-size: 16px;
   opacity: 0.4;
 
-  @include tablet {
+  @include netbook {
     font-size: 12px;
   }
 
@@ -194,7 +194,7 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
   }
 
-  @include tablet {
+  @include netbook {
     height: 100px;
     padding: 10px;
     font-size: 12px;
@@ -222,7 +222,7 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
   }
 
-  @include tablet {
+  @include netbook {
     height: 30px;
     padding: 0 10px;
     font-size: 12px;
@@ -250,7 +250,7 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
   }
 
-  @include tablet {
+  @include netbook {
     height: 35px;
     font-size: 15px;
     line-height: 30px;
@@ -272,7 +272,7 @@ input::-webkit-inner-spin-button {
   grid-template-columns: repeat(auto-fill, 320px);
   grid-gap: 1px;
 
-  @include tablet {
+  @include netbook {
     grid-template-columns: repeat(auto-fill, 200px);
   }
 
@@ -295,7 +295,7 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
   }
 
-  @include tablet {
+  @include netbook {
     width: 200px;
     height: 25px;
     font-size: 15px;
