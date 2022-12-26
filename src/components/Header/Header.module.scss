@@ -71,6 +71,7 @@
 
   @include tablet {
     justify-content: right;
+    margin-right: 15px;
   }
 
   @include mobile {
