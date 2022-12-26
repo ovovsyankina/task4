@@ -1,7 +1,9 @@
-import { func, string } from "prop-types";
 import React from "react";
+import { func, string } from "prop-types";
 import FilmListContainer from "../FilmList/FilmListContainer";
 import SearchFilterContainer from "../SearchFilter/SearchFilterContainer";
+import styles from "./HomePage.module.scss";
+
 const HomePage = ({
   onModalAddOpen,
   setModalViewportOpen,
@@ -9,14 +11,18 @@ const HomePage = ({
   page,
 }) => {
   return (
-    <div>
+    <div className={styles.root}>
       <SearchFilterContainer page={page} />
-      <button onClick={onModalAddOpen}>Добавить фильм</button>
-      <FilmListContainer
-        setModalViewportOpen={setModalViewportOpen}
-        onModalEditOpen={onModalEditOpen}
-        page={page}
-      />
+      <div className={styles.container_films}>
+        <div className={styles.all_films}>
+          <FilmListContainer
+            setModalViewportOpen={setModalViewportOpen}
+            onModalEditOpen={onModalEditOpen}
+            onModalAddOpen={onModalAddOpen}
+            page={page}
+          />
+        </div>
+      </div>
     </div>
   );
 };
@@ -27,4 +33,5 @@ HomePage.propTypes = {
   onModalEditOpen: func,
   page: string,
 };
+
 export default HomePage;

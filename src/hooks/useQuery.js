@@ -5,4 +5,5 @@ function useQuery() {
 
   return new URLSearchParams(search);
 }
+
 export default useQuery;

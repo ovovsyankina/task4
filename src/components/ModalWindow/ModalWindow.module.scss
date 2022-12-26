@@ -1,21 +1,312 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@use "../../styles/color" as *;
+@use "../../styles/media" as *;
+
+.root {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+.modal_window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $light_violet-color;
+  border: none;
+  border-radius: 15px;
+  transform: translate(-50%, -50%);
+
+  @include tablet {
+    border-radius: 10px;
+  }
+
+  @include small_mobile {
+    border-radius: 5px;
+  }
 }
 
 .modal_content {
   display: flex;
-  width: 170px;
+  width: 800px;
+  height: 800px;
+  padding: 30px 50px;
   flex-direction: column;
-  align-content: stretch;
-  justify-content: space-evenly;
-  align-items: stretch;
+
+  @include tablet {
+    width: 500px;
+    height: 500px;
+    padding: 20px 30px;
+  }
+
+  @include small_mobile {
+    width: 300px;
+    height: 300px;
+    padding: 10px 15px;
+  }
 }
+
+.window_fill {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   display: none;
 }
+
 .error_message {
-  color: red;
+  margin: 5px 0 0 20px;
+  font-size: 17px;
+  color: $red-color;
+
+  @include tablet {
+    margin: 5px 0 0 10px;
+    font-size: 12px;
+  }
+
+  @include small_mobile {
+    font-size: 8px;
+    margin: 0 0 0 5px;
+  }
+}
+.quick_view_close {
+  display: flex;
+  width: 100%;
+  justify-content: right;
+}
+
+.quick_view_close_button {
+  min-width: 25px;
+  min-height: 28px;
+  width: 25px;
+  height: 28px;
+  margin: 0 -20px -50px 0;
+  background-image: url(../../image/quick_view_close.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: $light_violet-color;
+  transition: 400ms;
+  transform: scale(1);
+
+  &:hover {
+    cursor: pointer;
+    transition: 400ms;
+    transform: scale(1.1);
+  }
+
+  @include tablet {
+    min-width: 18px;
+    min-height: 21px;
+    width: 18px;
+    height: 21px;
+    margin: 0 -15px -50px 0;
+  }
+
+  @include small_mobile {
+    min-width: 10px;
+    min-height: 13px;
+    width: 10px;
+    height: 13px;
+    margin: 0 -5px -100px 0;
+  }
+}
+
+.field_content {
+  width: 100%;
+  height: 120px;
+  margin-top: 15px;
+
+  @include tablet {
+    height: 80px;
+    margin-top: 10px;
+  }
+
+  @include small_mobile {
+    height: 50px;
+    margin-top: 5px;
+    line-height: 15px;
+  }
+}
+
+.field_content_description {
+  width: 100%;
+  height: 265px;
+  margin-top: 10px;
+
+  @include tablet {
+    height: 155px;
+  }
+
+  @include small_mobile {
+    height: 95px;
+    margin-top: 5px;
+  }
+}
+.field_name {
+  font-size: 25px;
+  line-height: 39px;
+
+  @include tablet {
+    font-size: 15px;
+    line-height: 30px;
+  }
+
+  @include small_mobile {
+    font-size: 10px;
+    line-height: 15px;
+  }
+}
+
+::placeholder {
+  font-size: 16px;
+  opacity: 0.4;
+
+  @include tablet {
+    font-size: 12px;
+  }
+
+  @include small_mobile {
+    font-size: 8px;
+  }
+}
+
+.field_name_description {
+  width: 100%;
+  height: 190px;
+  padding: 15px;
+  margin-top: 5px;
+  font-size: 20px;
+  background-color: $white-color;
+  border-radius: 10px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  @include tablet {
+    height: 100px;
+    padding: 10px;
+    font-size: 12px;
+    border-radius: 5px;
+  }
+
+  @include small_mobile {
+    height: 60px;
+    padding: 5px;
+    font-size: 8px;
+    line-height: 8px;
+  }
+}
+
+.field_name_yearRelease_title_image {
+  width: 100%;
+  height: 50px;
+  padding: 0 15px;
+  margin-top: 5px;
+  font-size: 16px;
+  background-color: $white-color;
+  border-radius: 10px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  @include tablet {
+    height: 30px;
+    padding: 0 10px;
+    font-size: 12px;
+    border-radius: 5px;
+  }
+
+  @include small_mobile {
+    height: 15px;
+    padding: 0 5px;
+    font-size: 8px;
+  }
+}
+
+.add_button {
+  width: 100%;
+  height: 55px;
+  margin: auto 0 0 0;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 45px;
+  border-radius: 10px;
+  background-color: $light_pink-color;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  @include tablet {
+    height: 35px;
+    font-size: 15px;
+    line-height: 30px;
+    border-radius: 5px;
+  }
+
+  @include small_mobile {
+    height: 20px;
+    font-size: 12px;
+    line-height: 10px;
+  }
+}
+
+.form_button {
+  display: grid;
+  width: 100%;
+  margin: auto 0 0 0;
+  justify-content: space-between;
+  grid-template-columns: repeat(auto-fill, 320px);
+  grid-gap: 1px;
+
+  @include tablet {
+    grid-template-columns: repeat(auto-fill, 200px);
+  }
+
+  @include small_mobile {
+    grid-template-columns: repeat(auto-fill, 120px);
+  }
+}
+
+.save_button,
+.delete_button {
+  width: 320px;
+  height: 55px;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 45px;
+  border-radius: 10px;
+  background-color: $light_pink-color;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  @include tablet {
+    width: 200px;
+    height: 25px;
+    font-size: 15px;
+    line-height: 15px;
+    border-radius: 5px;
+  }
+
+  @include small_mobile {
+    width: 120px;
+    height: 20px;
+    font-size: 12px;
+    line-height: 10px;
+  }
 }

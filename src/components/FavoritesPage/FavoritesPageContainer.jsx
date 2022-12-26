@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getFavoriteData } from "../../redux/reducer/data/actions";
 import { filterDataSelector } from "../../redux/selectors";
 import FavoritesPage from "./FavoritesPage";
+
 const FavoritesPageContainer = ({
   onModalAddOpen,
   setModalViewportOpen,
@@ -13,11 +14,13 @@ const FavoritesPageContainer = ({
   const filter = useSelector(filterDataSelector);
   const dispatch = useDispatch();
   const page = "favorite";
+
   useEffect(() => {
     if (page === "favorite") {
       dispatch(getFavoriteData({ search: filter }));
     }
   }, [dispatch, filter, page]);
+
   return (
     <FavoritesPage
       onModalAddOpen={onModalAddOpen}
@@ -33,4 +36,5 @@ FavoritesPageContainer.propTypes = {
   setModalViewportOpen: func,
   onModalEditOpen: func,
 };
+
 export default FavoritesPageContainer;

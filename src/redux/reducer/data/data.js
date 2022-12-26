@@ -10,7 +10,6 @@ import {
   GET_DATA_FAVORITE_SUCCESS,
   GET_DATA_FAVORITE,
   FILTERED_FAVORITE_FILM,
-  ADD_TO_FAVORITE_DATA,
   FAVORITE_FILM_COUNT,
   FAVORITE_FILM_COUNT_SUCCESS,
 } from "./constants";
@@ -20,6 +19,7 @@ const defaultState = {
   favoriteData: [],
   favoriteCount: 0,
 };
+
 const data = (state = defaultState, { type, payload }) => {
   switch (type) {
     case ADD_DATA:
@@ -71,6 +71,7 @@ const data = (state = defaultState, { type, payload }) => {
         favoriteData: [...state.favoriteData],
         favoriteCount: state.favoriteCount,
       };
+
     case GET_DATA_FAVORITE:
       return state;
 
@@ -101,15 +102,10 @@ const data = (state = defaultState, { type, payload }) => {
         ),
         favoriteCount: state.favoriteCount,
       };
-    case ADD_TO_FAVORITE_DATA:
-      return {
-        data: [...state.data],
-        favoriteData: [...state.favoriteData, payload],
-        favoriteCount: state.favoriteCount,
-      };
 
     case FAVORITE_FILM_COUNT:
       return state;
+
     case FAVORITE_FILM_COUNT_SUCCESS:
       return {
         data: [...state.data],
@@ -121,4 +117,5 @@ const data = (state = defaultState, { type, payload }) => {
       return state;
   }
 };
+
 export default data;

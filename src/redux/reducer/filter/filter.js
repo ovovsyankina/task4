@@ -10,4 +10,5 @@ const filter = (state = defaultState, { type, searchValue }) => {
       return state;
   }
 };
+
 export default filter;

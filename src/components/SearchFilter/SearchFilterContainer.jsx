@@ -16,31 +16,40 @@ const SearchFilterContainer = ({ page }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (currentSearchText.length === 0) {
-      dispatch(searchFilm(""));
+    if (filter && filter.length !== 0) {
+      dispatch(searchFilm(filter));
     }
-  }, [dispatch, currentSearchText]);
+  }, [dispatch, filter, currentSearchText]);
 
   const handleSearchFilm = useCallback(() => {
-    navigate(
-      page === "favorite"
-        ? `/films/favorite?search=${currentSearchText}`
-        : `/films?search=${currentSearchText}`
-    );
-    dispatch(searchFilm(currentSearchText));
-  }, [dispatch, navigate, page, currentSearchText]);
+    if (currentSearchText.trim().length > 0) {
+      navigate(
+        page === "favorite"
+          ? `/films/favorite?search=${currentSearchText}`
+          : `/films?search=${currentSearchText}`
+      );
+      dispatch(searchFilm(currentSearchText));
+    } else {
+      setCurrentSearchText("");
+      dispatch(searchFilm(filter));
+    }
+  }, [dispatch, navigate, page, currentSearchText, filter]);
+
   const handleSearchFilmEnter = (e) =>
     e.key === "Enter" ? handleSearchFilm() : "";
+
   const handleChangeFilter = (e) => {
     setCurrentSearchText(e.target.value);
   };
+
   const handleClearSearchInput = useCallback(() => {
+    navigate(page === "favorite" ? `/films/favorite` : `/films`);
     setCurrentSearchText("");
     dispatch(searchFilm(""));
+  }, [dispatch, navigate, page]);
 
-    navigate(-1);
-  }, [dispatch, navigate]);
   const handleChangeInput = (e) => setCurrentSearchText(e.target.value);
+
   return (
     <SearchFilter
       currentSearch={currentSearchText}

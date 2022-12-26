@@ -9,7 +9,6 @@ import {
 } from "../../../api";
 import {
   addDataSuccess,
-  addToFavoriteFilm,
   deleteDataItemSuccess,
   favoriteFilmsCountSuccess,
   filteredFilm,
@@ -47,13 +46,14 @@ function* getFavoriteFilmsCount() {
     const response = yield call(getFavoriteFilmsCountApi, {});
     yield put(
       favoriteFilmsCountSuccess(
-        response && response.length > 0 ? response.length : ""
+        response && response.length > 0 ? response.length : "0"
       )
     );
   } catch (err) {
     yield console.error(err);
   }
 }
+
 function* postFilm({ payload }) {
   try {
     const response = yield call(postFilmApi, payload);
@@ -69,8 +69,6 @@ function* putFilm({ payload }) {
     yield put(putEditDataItemSuccess(response));
     if (response.isFavorite === false) {
       yield put(filteredFilm(response.id));
-    } else {
-      yield put(addToFavoriteFilm(response));
     }
   } catch (err) {
     yield console.error(err);

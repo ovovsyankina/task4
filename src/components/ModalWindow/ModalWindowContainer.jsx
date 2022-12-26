@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import {
   addData,
@@ -7,6 +7,8 @@ import {
 } from "../../redux/reducer/data/actions";
 import ModalWindow from "./ModalWindow";
 import { object, func, bool, string } from "prop-types";
+import { getCurrentData } from "../../redux/reducer/currentData/actions";
+
 const ModalWindowContainer = ({
   isModalAddEditOpen,
   modalType,
@@ -31,10 +33,11 @@ const ModalWindowContainer = ({
     },
     [dispatch, onModalAddEditClose]
   );
+
   const handleDeleteDataItem = useCallback(() => {
     dispatch(deleteDataItem(currentData.id));
-
     onModalAddEditClose();
+    dispatch(getCurrentData(""));
   }, [dispatch, onModalAddEditClose, currentData.id]);
 
   const handleEditDataItem = useCallback(
@@ -53,9 +56,20 @@ const ModalWindowContainer = ({
       );
 
       onModalAddEditClose();
+      dispatch(getCurrentData(""));
     },
     [dispatch, onModalAddEditClose, currentData]
   );
+
+  useEffect(() => {
+    if (isModalAddEditOpen === true) {
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${window.scrollY}px`;
+    } else {
+      document.body.style.position = "";
+      document.body.style.top = "";
+    }
+  }, [isModalAddEditOpen]);
 
   return (
     <ModalWindow

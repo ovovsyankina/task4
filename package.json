@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/classnames": "^2.3.1",
     "classnames": "^2.3.2",
+    "concurrently": "^7.6.0",
     "formik": "^2.2.9",
     "json-server": "^0.17.0",
     "node-sass": "^7.0.3",
@@ -24,6 +25,7 @@
     "redux": "^4.2.0",
     "redux-saga": "^1.2.1",
     "reselect": "^4.1.6",
+    "sass": "^1.56.1",
     "scss": "^0.2.4",
     "uploady": "^0.6.6",
     "web-vitals": "^2.1.4",
@@ -33,7 +35,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "json-server --watch db.json -p 3001",
+    "start-with-server": "concurrently \"npm run start\" \"npm run server\""
   },
   "eslintConfig": {
     "extends": [

@@ -1,0 +1,35 @@
+@use "./color.scss" as *;
+@font-face {
+  font-family: "PT_Mono";
+  src: url(./fonts/PTM55FT.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "PT_Mono";
+}
+
+input {
+  all: inherit;
+}
+
+textarea {
+  border: none;
+  overflow: auto;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  resize: none;
+}
+
+button {
+  outline: none;
+  border: none;
+}
+
+body {
+  width: 100%;
+}

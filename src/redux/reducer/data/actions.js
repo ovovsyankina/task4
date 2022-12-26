@@ -10,30 +10,35 @@ import {
   GET_DATA_FAVORITE_SUCCESS,
   GET_DATA_FAVORITE,
   FILTERED_FAVORITE_FILM,
-  ADD_TO_FAVORITE_DATA,
   FAVORITE_FILM_COUNT,
   FAVORITE_FILM_COUNT_SUCCESS,
 } from "./constants";
+
 export const addData = (payload) => ({
   type: ADD_DATA,
   payload,
 });
+
 export const addDataSuccess = (payload) => ({
   type: ADD_DATA_SUCCESS,
   payload,
 });
+
 export const deleteDataItem = (payload) => ({
   type: DELETE_DATA_ITEM,
   payload,
 });
+
 export const deleteDataItemSuccess = (payload) => ({
   type: DELETE_DATA_ITEM_SUCCESS,
   payload,
 });
+
 export const putEditDataItem = (payload) => ({
   type: PUT_EDIT_DATA_ITEM,
   payload,
 });
+
 export const putEditDataItemSuccess = (payload) => ({
   type: PUT_EDIT_DATA_ITEM_SUCCESS,
   payload,
@@ -58,17 +63,16 @@ export const getFavoriteDataSuccess = (payload) => ({
   type: GET_DATA_FAVORITE_SUCCESS,
   payload,
 });
+
 export const filteredFilm = (payload) => ({
   type: FILTERED_FAVORITE_FILM,
   payload,
 });
-export const addToFavoriteFilm = (payload) => ({
-  type: ADD_TO_FAVORITE_DATA,
-  payload,
-});
+
 export const favoriteFilmsCount = () => ({
   type: FAVORITE_FILM_COUNT,
 });
+
 export const favoriteFilmsCountSuccess = (payload) => ({
   type: FAVORITE_FILM_COUNT_SUCCESS,
   payload,

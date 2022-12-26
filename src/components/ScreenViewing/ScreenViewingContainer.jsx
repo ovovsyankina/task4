@@ -11,12 +11,14 @@ const ScreenViewingContainer = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { filmId } = useParams();
+
   useEffect(() => {
     dispatch(getCurrentData(filmId));
   }, [dispatch, filmId]);
   const handleCloseScreenViewing = useCallback(() => {
     navigate(-1);
-  }, [navigate]);
+    dispatch(getCurrentData(""));
+  }, [navigate, dispatch]);
 
   return (
     <ScreenViewing
@@ -25,4 +27,5 @@ const ScreenViewingContainer = () => {
     />
   );
 };
+
 export default ScreenViewingContainer;
