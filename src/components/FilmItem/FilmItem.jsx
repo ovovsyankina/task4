@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { object, func } from "prop-types";
 import styles from "./FilmItem.module.scss";
 import { verifyUrlImage } from "../../utils";
-import quick_view_icon from "../../image/quick_view.svg";
-import edit_icon from "../../image/edit.svg";
 
 const FilmItem = ({
   film,
@@ -43,20 +41,14 @@ const FilmItem = ({
         </div>
       </div>
       <div className={styles.button_svg}>
-        <img
-          src={edit_icon}
-          alt="edit_icon"
-          onClick={onCurrentDataFilm}
-          className={styles.edit_button}
-        />
-        <img
-          src={quick_view_icon}
+        <button onClick={onCurrentDataFilm} className={styles.edit_button} />
+        <button
           alt="quick_view_icon"
           onClick={onViewportDataFilm}
           className={styles.quick_view_button}
         />
       </div>
-      <Link to={`/films/${film.id}`}>
+      <Link to={`/${film.id}`}>
         <button className={styles.viewing_page}>Подробнее</button>
       </Link>
     </div>

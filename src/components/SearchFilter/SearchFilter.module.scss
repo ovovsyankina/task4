@@ -8,6 +8,7 @@
   margin-bottom: -50px;
   justify-content: center;
   flex-wrap: wrap;
+  background-color: $light_grey-color;
   @include screen {
     height: 150px;
     margin-bottom: -30px;
@@ -110,7 +111,7 @@
   margin-right: 20px;
   justify-items: center;
   align-content: center;
-  background-image: url(../../image/clear_input.svg);
+  background-image: url(../../../public/image/clear_input.svg);
   background-repeat: no-repeat;
   background-color: $white-color;
   background-size: 90%;

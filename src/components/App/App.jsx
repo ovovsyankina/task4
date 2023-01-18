@@ -21,9 +21,10 @@ const App = ({
   return (
     <HashRouter basename="/">
       <HeaderContainer />
+      <SearchFilterContainer />
       <Routes>
         <Route
-          path="/films"
+          path="/"
           element={
             <HomePageContainer
               onModalAddOpen={onModalAddOpen}
@@ -34,7 +35,7 @@ const App = ({
           exact
         />
         <Route
-          path="/films/favorite"
+          path="/favorite"
           element={
             <FavoritesPageContainer
               onModalAddOpen={onModalAddOpen}
@@ -45,15 +46,11 @@ const App = ({
           exact
         />
         <Route
-          path="/films?search=:filter"
+          path="?search=:filter"
           element={<SearchFilterContainer />}
           exact
         />
-        <Route
-          path="/films/:filmId"
-          element={<ScreenViewingContainer />}
-          exact
-        />
+        <Route path="/:filmId" element={<ScreenViewingContainer />} exact />
       </Routes>
       <ModalWindowContainer
         currentData={currentData}

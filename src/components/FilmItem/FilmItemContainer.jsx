@@ -12,7 +12,7 @@ const FilmItemContainer = ({
   film,
   setModalViewportOpen,
   onModalEditOpen,
-  isFavoritePage,
+  isHomePage,
 }) => {
   const dispatch = useDispatch();
 
@@ -45,11 +45,11 @@ const FilmItemContainer = ({
           isFavorite: !film.isFavorite,
         },
         id: film.id,
-        isFavoritePage: isFavoritePage,
+        isFavoritePage: !isHomePage,
       })
     );
     dispatch(favoriteFilmsCount());
-  }, [dispatch, film, isFavoritePage]);
+  }, [dispatch, film, isHomePage]);
 
   return (
     <FilmItem
@@ -66,7 +66,7 @@ FilmItemContainer.propTypes = {
   film: object,
   setModalViewportOpen: func,
   onModalEditOpen: func,
-  isFavoritePage: bool,
+  isHomePage: bool,
 };
 
 export default FilmItemContainer;

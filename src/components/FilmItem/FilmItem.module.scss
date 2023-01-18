@@ -146,7 +146,7 @@
   min-width: 42px;
   min-height: 42px;
   justify-content: right;
-  background-image: url(../../image/star.svg);
+  background-image: url(../../../public/image/star.svg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 90%;
@@ -163,7 +163,7 @@
 }
 
 .favorite_button:checked + label::before {
-  background-image: url(../../image/check_star.svg);
+  background-image: url(../../../public/image/check_star.svg);
   background-repeat: no-repeat;
   background-size: 90%;
 
@@ -188,7 +188,7 @@
   width: 39px;
   height: 35px;
   margin-left: 10px;
-
+  background-image: url(../../../public/image/quick_view.svg);
   &:hover {
     cursor: pointer;
   }
@@ -208,7 +208,7 @@
 .edit_button {
   width: 30px;
   height: 27px;
-
+  background-image: url(../../../public/image/edit.svg);
   &:hover {
     cursor: pointer;
   }

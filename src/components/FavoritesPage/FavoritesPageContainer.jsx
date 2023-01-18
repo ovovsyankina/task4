@@ -13,20 +13,16 @@ const FavoritesPageContainer = ({
 }) => {
   const filter = useSelector(filterDataSelector);
   const dispatch = useDispatch();
-  const page = "favorite";
 
   useEffect(() => {
-    if (page === "favorite") {
-      dispatch(getFavoriteData({ search: filter }));
-    }
-  }, [dispatch, filter, page]);
+    dispatch(getFavoriteData({ search: filter }));
+  }, [dispatch, filter]);
 
   return (
     <FavoritesPage
       onModalAddOpen={onModalAddOpen}
       setModalViewportOpen={setModalViewportOpen}
       onModalEditOpen={onModalEditOpen}
-      page={page}
     />
   );
 };

@@ -1,17 +1,17 @@
 import React from "react";
 import styles from "./SearchFilter.module.scss";
-import { array, func, string } from "prop-types";
+import { array, func, string, bool } from "prop-types";
 
 const SearchFilter = ({
   currentSearch,
   onSearchFilm,
   filter,
   onClearSearchInput,
-  page,
   favoriteData,
   data,
   onSearchFilmEnter,
   onChangeInput,
+  isHomePage,
 }) => {
   return (
     <div className={styles.root}>
@@ -34,8 +34,8 @@ const SearchFilter = ({
       </div>
       {filter && filter.length > 0 && (
         <>
-          {(page === "all" && data.length > 0) ||
-          (page === "favorite" && favoriteData.length > 0) ? (
+          {(isHomePage && data.length > 0) ||
+          (!isHomePage && favoriteData.length > 0) ? (
             <div className={styles.searsh_result}>
               Результат поиска по запросу "{filter}":
             </div>
@@ -55,7 +55,7 @@ SearchFilter.propTypes = {
   onSearchFilm: func,
   filter: string,
   onClearSearchInput: func,
-  page: string,
+  isHomePage: bool,
   favoriteData: array,
   data: array,
   onSearchFilmEnter: func,
