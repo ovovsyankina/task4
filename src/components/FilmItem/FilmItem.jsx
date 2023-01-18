@@ -6,9 +6,9 @@ import { verifyUrlImage } from "../../utils";
 
 const FilmItem = ({
   film,
-  onViewportDataFilm,
-  onCurrentDataFilm,
-  onFavoriteFilm,
+  onOpenQuickView,
+  onEditCurrentFilm,
+  onAddFavoriteFilm,
 }) => {
   return (
     <div className={styles.root}>
@@ -17,7 +17,7 @@ const FilmItem = ({
           <input
             type="checkbox"
             checked={film.isFavorite}
-            onChange={onFavoriteFilm}
+            onChange={onAddFavoriteFilm}
             className={styles.favorite_button}
             id={film.id}
           />
@@ -41,16 +41,15 @@ const FilmItem = ({
         </div>
       </div>
       <div className={styles.button_svg}>
-        <button onClick={onCurrentDataFilm} className={styles.edit_button} />
+        <button onClick={onEditCurrentFilm} className={styles.edit_button} />
         <button
-          alt="quick_view_icon"
-          onClick={onViewportDataFilm}
+          onClick={onOpenQuickView}
           className={styles.quick_view_button}
         />
       </div>
-      <Link to={`/${film.id}`}>
-        <button className={styles.viewing_page}>Подробнее</button>
-      </Link>
+      <div className={styles.viewing_page}>
+        <Link to={`/${film.id}`}>Подробнее</Link>
+      </div>
     </div>
   );
 };

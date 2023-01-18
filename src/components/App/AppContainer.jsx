@@ -7,7 +7,7 @@ import App from "./App";
 const AppContainer = () => {
   const currentData = useSelector(currentDataSelector);
   const dispatch = useDispatch();
-  const [isModalViewportOpen, setModalViewportOpen] = useState(false);
+  const [isQuickViewOpen, setQuickViewOpen] = useState(false);
   const [isModalAddEditOpen, setModalAddEditOpen] = useState(false);
   const [modalType, setModalType] = useState("add");
 
@@ -29,8 +29,8 @@ const AppContainer = () => {
   return (
     <App
       currentData={currentData}
-      isModalViewportOpen={isModalViewportOpen}
-      setModalViewportOpen={setModalViewportOpen}
+      isQuickViewOpen={isQuickViewOpen}
+      setQuickViewOpen={setQuickViewOpen}
       isModalAddEditOpen={isModalAddEditOpen}
       modalType={modalType}
       onModalAddOpen={handleModalAddOpen}

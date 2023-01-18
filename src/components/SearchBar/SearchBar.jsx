@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./SearchFilter.module.scss";
+import styles from "./SearchBar.module.scss";
 import { array, func, string, bool } from "prop-types";
 
-const SearchFilter = ({
+const SearchBar = ({
   currentSearch,
   onSearchFilm,
   filter,
@@ -50,7 +50,7 @@ const SearchFilter = ({
   );
 };
 
-SearchFilter.propTypes = {
+SearchBar.propTypes = {
   currentSearch: string,
   onSearchFilm: func,
   filter: string,
@@ -62,4 +62,4 @@ SearchFilter.propTypes = {
   onChangeInput: func,
 };
 
-export default SearchFilter;
+export default SearchBar;

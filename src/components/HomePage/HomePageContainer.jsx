@@ -7,7 +7,7 @@ import HomePage from "./HomePage";
 
 const HomePageContainer = ({
   onModalAddOpen,
-  setModalViewportOpen,
+  setQuickViewOpen,
   onModalEditOpen,
 }) => {
   const filter = useSelector(filterDataSelector);
@@ -20,7 +20,7 @@ const HomePageContainer = ({
   return (
     <HomePage
       onModalAddOpen={onModalAddOpen}
-      setModalViewportOpen={setModalViewportOpen}
+      setQuickViewOpen={setQuickViewOpen}
       onModalEditOpen={onModalEditOpen}
     />
   );
@@ -28,7 +28,7 @@ const HomePageContainer = ({
 
 HomePageContainer.propTypes = {
   onModalAddOpen: func,
-  setModalViewportOpen: func,
+  setQuickViewOpen: func,
   onModalEditOpen: func,
 };
 

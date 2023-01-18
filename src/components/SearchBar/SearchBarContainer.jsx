@@ -4,9 +4,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useQuery from "../../hooks/useQuery";
 import { searchFilm } from "../../redux/reducer/filter/actions";
 import { dataSelector, favoriteDataSelector } from "../../redux/selectors";
-import SearchFilter from "./SearchFilter";
+import SearchBar from "./SearchBar";
 
-const SearchFilterContainer = () => {
+const SearchBarContainer = () => {
   const data = useSelector(dataSelector);
   const favoriteData = useSelector(favoriteDataSelector);
   const location = useLocation();
@@ -30,7 +30,7 @@ const SearchFilterContainer = () => {
     } else {
       dispatch(searchFilm(""));
     }
-  }, [dispatch, filter, currentSearchText]);
+  }, [dispatch, filter]);
 
   const handleSearchFilm = useCallback(() => {
     if (currentSearchText.trim().length > 0) {
@@ -58,7 +58,7 @@ const SearchFilterContainer = () => {
   const handleChangeInput = (e) => setCurrentSearchText(e.target.value);
 
   return (
-    <SearchFilter
+    <SearchBar
       currentSearch={currentSearchText}
       onSearchFilm={handleSearchFilm}
       filter={filter}
@@ -72,4 +72,4 @@ const SearchFilterContainer = () => {
   );
 };
 
-export default SearchFilterContainer;
+export default SearchBarContainer;

@@ -6,7 +6,7 @@ import FilmList from "./FilmList";
 import { useLocation } from "react-router-dom";
 
 const FilmListContainer = ({
-  setModalViewportOpen,
+  setQuickViewOpen,
   onModalEditOpen,
   onModalAddOpen,
 }) => {
@@ -17,7 +17,7 @@ const FilmListContainer = ({
     <FilmList
       data={data}
       favoriteData={favoriteData}
-      setModalViewportOpen={setModalViewportOpen}
+      setQuickViewOpen={setQuickViewOpen}
       onModalEditOpen={onModalEditOpen}
       onModalAddOpen={onModalAddOpen}
       isHomePage={location.pathname === "/"}
@@ -26,7 +26,7 @@ const FilmListContainer = ({
 };
 
 FilmListContainer.propTypes = {
-  setModalViewportOpen: func,
+  setQuickViewOpen: func,
   onModalEditOpen: func,
   onModalAddOpen: func,
 };

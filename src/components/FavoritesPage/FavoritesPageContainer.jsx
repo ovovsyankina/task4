@@ -8,7 +8,7 @@ import FavoritesPage from "./FavoritesPage";
 
 const FavoritesPageContainer = ({
   onModalAddOpen,
-  setModalViewportOpen,
+  setQuickViewOpen,
   onModalEditOpen,
 }) => {
   const filter = useSelector(filterDataSelector);
@@ -21,7 +21,7 @@ const FavoritesPageContainer = ({
   return (
     <FavoritesPage
       onModalAddOpen={onModalAddOpen}
-      setModalViewportOpen={setModalViewportOpen}
+      setQuickViewOpen={setQuickViewOpen}
       onModalEditOpen={onModalEditOpen}
     />
   );
@@ -29,7 +29,7 @@ const FavoritesPageContainer = ({
 
 FavoritesPageContainer.propTypes = {
   onModalAddOpen: func,
-  setModalViewportOpen: func,
+  setQuickViewOpen: func,
   onModalEditOpen: func,
 };
 

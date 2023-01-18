@@ -1,17 +1,17 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
-import SearchFilterContainer from "../SearchFilter/SearchFilterContainer";
 import ScreenViewingContainer from "../ScreenViewing/ScreenViewingContainer";
-import ModalWindowContainer from "../ModalWindow/ModalWindowContainer";
-import ModalViewportContainer from "../ModalViewport/ModalViewportContainer";
+import QuickViewModalContainer from "../QuickViewModal/QuickViewModalContainer";
 import FavoritesPageContainer from "../FavoritesPage/FavoritesPageContainer";
 import HomePageContainer from "../HomePage/HomePageContainer";
 import { object, func, string, bool } from "prop-types";
 import HeaderContainer from "../Header/HeaderContainer";
+import SearchBarContainer from "../SearchBar/SearchBarContainer";
+import CreateEditModalContainer from "../CreateEditModal/CreateEditModalContainer";
 
 const App = ({
   currentData,
-  isModalViewportOpen,
-  setModalViewportOpen,
+  isQuickViewOpen,
+  setQuickViewOpen,
   isModalAddEditOpen,
   modalType,
   onModalAddOpen,
@@ -21,14 +21,14 @@ const App = ({
   return (
     <HashRouter basename="/">
       <HeaderContainer />
-      <SearchFilterContainer />
+      <SearchBarContainer />
       <Routes>
         <Route
           path="/"
           element={
             <HomePageContainer
               onModalAddOpen={onModalAddOpen}
-              setModalViewportOpen={setModalViewportOpen}
+              setQuickViewOpen={setQuickViewOpen}
               onModalEditOpen={onModalEditOpen}
             />
           }
@@ -39,29 +39,25 @@ const App = ({
           element={
             <FavoritesPageContainer
               onModalAddOpen={onModalAddOpen}
-              setModalViewportOpen={setModalViewportOpen}
+              setQuickViewOpen={setQuickViewOpen}
               onModalEditOpen={onModalEditOpen}
             />
           }
           exact
         />
-        <Route
-          path="?search=:filter"
-          element={<SearchFilterContainer />}
-          exact
-        />
+        <Route path="?search=:filter" element={<SearchBarContainer />} exact />
         <Route path="/:filmId" element={<ScreenViewingContainer />} exact />
       </Routes>
-      <ModalWindowContainer
+      <CreateEditModalContainer
         currentData={currentData}
         isModalAddEditOpen={isModalAddEditOpen}
         modalType={modalType}
         onModalAddEditClose={onModalAddEditClose}
       />
-      <ModalViewportContainer
+      <QuickViewModalContainer
         currentData={currentData}
-        isModalViewportOpen={isModalViewportOpen}
-        setModalViewportOpen={setModalViewportOpen}
+        isQuickViewOpen={isQuickViewOpen}
+        setQuickViewOpen={setQuickViewOpen}
       />
     </HashRouter>
   );
@@ -69,8 +65,8 @@ const App = ({
 
 App.propTypes = {
   currentData: object,
-  isModalViewportOpen: bool,
-  setModalViewportOpen: func,
+  isQuickViewOpen: bool,
+  setQuickViewOpen: func,
   isModalAddEditOpen: bool,
   modalType: string,
   onModalAddOpen: func,

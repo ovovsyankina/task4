@@ -29,7 +29,7 @@
   }
 
   @include tablet {
-    width: 300px;
+    width: 100%;
   }
 
   @include mobile {
@@ -187,8 +187,13 @@
 .quick_view_button {
   width: 39px;
   height: 35px;
+  min-width: 39px;
+  min-height: 35px;
   margin-left: 10px;
   background-image: url(../../../public/image/quick_view.svg);
+  background-color: var(--class-item-bg);
+  background-size: 100%;
+  background-repeat: no-repeat;
   &:hover {
     cursor: pointer;
   }
@@ -196,11 +201,15 @@
   @include netbook {
     width: 30px;
     height: 26px;
+    min-width: 30px;
+    min-height: 26px;
   }
 
   @include mobile {
     width: 22px;
     height: 16px;
+    min-width: 22px;
+    min-height: 16px;
     margin-left: 5px;
   }
 }
@@ -208,7 +217,12 @@
 .edit_button {
   width: 30px;
   height: 27px;
+  min-width: 30px;
+  min-height: 27px;
   background-image: url(../../../public/image/edit.svg);
+  background-color: var(--class-item-bg);
+  background-size: 100%;
+  background-repeat: no-repeat;
   &:hover {
     cursor: pointer;
   }
@@ -216,19 +230,25 @@
   @include netbook {
     width: 21px;
     height: 18px;
+    min-width: 21px;
+    min-height: 18px;
   }
 
   @include mobile {
     width: 15px;
-    height: 12px;
+    height: 13px;
+    min-width: 15px;
+    min-height: 12px;
   }
 }
 
 .viewing_page {
+  display: flex;
   width: 100%;
   height: 50px;
   margin-top: 5px;
-  font-size: 25px;
+  align-items: center;
+  justify-content: center;
   background: $light_violet-color;
   border-radius: 15px;
   letter-spacing: 1px;

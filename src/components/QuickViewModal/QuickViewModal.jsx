@@ -1,16 +1,12 @@
 import React from "react";
 import { object, func, bool } from "prop-types";
-import styles from "./ModalViewport.module.scss";
+import styles from "./QuickViewModal.module.scss";
 import { verifyUrlImage } from "../../utils";
 
-const ModalViewport = ({
-  currentData,
-  isModalViewportOpen,
-  onModalWindowOff,
-}) => {
+const QuickViewModal = ({ currentData, isQuickViewOpen, onModalWindowOff }) => {
   return (
     <>
-      {isModalViewportOpen && (
+      {isQuickViewOpen && (
         <div className={styles.root}>
           <div className={styles.modal_window}>
             <div className={styles.field_image_container}>
@@ -46,10 +42,10 @@ const ModalViewport = ({
   );
 };
 
-ModalViewport.propTypes = {
+QuickViewModal.propTypes = {
   currentData: object,
-  isModalViewportOpen: bool,
+  isQuickViewOpen: bool,
   onModalWindowOff: func,
 };
 
-export default ModalViewport;
+export default QuickViewModal;

@@ -5,7 +5,7 @@ import styles from "./FilmList.module.scss";
 
 const FilmList = ({
   data,
-  setModalViewportOpen,
+  setQuickViewOpen,
   onModalEditOpen,
   onModalAddOpen,
   isHomePage,
@@ -25,7 +25,7 @@ const FilmList = ({
         <FilmItemContainer
           film={item}
           key={item.id}
-          setModalViewportOpen={setModalViewportOpen}
+          setQuickViewOpen={setQuickViewOpen}
           onModalEditOpen={onModalEditOpen}
           isHomePage={isHomePage}
         />
@@ -36,7 +36,7 @@ const FilmList = ({
 
 FilmList.propTypes = {
   data: array,
-  setModalViewportOpen: func,
+  setQuickViewOpen: func,
   onModalEditOpen: func,
   onModalAddOpen: func,
   isHomePage: bool,

@@ -5,11 +5,11 @@ import {
   deleteDataItem,
   putEditDataItem,
 } from "../../redux/reducer/data/actions";
-import ModalWindow from "./ModalWindow";
+import CreateEditModal from "./CreateEditModal";
 import { object, func, bool, string } from "prop-types";
 import { getCurrentData } from "../../redux/reducer/currentData/actions";
 
-const ModalWindowContainer = ({
+const CreateEditModalContainer = ({
   isModalAddEditOpen,
   modalType,
   onModalAddEditClose,
@@ -17,7 +17,7 @@ const ModalWindowContainer = ({
 }) => {
   const dispatch = useDispatch();
 
-  const addNewDataFilm = useCallback(
+  const handleAddNewDataFilm = useCallback(
     (values) => {
       dispatch(
         addData({
@@ -72,8 +72,8 @@ const ModalWindowContainer = ({
   }, [isModalAddEditOpen]);
 
   return (
-    <ModalWindow
-      addNewDataFilm={addNewDataFilm}
+    <CreateEditModal
+      onAddNewDataFilm={handleAddNewDataFilm}
       currentData={currentData}
       isModalAddEditOpen={isModalAddEditOpen}
       modalType={modalType}
@@ -84,11 +84,11 @@ const ModalWindowContainer = ({
   );
 };
 
-ModalWindowContainer.propTypes = {
+CreateEditModalContainer.propTypes = {
   isModalAddEditOpen: bool,
   modalType: string,
   onModalAddEditClose: func,
   currentData: object,
 };
 
-export default ModalWindowContainer;
+export default CreateEditModalContainer;
