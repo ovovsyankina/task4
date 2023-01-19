@@ -35,6 +35,7 @@ const CreateEditModal = ({
     yearRelease: modalType === "edit" ? currentData.yearRelease : "",
     image: modalType === "edit" ? currentData.image : "",
   };
+
   return (
     isModalAddEditOpen && (
       <div className={styles.root}>

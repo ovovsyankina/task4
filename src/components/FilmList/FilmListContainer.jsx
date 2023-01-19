@@ -13,6 +13,7 @@ const FilmListContainer = ({
   const data = useSelector(dataSelector);
   const favoriteData = useSelector(favoriteDataSelector);
   const location = useLocation();
+
   return (
     <FilmList
       data={data}

@@ -33,7 +33,7 @@ const FilmItem = ({
             src={
               verifyUrlImage(film.image)
                 ? film.image
-                : process.env.PUBLIC_URL + "/defaultImageFilm.jpeg"
+                : process.env.PUBLIC_URL + "/image/defaultImageFilm.jpeg"
             }
             alt="Обложка фильма"
             className={styles.field_name_image}
