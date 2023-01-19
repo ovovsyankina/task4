@@ -1,11 +1,27 @@
 import React from "react";
-import styles from "./ModalWindow.module.scss";
+import styles from "./CreateEditModal.module.scss";
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
 import { object, func, bool, string } from "prop-types";
 
-const ModalWindow = ({
-  addNewDataFilm,
+const DisplayingErrorMessagesSchema = Yup.object({
+  title: Yup.string()
+    .max(25, "Максимальное количество символов = 25")
+    .required("Введите название"),
+  description: Yup.string()
+    .max(300, "Максимальное количество символов = 300")
+    .required("Введите описание"),
+  yearRelease: Yup.number()
+    .min(1895, "В этом году еще не было ни одного фильма. Введите год с 1895")
+    .max(
+      new Date().getFullYear(),
+      `Такого года еще не наступило. Введите год до ${new Date().getFullYear()}`
+    )
+    .required("Введите год"),
+});
+
+const CreateEditModal = ({
+  onAddNewDataFilm,
   currentData,
   isModalAddEditOpen,
   modalType,
@@ -13,6 +29,13 @@ const ModalWindow = ({
   onDeleteDataItem,
   onEditDataItem,
 }) => {
+  const initialValues = {
+    title: modalType === "edit" ? currentData.title : "",
+    description: modalType === "edit" ? currentData.description : "",
+    yearRelease: modalType === "edit" ? currentData.yearRelease : "",
+    image: modalType === "edit" ? currentData.image : "",
+  };
+
   return (
     isModalAddEditOpen && (
       <div className={styles.root}>
@@ -20,33 +43,9 @@ const ModalWindow = ({
           {(modalType === "add" ||
             (modalType === "edit" && currentData.title)) && (
             <Formik
-              initialValues={{
-                title: modalType === "edit" ? currentData.title : "",
-                description:
-                  modalType === "edit" ? currentData.description : "",
-                yearRelease:
-                  modalType === "edit" ? currentData.yearRelease : "",
-                image: modalType === "edit" ? currentData.image : "",
-              }}
-              validationSchema={Yup.object({
-                title: Yup.string()
-                  .max(25, "Максимальное количество символов = 25")
-                  .required("Введите название"),
-                description: Yup.string()
-                  .max(300, "Максимальное количество символов = 300")
-                  .required("Введите описание"),
-                yearRelease: Yup.number()
-                  .min(
-                    1895,
-                    "В этом году еще не было ни одного фильма. Введите год с 1895"
-                  )
-                  .max(
-                    new Date().getFullYear(),
-                    `Такого года еще не наступило. Введите год до ${new Date().getFullYear()}`
-                  )
-                  .required("Введите год"),
-              })}
-              onSubmit={modalType === "add" ? addNewDataFilm : onEditDataItem}
+              initialValues={initialValues}
+              validationSchema={DisplayingErrorMessagesSchema}
+              onSubmit={modalType === "add" ? onAddNewDataFilm : onEditDataItem}
             >
               {({ errors, touched, handleChange, values }) => (
                 <Form>
@@ -162,7 +161,7 @@ const ModalWindow = ({
   );
 };
 
-ModalWindow.propTypes = {
+CreateEditModal.propTypes = {
   addNewDataFilm: func,
   currentData: object,
   isModalAddEditOpen: bool,
@@ -172,4 +171,4 @@ ModalWindow.propTypes = {
   onEditDataItem: func,
 };
 
-export default ModalWindow;
+export default CreateEditModal;

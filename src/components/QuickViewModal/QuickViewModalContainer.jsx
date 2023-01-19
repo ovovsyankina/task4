@@ -1,44 +1,44 @@
 import React, { useCallback, useEffect } from "react";
-import ModalViewport from "./ModalViewport";
+import QuickViewModal from "./QuickViewModal";
 import { object, func, bool } from "prop-types";
 import { useDispatch } from "react-redux";
 import { getCurrentData } from "../../redux/reducer/currentData/actions";
 
-const ModalViewportContainer = ({
+const QuickViewModalContainer = ({
   currentData,
-  setModalViewportOpen,
-  isModalViewportOpen,
+  setQuickViewOpen,
+  isQuickViewOpen,
 }) => {
   const dispatch = useDispatch();
 
   const handleModalWindowOff = useCallback(() => {
-    setModalViewportOpen(false);
+    setQuickViewOpen(false);
     dispatch(getCurrentData(""));
-  }, [dispatch, setModalViewportOpen]);
+  }, [dispatch, setQuickViewOpen]);
 
   useEffect(() => {
-    if (isModalViewportOpen === true) {
+    if (isQuickViewOpen === true) {
       document.body.style.position = "fixed";
       document.body.style.top = `-${window.scrollY}px`;
     } else {
       document.body.style.position = "";
       document.body.style.top = "";
     }
-  }, [isModalViewportOpen]);
+  }, [isQuickViewOpen]);
 
   return (
-    <ModalViewport
+    <QuickViewModal
       currentData={currentData}
-      isModalViewportOpen={isModalViewportOpen}
+      isQuickViewOpen={isQuickViewOpen}
       onModalWindowOff={handleModalWindowOff}
     />
   );
 };
 
-ModalViewportContainer.propTypes = {
+QuickViewModalContainer.propTypes = {
   currentData: object,
-  isModalViewportOpen: bool,
-  setModalViewportOpen: func,
+  isQuickViewOpen: bool,
+  setQuickViewOpen: func,
 };
 
-export default ModalViewportContainer;
+export default QuickViewModalContainer;

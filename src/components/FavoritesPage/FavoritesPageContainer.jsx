@@ -8,32 +8,28 @@ import FavoritesPage from "./FavoritesPage";
 
 const FavoritesPageContainer = ({
   onModalAddOpen,
-  setModalViewportOpen,
+  setQuickViewOpen,
   onModalEditOpen,
 }) => {
   const filter = useSelector(filterDataSelector);
   const dispatch = useDispatch();
-  const page = "favorite";
 
   useEffect(() => {
-    if (page === "favorite") {
-      dispatch(getFavoriteData({ search: filter }));
-    }
-  }, [dispatch, filter, page]);
+    dispatch(getFavoriteData({ search: filter }));
+  }, [dispatch, filter]);
 
   return (
     <FavoritesPage
       onModalAddOpen={onModalAddOpen}
-      setModalViewportOpen={setModalViewportOpen}
+      setQuickViewOpen={setQuickViewOpen}
       onModalEditOpen={onModalEditOpen}
-      page={page}
     />
   );
 };
 
 FavoritesPageContainer.propTypes = {
   onModalAddOpen: func,
-  setModalViewportOpen: func,
+  setQuickViewOpen: func,
   onModalEditOpen: func,
 };
 

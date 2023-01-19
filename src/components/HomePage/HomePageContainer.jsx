@@ -1,37 +1,34 @@
 import React, { useEffect } from "react";
 import { func } from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
-import { getData, getFavoriteData } from "../../redux/reducer/data/actions";
+import { getData } from "../../redux/reducer/data/actions";
 import { filterDataSelector } from "../../redux/selectors";
 import HomePage from "./HomePage";
 
 const HomePageContainer = ({
   onModalAddOpen,
-  setModalViewportOpen,
+  setQuickViewOpen,
   onModalEditOpen,
 }) => {
   const filter = useSelector(filterDataSelector);
   const dispatch = useDispatch();
-  const page = "all";
 
   useEffect(() => {
     dispatch(getData({ search: filter }));
-    dispatch(getFavoriteData({ search: "" }));
   }, [dispatch, filter]);
 
   return (
     <HomePage
       onModalAddOpen={onModalAddOpen}
-      setModalViewportOpen={setModalViewportOpen}
+      setQuickViewOpen={setQuickViewOpen}
       onModalEditOpen={onModalEditOpen}
-      page={page}
     />
   );
 };
 
 HomePageContainer.propTypes = {
   onModalAddOpen: func,
-  setModalViewportOpen: func,
+  setQuickViewOpen: func,
   onModalEditOpen: func,
 };
 

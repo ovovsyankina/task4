@@ -15,6 +15,7 @@ const ScreenViewingContainer = () => {
   useEffect(() => {
     dispatch(getCurrentData(filmId));
   }, [dispatch, filmId]);
+
   const handleCloseScreenViewing = useCallback(() => {
     navigate(-1);
     dispatch(getCurrentData(""));

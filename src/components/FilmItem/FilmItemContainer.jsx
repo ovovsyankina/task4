@@ -10,22 +10,22 @@ import {
 
 const FilmItemContainer = ({
   film,
-  setModalViewportOpen,
+  setQuickViewOpen,
   onModalEditOpen,
-  isFavoritePage,
+  isHomePage,
 }) => {
   const dispatch = useDispatch();
 
-  const handleViewportDataFilm = useCallback(
+  const handleOpenQuickView = useCallback(
     (e) => {
       e.preventDefault();
       dispatch(getCurrentData(film.id));
-      setModalViewportOpen(true);
+      setQuickViewOpen(true);
     },
-    [dispatch, film, setModalViewportOpen]
+    [dispatch, film, setQuickViewOpen]
   );
 
-  const handleCurrentDataFilm = useCallback(
+  const handleEditCurrentFilm = useCallback(
     (e) => {
       e.preventDefault();
       dispatch(getCurrentData(film.id));
@@ -34,7 +34,7 @@ const FilmItemContainer = ({
     [dispatch, film, onModalEditOpen]
   );
 
-  const handleFavoriteFilm = useCallback(() => {
+  const handleAddFavoriteFilm = useCallback(() => {
     dispatch(
       putEditDataItem({
         dataFilm: {
@@ -45,28 +45,28 @@ const FilmItemContainer = ({
           isFavorite: !film.isFavorite,
         },
         id: film.id,
-        isFavoritePage: isFavoritePage,
+        isFavoritePage: !isHomePage,
       })
     );
     dispatch(favoriteFilmsCount());
-  }, [dispatch, film, isFavoritePage]);
+  }, [dispatch, film, isHomePage]);
 
   return (
     <FilmItem
       film={film}
-      onViewportDataFilm={handleViewportDataFilm}
-      onCurrentDataFilm={handleCurrentDataFilm}
+      onOpenQuickView={handleOpenQuickView}
+      onEditCurrentFilm={handleEditCurrentFilm}
       onModalEditOpen={onModalEditOpen}
-      onFavoriteFilm={handleFavoriteFilm}
+      onAddFavoriteFilm={handleAddFavoriteFilm}
     />
   );
 };
 
 FilmItemContainer.propTypes = {
   film: object,
-  setModalViewportOpen: func,
+  setQuickViewOpen: func,
   onModalEditOpen: func,
-  isFavoritePage: bool,
+  isHomePage: bool,
 };
 
 export default FilmItemContainer;

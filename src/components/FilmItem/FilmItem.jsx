@@ -3,14 +3,12 @@ import { Link } from "react-router-dom";
 import { object, func } from "prop-types";
 import styles from "./FilmItem.module.scss";
 import { verifyUrlImage } from "../../utils";
-import quick_view_icon from "../../image/quick_view.svg";
-import edit_icon from "../../image/edit.svg";
 
 const FilmItem = ({
   film,
-  onViewportDataFilm,
-  onCurrentDataFilm,
-  onFavoriteFilm,
+  onOpenQuickView,
+  onEditCurrentFilm,
+  onAddFavoriteFilm,
 }) => {
   return (
     <div className={styles.root}>
@@ -19,7 +17,7 @@ const FilmItem = ({
           <input
             type="checkbox"
             checked={film.isFavorite}
-            onChange={onFavoriteFilm}
+            onChange={onAddFavoriteFilm}
             className={styles.favorite_button}
             id={film.id}
           />
@@ -35,7 +33,7 @@ const FilmItem = ({
             src={
               verifyUrlImage(film.image)
                 ? film.image
-                : process.env.PUBLIC_URL + "/defaultImageFilm.jpeg"
+                : process.env.PUBLIC_URL + "/image/defaultImageFilm.jpeg"
             }
             alt="Обложка фильма"
             className={styles.field_name_image}
@@ -43,22 +41,15 @@ const FilmItem = ({
         </div>
       </div>
       <div className={styles.button_svg}>
-        <img
-          src={edit_icon}
-          alt="edit_icon"
-          onClick={onCurrentDataFilm}
-          className={styles.edit_button}
-        />
-        <img
-          src={quick_view_icon}
-          alt="quick_view_icon"
-          onClick={onViewportDataFilm}
+        <button onClick={onEditCurrentFilm} className={styles.edit_button} />
+        <button
+          onClick={onOpenQuickView}
           className={styles.quick_view_button}
         />
       </div>
-      <Link to={`/films/${film.id}`}>
-        <button className={styles.viewing_page}>Подробнее</button>
-      </Link>
+      <div className={styles.viewing_page}>
+        <Link to={`/${film.id}`}>Подробнее</Link>
+      </div>
     </div>
   );
 };
