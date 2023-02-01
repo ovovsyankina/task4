@@ -47,9 +47,10 @@ const FilmItem = ({
           className={styles.quick_view_button}
         />
       </div>
-      <div className={styles.viewing_page}>
-        <Link to={`/${film.id}`}>Подробнее</Link>
-      </div>
+
+      <Link to={`/${film.id}`} className={styles.viewing_page}>
+        Подробнее
+      </Link>
     </div>
   );
 };

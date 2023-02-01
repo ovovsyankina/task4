@@ -22,6 +22,11 @@ const SearchBarContainer = () => {
     ) {
       setCurrentSearchText("");
     }
+    if (filter === null) {
+      setCurrentSearchText("");
+    } else {
+      setCurrentSearchText(filter);
+    }
   }, [location.pathname, filter]);
 
   useEffect(() => {
@@ -42,9 +47,8 @@ const SearchBarContainer = () => {
       dispatch(searchFilm(currentSearchText));
     } else {
       setCurrentSearchText("");
-      dispatch(searchFilm(filter));
     }
-  }, [dispatch, navigate, location.pathname, currentSearchText, filter]);
+  }, [dispatch, navigate, location.pathname, currentSearchText]);
 
   const handleSearchFilmEnter = (e) =>
     e.key === "Enter" ? handleSearchFilm() : "";
