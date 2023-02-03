@@ -34,3 +34,10 @@ export const favoriteCountSelector = createSelector(
     return state.data.favoriteCount;
   }
 );
+
+export const snackBarTextSelector = createSelector(
+  (state) => state,
+  (state) => {
+    return state.snackBar;
+  }
+);

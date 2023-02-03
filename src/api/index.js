@@ -47,11 +47,13 @@ export const getFavoriteFilmsCountApi = () => {
 export const getCurrentFilmApi = (payload) => {
   return fetch(`${apiUrl}/${payload}`)
     .then((response) => {
-      if (!response.ok) throw new Error();
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
       return response.json();
     })
     .catch((err) => {
-      throw new Error(err);
+      throw err;
     });
 };
 

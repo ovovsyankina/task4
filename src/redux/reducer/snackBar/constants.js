@@ -1,0 +1,1 @@
+export const SET_SNACKBAR_TEXT = "SET_SNACKBAR_TEXT";

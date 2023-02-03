@@ -31,7 +31,8 @@ const SearchBarContainer = () => {
 
   useEffect(() => {
     if (filter && filter.length !== 0) {
-      dispatch(searchFilm(filter));
+      console.log("filter", filter);
+      dispatch(searchFilm(filter.replace("+", "%2B")));
     } else {
       dispatch(searchFilm(""));
     }
@@ -41,10 +42,10 @@ const SearchBarContainer = () => {
     if (currentSearchText.trim().length > 0) {
       navigate(
         location.pathname === "/favorite"
-          ? `/favorite?search=${currentSearchText}`
-          : `?search=${currentSearchText}`
+          ? `/favorite?search=${currentSearchText.replace("+", "%2B")}`
+          : `?search=${currentSearchText.replace("+", "%2B")}`
       );
-      dispatch(searchFilm(currentSearchText));
+      dispatch(searchFilm(currentSearchText.replace("+", "%2B")));
     } else {
       setCurrentSearchText("");
     }
