@@ -58,6 +58,7 @@ const FilmItemContainer = ({
       onEditCurrentFilm={handleEditCurrentFilm}
       onModalEditOpen={onModalEditOpen}
       onAddFavoriteFilm={handleAddFavoriteFilm}
+      isHomePage={isHomePage}
     />
   );
 };

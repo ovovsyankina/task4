@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { object, func } from "prop-types";
+import { object, func, bool } from "prop-types";
 import styles from "./FilmItem.module.scss";
 import { verifyUrlImage } from "../../utils";
 
@@ -9,6 +9,7 @@ const FilmItem = ({
   onOpenQuickView,
   onEditCurrentFilm,
   onAddFavoriteFilm,
+  isHomePage,
 }) => {
   return (
     <div className={styles.root}>
@@ -48,7 +49,10 @@ const FilmItem = ({
         />
       </div>
 
-      <Link to={`/${film.id}`} className={styles.viewing_page}>
+      <Link
+        to={isHomePage ? `/${film.id}` : `/favorite/${film.id}`}
+        className={styles.viewing_page}
+      >
         Подробнее
       </Link>
     </div>
@@ -60,6 +64,7 @@ FilmItem.propTypes = {
   onViewportDataFilm: func,
   onCurrentDataFilm: func,
   onFavoriteFilm: func,
+  isHomePage: bool,
 };
 
 export default FilmItem;

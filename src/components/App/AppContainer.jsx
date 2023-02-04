@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentData } from "../../redux/reducer/currentData/actions";
-import {
-  currentDataSelector,
-  snackBarTextSelector,
-} from "../../redux/selectors";
+import { currentDataSelector } from "../../redux/selectors";
 import App from "./App";
 
 const AppContainer = () => {
@@ -13,8 +10,6 @@ const AppContainer = () => {
   const [isQuickViewOpen, setQuickViewOpen] = useState(false);
   const [isModalAddEditOpen, setModalAddEditOpen] = useState(false);
   const [modalType, setModalType] = useState("add");
-  const snackBarText = useSelector(snackBarTextSelector);
-  console.log("snackBarText", snackBarText);
   const handleModalAddOpen = () => {
     setModalAddEditOpen(true);
     setModalType("add");

@@ -49,6 +49,11 @@ const App = ({
         />
         <Route path="?search=:filter" element={<SearchBarContainer />} exact />
         <Route path="/:filmId" element={<ScreenViewingContainer />} exact />
+        <Route
+          path="/favorite/:filmId"
+          element={<ScreenViewingContainer />}
+          exact
+        />
       </Routes>
       <CreateEditModalContainer
         currentData={currentData}

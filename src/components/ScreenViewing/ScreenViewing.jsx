@@ -18,7 +18,7 @@ const ScreenViewing = ({ currentData, onCloseScreenViewing }) => {
               src={
                 verifyUrlImage(currentData.image)
                   ? currentData.image
-                  : process.env.PUBLIC_URL + "/defaultImageFilm.jpeg"
+                  : process.env.PUBLIC_URL + "/image/defaultImageFilm.jpeg"
               }
               alt="film cover"
               className={styles.field_image}

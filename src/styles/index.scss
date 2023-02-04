@@ -16,7 +16,10 @@
 input {
   all: inherit;
 }
-
+#root {
+  min-height: 100vh;
+  background-color: $light_grey-color;
+}
 textarea {
   border: none;
   overflow: auto;
