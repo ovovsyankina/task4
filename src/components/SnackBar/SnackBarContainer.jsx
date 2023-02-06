@@ -21,7 +21,9 @@ const SnackBarContainer = () => {
     }
   }, [snackBarText, dispatch, setActiveSnackBar]);
 
-  return <SnackBar isActiveSnackBar={isActiveSnackBar} />;
+  return (
+    <SnackBar isActiveSnackBar={isActiveSnackBar} snackBarText={snackBarText} />
+  );
 };
 
 export default SnackBarContainer;

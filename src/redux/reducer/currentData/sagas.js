@@ -12,7 +12,7 @@ function* getCurrentFilm({ payload }) {
   } catch (err) {
     if (err.toString() === "Error: 404") {
       history.back();
-      yield put(setSnackBar("такого фильма не существует"));
+      yield put(setSnackBar("Такого фильма не существует..."));
     }
     yield console.error(err);
   }
