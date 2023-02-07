@@ -1,7 +1,11 @@
 import React from "react";
 import { func } from "prop-types";
 import { useSelector } from "react-redux";
-import { dataSelector, favoriteDataSelector } from "../../redux/selectors";
+import {
+  dataSelector,
+  favoriteDataSelector,
+  filterDataSelector,
+} from "../../redux/selectors";
 import FilmList from "./FilmList";
 import { useLocation } from "react-router-dom";
 
@@ -13,6 +17,7 @@ const FilmListContainer = ({
   const data = useSelector(dataSelector);
   const favoriteData = useSelector(favoriteDataSelector);
   const location = useLocation();
+  const filter = useSelector(filterDataSelector);
 
   return (
     <FilmList
@@ -22,6 +27,7 @@ const FilmListContainer = ({
       onModalEditOpen={onModalEditOpen}
       onModalAddOpen={onModalAddOpen}
       isHomePage={location.pathname === "/"}
+      filter={filter}
     />
   );
 };

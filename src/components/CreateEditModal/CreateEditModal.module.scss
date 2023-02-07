@@ -1,35 +1,6 @@
 @use "../../styles/color" as *;
 @use "../../styles/media" as *;
 
-.root {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px);
-}
-
-.modal_window {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: $light_violet-color;
-  border: none;
-  border-radius: 10px;
-  transform: translate(-50%, -50%);
-
-  @include small_mobile {
-    border-radius: 5px;
-  }
-}
-
 .modal_content {
   display: flex;
   width: 500px;

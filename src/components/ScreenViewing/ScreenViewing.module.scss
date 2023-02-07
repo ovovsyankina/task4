@@ -4,10 +4,13 @@
 .root {
   display: flex;
   width: 100%;
-  margin: auto;
+  margin-top: 50px;
   background-color: $light_grey-color;
   justify-content: center;
   flex-wrap: wrap;
+  @include tablet {
+    margin-top: 20px;
+  }
 }
 
 .film_container {

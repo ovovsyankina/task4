@@ -15,7 +15,7 @@ const SnackBarContainer = () => {
       setTimeout(() => {
         setActiveSnackBar(false);
         dispatch(setSnackBar(""));
-      }, 3000);
+      }, 5000);
     } else {
       setActiveSnackBar(false);
     }

@@ -3,7 +3,9 @@ export const apiUrl = "http://localhost:3001/films";
 export const getFilmsApi = (payload) => {
   return fetch(`
     ${apiUrl}${
-    payload.search.length > 0 ? `?title_like=${payload.search}` : ""
+    payload.search.length > 0
+      ? `?title_like=${encodeURIComponent(payload.search)}`
+      : ""
   }`)
     .then((response) => {
       if (!response.ok) throw new Error();

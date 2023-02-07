@@ -3,18 +3,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import useQuery from "../../hooks/useQuery";
 import { searchFilm } from "../../redux/reducer/filter/actions";
-import { dataSelector, favoriteDataSelector } from "../../redux/selectors";
+import {
+  currentDataSelector,
+  dataSelector,
+  favoriteDataSelector,
+} from "../../redux/selectors";
 import SearchBar from "./SearchBar";
 
 const SearchBarContainer = () => {
   const data = useSelector(dataSelector);
   const favoriteData = useSelector(favoriteDataSelector);
+  const currentFilm = useSelector(currentDataSelector);
   const location = useLocation();
   const filter = useQuery().get("search");
   const [currentSearchText, setCurrentSearchText] = useState(filter || "");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   useEffect(() => {
     if (
       (location.pathname === "/" || location.pathname === "/favorite") &&
@@ -25,14 +29,13 @@ const SearchBarContainer = () => {
     if (filter === null) {
       setCurrentSearchText("");
     } else {
-      setCurrentSearchText(filter);
+      setCurrentSearchText(decodeURIComponent(filter));
     }
   }, [location.pathname, filter]);
-
+  console.log();
   useEffect(() => {
     if (filter && filter.length !== 0) {
-      console.log("filter", filter + ";");
-      dispatch(searchFilm(filter.replace("+", "%2b")));
+      dispatch(searchFilm(decodeURIComponent(filter)));
     } else {
       dispatch(searchFilm(""));
     }
@@ -42,11 +45,10 @@ const SearchBarContainer = () => {
     if (currentSearchText.trim().length > 0) {
       navigate(
         location.pathname === "/favorite"
-          ? `/favorite?search=${currentSearchText.replace("+", "%2b")}`
-          : `?search=${currentSearchText.replace("+", "%2b")}`
+          ? `/favorite?search=${encodeURIComponent(currentSearchText)}`
+          : `?search=${encodeURIComponent(currentSearchText)}`
       );
-      dispatch(searchFilm(currentSearchText.replace("+", "%2b")));
-      console.log("currentSearchText", currentSearchText + ";");
+      dispatch(searchFilm(encodeURIComponent(currentSearchText)));
     } else {
       setCurrentSearchText("");
     }
@@ -74,6 +76,10 @@ const SearchBarContainer = () => {
       onSearchFilmEnter={handleSearchFilmEnter}
       onChangeInput={handleChangeInput}
       isHomePage={location.pathname === "/"}
+      currentFilmView={
+        location.pathname === `/${currentFilm.id}` ||
+        location.pathname === `/favorite/${currentFilm.id}`
+      }
     />
   );
 };
