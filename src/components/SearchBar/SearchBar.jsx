@@ -12,41 +12,44 @@ const SearchBar = ({
   onSearchFilmEnter,
   onChangeInput,
   isHomePage,
+  currentFilmView,
 }) => {
   return (
-    <div className={styles.root}>
-      <div className={styles.search_bar}>
-        <input
-          type="text"
-          value={currentSearch}
-          onChange={onChangeInput}
-          onKeyDown={onSearchFilmEnter}
-          className={styles.search_input}
-        />
-        <button
-          onClick={onClearSearchInput}
-          className={styles.search_input_clear}
-        ></button>
+    !currentFilmView && (
+      <div className={styles.root}>
+        <div className={styles.search_bar}>
+          <input
+            type="text"
+            value={currentSearch}
+            onChange={onChangeInput}
+            onKeyDown={onSearchFilmEnter}
+            className={styles.search_input}
+          />
+          <button
+            onClick={onClearSearchInput}
+            className={styles.search_input_clear}
+          ></button>
 
-        <button onClick={onSearchFilm} className={styles.search_button}>
-          Поиск
-        </button>
+          <button onClick={onSearchFilm} className={styles.search_button}>
+            Поиск
+          </button>
+        </div>
+        {filter && filter.length > 0 && (
+          <>
+            {(isHomePage && data.length > 0) ||
+            (!isHomePage && favoriteData.length > 0) ? (
+              <div className={styles.searsh_result}>
+                Результат поиска по запросу "{filter}":
+              </div>
+            ) : (
+              <div className={styles.searsh_result}>
+                К сожалению, по вашему запросу "{filter}" ничего не нашлось....
+              </div>
+            )}
+          </>
+        )}
       </div>
-      {filter && filter.length > 0 && (
-        <>
-          {(isHomePage && data.length > 0) ||
-          (!isHomePage && favoriteData.length > 0) ? (
-            <div className={styles.searsh_result}>
-              Результат поиска по запросу "{filter}":
-            </div>
-          ) : (
-            <div className={styles.searsh_result}>
-              К сожалению, по вашему запросу "{filter}" ничего не нашлось....
-            </div>
-          )}
-        </>
-      )}
-    </div>
+    )
   );
 };
 
@@ -60,6 +63,7 @@ SearchBar.propTypes = {
   data: array,
   onSearchFilmEnter: func,
   onChangeInput: func,
+  currentFilmView: bool,
 };
 
 export default SearchBar;

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import {
   addData,
@@ -60,16 +60,6 @@ const CreateEditModalContainer = ({
     },
     [dispatch, onModalAddEditClose, currentData]
   );
-
-  useEffect(() => {
-    if (isModalAddEditOpen === true) {
-      document.body.style.position = "fixed";
-      document.body.style.top = `-${window.scrollY}px`;
-    } else {
-      document.body.style.position = "";
-      document.body.style.top = "";
-    }
-  }, [isModalAddEditOpen]);
 
   return (
     <CreateEditModal

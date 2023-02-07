@@ -3,7 +3,9 @@ export const apiUrl = "http://localhost:3001/films";
 export const getFilmsApi = (payload) => {
   return fetch(`
     ${apiUrl}${
-    payload.search.length > 0 ? `?title_like=${payload.search}` : ""
+    payload.search.length > 0
+      ? `?title_like=${encodeURIComponent(payload.search)}`
+      : ""
   }`)
     .then((response) => {
       if (!response.ok) throw new Error();
@@ -47,11 +49,13 @@ export const getFavoriteFilmsCountApi = () => {
 export const getCurrentFilmApi = (payload) => {
   return fetch(`${apiUrl}/${payload}`)
     .then((response) => {
-      if (!response.ok) throw new Error();
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
       return response.json();
     })
     .catch((err) => {
-      throw new Error(err);
+      throw err;
     });
 };
 

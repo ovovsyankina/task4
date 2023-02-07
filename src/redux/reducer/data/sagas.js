@@ -1,4 +1,4 @@
-import { all, call, put, takeEvery } from "redux-saga/effects";
+import { all, call, put, select, takeEvery } from "redux-saga/effects";
 import {
   deleteFilmApi,
   getFavoriteFilmsApi,
@@ -7,6 +7,8 @@ import {
   postFilmApi,
   putFilmApi,
 } from "../../../api";
+import { dataSelector } from "../../selectors";
+import { setSnackBar } from "../snackBar/actions";
 import {
   addDataSuccess,
   deleteDataItemSuccess,
@@ -56,8 +58,19 @@ function* getFavoriteFilmsCount() {
 
 function* postFilm({ payload }) {
   try {
-    const response = yield call(postFilmApi, payload);
-    yield put(addDataSuccess(response));
+    const dataArr = yield select(dataSelector);
+    if (
+      dataArr.some(
+        (item) =>
+          payload.title === item.title &&
+          payload.yearRelease === item.yearRelease
+      )
+    ) {
+      yield put(setSnackBar("Фильм с таким названием и годом уже существует"));
+    } else {
+      const response = yield call(postFilmApi, payload);
+      yield put(addDataSuccess(response));
+    }
   } catch (err) {
     yield console.error(err);
   }
@@ -65,10 +78,22 @@ function* postFilm({ payload }) {
 
 function* putFilm({ payload }) {
   try {
-    const response = yield call(putFilmApi, payload);
-    yield put(putEditDataItemSuccess(response));
-    if (response.isFavorite === false) {
-      yield put(filteredFilm(response.id));
+    const dataArr = yield select(dataSelector);
+    if (
+      dataArr.some(
+        (item) =>
+          payload.dataFilm.title === item.title &&
+          payload.dataFilm.yearRelease === item.yearRelease &&
+          payload.dataFilm.isFavorite === item.isFavorite
+      )
+    ) {
+      yield put(setSnackBar("Фильм с таким названием и годом уже существует"));
+    } else {
+      const response = yield call(putFilmApi, payload);
+      yield put(putEditDataItemSuccess(response));
+      if (response.isFavorite === false) {
+        yield put(filteredFilm(response.id));
+      }
     }
   } catch (err) {
     yield console.error(err);

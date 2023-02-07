@@ -7,6 +7,8 @@ import { object, func, string, bool } from "prop-types";
 import HeaderContainer from "../Header/HeaderContainer";
 import SearchBarContainer from "../SearchBar/SearchBarContainer";
 import CreateEditModalContainer from "../CreateEditModal/CreateEditModalContainer";
+import { history } from "../../utils";
+import SnackBarContainer from "../SnackBar/SnackBarContainer";
 
 const App = ({
   currentData,
@@ -19,7 +21,7 @@ const App = ({
   onModalAddEditClose,
 }) => {
   return (
-    <HashRouter basename="/">
+    <HashRouter basename="/" history={history}>
       <HeaderContainer />
       <SearchBarContainer />
       <Routes>
@@ -47,6 +49,11 @@ const App = ({
         />
         <Route path="?search=:filter" element={<SearchBarContainer />} exact />
         <Route path="/:filmId" element={<ScreenViewingContainer />} exact />
+        <Route
+          path="/favorite/:filmId"
+          element={<ScreenViewingContainer />}
+          exact
+        />
       </Routes>
       <CreateEditModalContainer
         currentData={currentData}
@@ -59,6 +66,7 @@ const App = ({
         isQuickViewOpen={isQuickViewOpen}
         setQuickViewOpen={setQuickViewOpen}
       />
+      <SnackBarContainer />
     </HashRouter>
   );
 };

@@ -13,7 +13,6 @@ const HeaderContainer = () => {
   useEffect(() => {
     dispatch(favoriteFilmsCount());
   }, [dispatch]);
-
   return (
     <Header
       counter={favoriteCount}

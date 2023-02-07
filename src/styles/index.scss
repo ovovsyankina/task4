@@ -1,20 +1,25 @@
 @use "./color.scss" as *;
+
 @font-face {
   font-family: "PT_Mono";
-  src: url(./fonts/PTM55FT.ttf);
+  src: url(./fonts/PTM55FT.woff2);
+  font-display: swap;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "PT_Mono";
+  font-family: "PT_Mono", "Verdana";
 }
 
 input {
   all: inherit;
 }
-
+#root {
+  min-height: 100vh;
+  background-color: $light_grey-color;
+}
 textarea {
   border: none;
   overflow: auto;

@@ -1,6 +1,6 @@
 import React from "react";
 import FilmItemContainer from "../FilmItem/FilmItemContainer";
-import { array, func, bool } from "prop-types";
+import { array, func, bool, string } from "prop-types";
 import styles from "./FilmList.module.scss";
 
 const FilmList = ({
@@ -10,10 +10,11 @@ const FilmList = ({
   onModalAddOpen,
   isHomePage,
   favoriteData,
+  filter,
 }) => {
   return (
     <div className={styles.root}>
-      {isHomePage && (
+      {isHomePage && filter === "" && (
         <button onClick={onModalAddOpen} className={styles.add_film}>
           <div className={styles.button_add_film_circle}>
             <div className={styles.button_add_film_plus}></div>
@@ -41,6 +42,7 @@ FilmList.propTypes = {
   onModalAddOpen: func,
   isHomePage: bool,
   favoriteData: array,
+  filter: string,
 };
 
 export default FilmList;

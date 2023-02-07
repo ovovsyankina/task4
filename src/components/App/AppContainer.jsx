@@ -10,7 +10,6 @@ const AppContainer = () => {
   const [isQuickViewOpen, setQuickViewOpen] = useState(false);
   const [isModalAddEditOpen, setModalAddEditOpen] = useState(false);
   const [modalType, setModalType] = useState("add");
-
   const handleModalAddOpen = () => {
     setModalAddEditOpen(true);
     setModalType("add");

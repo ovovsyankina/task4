@@ -4,35 +4,29 @@
 .root {
   display: flex;
   width: 100%;
-  height: 100%;
-  min-height: 150vh;
-  margin: auto;
+  margin-top: 50px;
   background-color: $light_grey-color;
   justify-content: center;
   flex-wrap: wrap;
+  @include tablet {
+    margin-top: 20px;
+  }
 }
 
 .film_container {
   display: flex;
   width: 1450px;
-  height: 850px;
-  margin-top: 80px;
+  margin-top: 20px;
   flex-wrap: wrap;
   flex-direction: column;
 
   @include screen {
     width: 1250px;
-    height: 720px;
-    margin-top: 60px;
   }
 
   @include netbook {
     width: 90%;
-    height: auto;
-  }
-
-  @include mobile {
-    margin-top: 20px;
+    margin-top: 0;
   }
 }
 
@@ -54,17 +48,17 @@
 .header_info_film {
   display: flex;
   font-weight: 600;
-  font-size: 40px;
+  font-size: 32px;
   line-height: 56px;
   justify-content: center;
   align-items: center;
 
   @include netbook {
-    font-size: 35px;
+    font-size: 30px;
   }
 
   @include tablet {
-    font-size: 30px;
+    font-size: 25px;
     flex-direction: column;
     line-height: 30px;
   }
@@ -76,45 +70,46 @@
 
 .film_contents_fields {
   display: flex;
-  margin-top: 50px;
+  margin-top: 20px;
   flex-wrap: nowrap;
-
+  @include small_netbook {
+    margin-top: 0;
+  }
   @include mobile {
     flex-wrap: wrap;
-    margin-top: 0;
   }
 }
 
 .field_name {
-  font-size: 30px;
+  font-size: 25px;
   line-height: 56px;
 
   @include screen {
-    font-size: 25px;
+    font-size: 20px;
   }
 
   @include tablet {
-    font-size: 20px;
+    font-size: 16px;
     line-height: 30px;
   }
 
   @include mobile {
-    font-size: 16px;
+    font-size: 12px;
   }
 }
 
 .film_contents {
   display: flex;
   width: 100%;
-  margin-left: 120px;
+  margin-left: 80px;
   flex-direction: column;
 
   @include screen {
-    margin-left: 70px;
+    margin-left: 50px;
   }
 
   @include tablet {
-    margin-left: 40px;
+    margin-left: 30px;
   }
 
   @include mobile {
@@ -124,21 +119,21 @@
 
 .field_detailed {
   margin-left: 15px;
-  font-size: 25px;
+  font-size: 20px;
   line-height: 56px;
 
   @include screen {
-    font-size: 20px;
+    font-size: 15px;
   }
 
   @include tablet {
-    font-size: 15px;
+    font-size: 12px;
     margin-left: 0;
     line-height: 20px;
   }
 
   @include mobile {
-    font-size: 12px;
+    font-size: 10px;
   }
 }
 
@@ -167,20 +162,20 @@
 }
 
 .field_detailed_description {
-  font-size: 25px;
-  line-height: 56px;
+  font-size: 20px;
+  line-height: 40px;
 
   @include screen {
-    font-size: 20px;
+    font-size: 15px;
   }
 
   @include tablet {
-    font-size: 15px;
+    font-size: 12px;
     line-height: 20px;
   }
 
   @include mobile {
-    font-size: 12px;
+    font-size: 10px;
   }
 }
 
@@ -204,7 +199,9 @@
     height: 50px;
     font-size: 25px;
   }
-
+  @include netbook {
+    margin-top: 20px;
+  }
   @include tablet {
     height: 40px;
     font-size: 20px;
